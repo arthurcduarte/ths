@@ -1,0 +1,498 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<title>A Serpente de Duas Cabeças · Jogadores</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Courier+Prime:ital,wght@0,400;0,700;1,400&family=Xanh+Mono&display=swap">
+<style>
+/* Site dos jogadores. Medidas tiradas da revisão do Arthur (Revisão-Telas, 18/11/2026), numa
+   tela de 390 px. 1 pt do Illustrator = 1,333 px. Regras: OS/DESIGN.md. Feito para celular. */
+:root {
+  --mesa:#110d09; --papel:#e7dcc0; --azul:#bfd1d1; --rosa:#d9b5a8; --sangue:#8e2f21;
+  --tinta:#231d11; --escuro:#18120c; --tinta-clara:#d9c8a2;
+  --fio:1.33px;                    /* 1 pt: o dobro dos 0,5 pt do Illustrator, que no celular ficou fino */
+  --pt:radial-gradient(circle at 1px 1px, var(--sangue) .95px, transparent 1.2px); /* ponto do pontilhado */
+  --f-maquina:'Courier Prime','Courier New',Courier,monospace;
+  --f-titulo:'Xanh Mono','Courier Prime','Courier New',monospace;
+  --ruido:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix type='matrix' values='0 0 0 0 0.2 0 0 0 0 0.15 0 0 0 0 0.08 0 0 0 0.25 0'/%3E%3C/filter%3E%3Crect width='140' height='140' filter='url(%23n)' opacity='0.45'/%3E%3C/svg%3E");
+  color-scheme:dark;
+}
+*,*::before,*::after { box-sizing:border-box; }
+html { -webkit-text-size-adjust:100%; }
+body { margin:0; background:var(--mesa); color:var(--tinta); font-family:var(--f-maquina); font-size:12px; line-height:1.45; }
+button { font:inherit; color:inherit; cursor:pointer; background:none; border:0; padding:0; }
+a { color:var(--sangue); }
+:focus-visible { outline:1px dashed var(--sangue); outline-offset:2px; }
+h1,h2,h3 { font-weight:400; margin:0; }
+p { margin:0; }
+.mesa { max-width:560px; margin:0 auto; padding:13px max(14px, env(safe-area-inset-right)) 40px max(14px, env(safe-area-inset-left)); display:flex; flex-direction:column; gap:14px; }
+
+/* Superfícies: mesmo ruído e sombra, três cores */
+.papel, .azul, .rosa { background-image:var(--ruido), linear-gradient(180deg, rgba(255,255,255,.18) 0%, rgba(255,255,255,0) 55%, rgba(60,40,10,.10) 100%);
+  background-size:140px 140px, cover; box-shadow:inset 0 0 46px rgba(120,90,50,.18), 0 4px 18px rgba(0,0,0,.6); border-radius:3px; }
+.papel { background-color:var(--papel); }
+.azul { background-color:var(--azul); }
+.rosa { background-color:var(--rosa); }
+
+/* Peças que se repetem */
+.cx { text-transform:uppercase; }
+.rot { font-size:10px; letter-spacing:.1em; text-transform:uppercase; color:var(--sangue); -webkit-text-stroke:.35px var(--sangue); }
+.nome-g { font-weight:400; font-size:20px; letter-spacing:.133em; text-transform:uppercase; line-height:1.2; color:var(--tinta); }
+.titulo { font-family:var(--f-titulo); color:var(--sangue); font-size:20px; letter-spacing:.133em; text-transform:uppercase; -webkit-text-stroke:.8px var(--sangue); }
+.ponto { height:2px; background:var(--pt) 0 0/4px 2px repeat-x; }
+.pontilhado { background:
+  var(--pt) top left/4px 2px repeat-x,
+  var(--pt) bottom left/4px 2px repeat-x,
+  var(--pt) top left/2px 4px repeat-y,
+  var(--pt) top right/2px 4px repeat-y; }
+.seta { width:9px; height:10px; flex:none; stroke:var(--sangue); fill:none; stroke-width:var(--fio); }
+.num { font-family:var(--f-titulo); -webkit-text-stroke:.4px var(--tinta); color:var(--tinta); }
+.rotulo { font-size:8.2px; letter-spacing:.22em; text-transform:uppercase; color:var(--tinta-clara); opacity:.8; margin:8px 0 -6px; }
+
+/* Barra do topo */
+.topo { display:flex; align-items:center; justify-content:space-between; color:var(--tinta-clara); border-bottom:var(--fio) solid var(--tinta-clara); padding:0 1px 7px; }
+.voltar { display:inline-flex; color:var(--tinta-clara); text-decoration:none; padding:10px; margin:-10px; }
+.voltar i { width:11.2px; height:11.2px; border:var(--fio) solid var(--tinta-clara); display:grid; place-items:center; }
+.voltar i svg { width:8px; height:6px; stroke:var(--tinta-clara); fill:none; stroke-width:var(--fio); }
+.voltar b { height:11.2px; border:var(--fio) solid var(--tinta-clara); border-left:0; font-size:7.2px; letter-spacing:.2em; padding:0 7px 0 8px; line-height:10px; text-transform:uppercase; }
+.topo .onde { font-size:9.3px; letter-spacing:.2em; text-transform:uppercase; }
+
+/* Portal */
+.capa { text-align:center; color:var(--tinta-clara); padding:16px 0 0; }
+.capa small { display:block; font-size:7.3px; letter-spacing:.22em; text-transform:uppercase; }
+.capa h1 { font-family:var(--f-titulo); font-size:40px; line-height:38px; letter-spacing:.04em; text-transform:uppercase; color:var(--papel); margin-top:26px; }
+.foto { display:block; width:100%; padding:0; margin:4px 0 0; cursor:zoom-in; }
+.foto img { width:100%; height:auto; display:block; }
+.porta { position:relative; display:block; text-decoration:none; color:var(--tinta); }
+.porta > .seta { position:absolute; top:6px; right:8px; transform:rotate(-90deg); }
+.porta.pj { height:93px; padding:28px 8px 0; text-align:center; }
+.porta.pj b { display:block; font-weight:400; height:36px; }
+.porta.pj small { display:block; border-top:var(--fio) solid var(--sangue); padding-top:5px; font-size:10.7px; }
+.porta.sem { opacity:.5; }
+.porta.acc { display:grid; grid-template-columns:68px 1fr; height:84px; }
+.porta.acc .n { font-family:var(--f-titulo); font-size:40px; color:var(--sangue); display:grid; place-items:center; border-right:var(--fio) solid var(--sangue); margin:8px 0; line-height:1; }
+.porta.acc div { display:flex; flex-direction:column; justify-content:center; align-items:center; text-align:center; padding:0 10px; gap:6px; }
+.porta.acc small { font-size:10px; }
+.creditos { border-top:var(--fio) solid var(--tinta-clara); margin-top:36px; padding:14px 6px 0; text-align:center; color:var(--tinta-clara); font-size:7.3px; letter-spacing:.02em; text-transform:uppercase; line-height:1.45; text-wrap:balance; }
+
+/* Ampliar a foto */
+.zoom { position:fixed; inset:0; z-index:9; background:#0a0705; touch-action:none; overflow:hidden; }
+.zoom[hidden] { display:none; }
+.zoom img { position:absolute; inset:0; width:100%; height:100%; object-fit:contain; transform-origin:50% 50%; will-change:transform; user-select:none; -webkit-user-drag:none; }
+.zoom .fechar { position:absolute; z-index:1; top:max(14px, env(safe-area-inset-top)); right:14px; display:inline-flex; color:var(--tinta-clara); padding:10px; margin:-10px; }
+.zoom .fechar b { height:20px; border:var(--fio) solid var(--tinta-clara); font-size:9px; letter-spacing:.2em; padding:0 9px; line-height:19px; font-weight:700; text-transform:uppercase; }
+.zoom .dica { position:absolute; bottom:max(16px, env(safe-area-inset-bottom)); left:0; right:0; text-align:center; color:var(--tinta-clara); opacity:.6; font-size:8.2px; letter-spacing:.22em; text-transform:uppercase; pointer-events:none; }
+
+/* Personagem */
+.retrato { width:100%; aspect-ratio:3/4; object-fit:cover; border-radius:3px; display:block; background:#1b140d; margin-top:30px; }
+.retrato.vazio { display:grid; place-items:center; color:var(--tinta-clara); opacity:.5; font-size:12px; }
+.ident { padding:9px 9px 12px; margin-top:-1px; }
+.tabela { border:var(--fio) solid var(--sangue); display:grid; grid-template-columns:131.5fr 71.4fr 71.4fr 71.4fr; }
+.tabela > div { border-right:var(--fio) solid var(--sangue); border-bottom:var(--fio) solid var(--sangue); padding:4px 7px 5px; min-width:0; }
+.tabela > div:nth-last-child(-n+2) { border-bottom:0; }
+.tabela .ult { border-right:0; }
+.tabela .nome { grid-column:1/-1; position:relative; text-align:center; padding:9px 7px 4px; border-right:0; }
+.tabela .nome .rot { position:absolute; left:7px; top:4px; }
+.tabela .nome h1 { font-family:var(--f-titulo); font-size:27px; line-height:1.05; letter-spacing:.111em; text-transform:uppercase; color:#191717; -webkit-text-stroke:.8px #191717; }
+.tabela .meia { grid-column:span 2; }
+.tabela .v { display:block; text-align:center; font-size:13.3px; letter-spacing:.1em; text-transform:uppercase; line-height:1.25; padding-top:2px; overflow-wrap:anywhere; }
+.botoes { display:grid; grid-template-columns:repeat(3,1fr); gap:7.7px; margin-top:10px; }
+.botoes a { position:relative; height:41px; border:var(--fio) solid var(--sangue); display:grid; place-items:center; text-decoration:none; }
+.botoes a span { font-family:var(--f-titulo); font-size:15.5px; letter-spacing:.065em; text-transform:uppercase; color:var(--sangue); -webkit-text-stroke:.8px var(--sangue); padding-bottom:3px;
+  background:var(--pt) 0 100%/4px 2px repeat-x; line-height:1.1; }
+.botoes a .seta { position:absolute; right:5px; bottom:3px; transform:rotate(-90deg); }
+
+/* Fichas: blocos que abrem e fecham */
+details.area > summary { list-style:none; cursor:pointer; position:relative; padding:14px 30px 11px; text-align:center; user-select:none; }
+details.area > summary::-webkit-details-marker { display:none; }
+details.area > summary .seta { position:absolute; right:13px; top:50%; margin-top:-5px; transition:transform .18s; }
+details.area:not([open]) > summary .seta { transform:rotate(-90deg); }
+.dentro { border-top:var(--fio) solid var(--sangue); border-bottom:var(--fio) solid var(--sangue); margin:0 9px 18px; }
+.rosa > .dentro, .aviso-fim .dentro { border-top:0; }
+
+/* Estado atual */
+.medidores { display:grid; grid-auto-flow:column; grid-auto-columns:95px; gap:7.5px; overflow-x:auto; scroll-snap-type:x mandatory; scrollbar-width:none;
+  margin:0 -9px; padding:14px 11px 16px; scroll-padding-inline:11px; }
+.medidores::-webkit-scrollbar { display:none; }
+@media (min-width:520px) { .medidores { grid-auto-flow:row; grid-template-columns:repeat(5,minmax(0,1fr)); grid-auto-columns:auto; overflow:visible; } }
+.med { scroll-snap-align:start; border:var(--fio) solid var(--sangue); display:flex; flex-direction:column; align-items:center; }
+.med > span { width:100%; height:25px; border-bottom:var(--fio) solid var(--sangue); text-align:center; font-size:20px; line-height:25px; color:var(--sangue); text-transform:uppercase; }
+.med input { width:100%; min-width:0; height:62px; text-align:center; font-family:var(--f-titulo); font-size:55px; line-height:62px; color:var(--escuro); background:transparent; border:0; padding:0; margin-top:4px; -moz-appearance:textfield; border-radius:0; }
+.med input::-webkit-outer-spin-button,.med input::-webkit-inner-spin-button { -webkit-appearance:none; }
+.med input:focus { outline:none; background:rgba(255,255,255,.25); }
+.med .ponto { width:58px; margin-top:3px; }
+.med small { font-size:10px; letter-spacing:.1em; color:var(--sangue); -webkit-text-stroke:.35px var(--sangue); text-transform:uppercase; height:20px; line-height:20px; }
+.med .pm { display:grid; grid-template-columns:1fr 1fr; width:100%; border-top:var(--fio) solid var(--sangue); }
+.med .pm button { height:25px; position:relative; }
+.med .pm button + button { border-left:var(--fio) solid var(--sangue); }
+.med .pm button::before, .med .pm button.mais::after { content:''; position:absolute; left:50%; top:50%; width:7.2px; height:var(--fio); margin-left:-3.6px; background:var(--sangue); }
+.med .pm button.mais::after { transform:rotate(90deg); }
+
+/* Combate */
+.arma { display:grid; grid-template-columns:1fr 63px; gap:0 10px; padding:12px 0 12px; position:relative; }
+.arma + .arma { background:var(--pt) 0 0/4px 2px repeat-x; }
+.arma .esq { min-width:0; display:flex; flex-direction:column; }
+.arma .l { display:flex; justify-content:space-between; gap:8px; align-items:baseline; }
+.arma .l .rot:last-child { flex:none; }
+.arma .l .nome-g:last-child { flex:none; }
+.arma .nome-g { margin-top:6px; }
+.caixa { border:var(--fio) solid var(--sangue); display:grid; grid-template-columns:42.2fr 21.1fr; grid-template-rows:23.5px 23.5px; align-self:start; }
+.caixa > * { display:grid; place-items:center; }
+.caixa .g { grid-row:1/3; border-right:var(--fio) solid var(--sangue); font-size:36px; letter-spacing:-.03em; -webkit-text-stroke:0; line-height:1; padding-top:2px; }
+.caixa .m { font-size:13.3px; line-height:1; }
+.caixa .m + .m { border-top:var(--fio) solid var(--sangue); }
+.caixa .d { grid-column:1/-1; border-top:var(--fio) solid var(--sangue); padding:4px 2px 5px; text-align:center; line-height:1.15; }
+.caixa .d b { display:block; font-size:12px; letter-spacing:.06em; text-transform:uppercase; overflow-wrap:break-word; }
+.balas { display:flex; flex-wrap:wrap; align-items:center; margin:8px 0 0 -4px; }
+.bc { width:23px; height:30px; display:grid; place-items:center; flex:none; }
+/* gabarito vermelho; o X preto, riscado à mão, vaza um pouco do círculo */
+.circ { width:15px; height:15px; border-radius:50%; border:var(--fio) solid var(--sangue); position:relative; display:block; }
+.x .circ::before, .x .circ::after { content:''; position:absolute; left:50%; top:50%; width:23px; height:2px; margin:-1px 0 0 -11.5px; background:var(--tinta); transform:rotate(45deg); border-radius:1px; }
+.x .circ::after { transform:rotate(-43deg); width:22px; margin-left:-11px; }
+.balas .rec { margin-left:auto; padding:6px 0; text-decoration:underline; text-underline-offset:2px; }
+
+/* Atributos */
+.atribs { display:grid; grid-template-columns:1fr 1fr; gap:6px 0; padding:20px 0 22px; }
+.atribs > div { display:flex; align-items:center; justify-content:center; gap:20px; }
+.atribs .a { font-size:20px; letter-spacing:.133em; text-transform:uppercase; color:var(--sangue); text-decoration:underline; text-decoration-thickness:var(--fio); text-underline-offset:3px; width:52px; text-align:right; }
+.atribs .caixa { grid-template-columns:42.2px 21.1px; }
+.extras { display:flex; justify-content:center; gap:18.5px; padding:20px 0 22px; background:var(--pt) 0 0/4px 2px repeat-x; }
+.extras > div { width:84px; height:59px; border:var(--fio) solid var(--sangue); padding:3px 6px 0; }
+.extras .rot { display:block; line-height:1.2; }
+.extras .num { display:block; text-align:center; font-size:36px; line-height:1; letter-spacing:-.03em; -webkit-text-stroke:0; }
+
+/* Perícias */
+.busca { display:block; width:100%; height:27.5px; margin:16px 0 4px; padding:0 9px; font:inherit; font-size:16px; border:var(--fio) solid var(--sangue); border-radius:0; background:transparent; color:var(--tinta); }
+.busca::placeholder { font-style:italic; font-size:10px; letter-spacing:.1em; text-transform:uppercase; color:var(--sangue); }
+.per { display:flex; align-items:center; gap:4px; min-height:39px; padding:4px 5px 4px 0; background:var(--pt) 0 100%/4px 2px repeat-x; }
+.per:last-child { background:none; }
+.per .bc { width:26px; height:34px; }
+.per .bc.sem { visibility:hidden; }
+.per .nm { flex:1; font-size:13.3px; letter-spacing:.075em; text-transform:uppercase; line-height:1.15; }
+.per .nm i { display:block; -webkit-text-stroke:0; font-size:10px; font-style:italic; font-weight:400; letter-spacing:.1em; }
+.per.grad .nm { font-weight:700; }
+.per .vals { display:flex; align-items:center; flex:none; }
+.per .vals b { width:21.1px; height:23.4px; border:var(--fio) solid var(--sangue); display:grid; place-items:center; font-weight:400; font-size:18.7px; letter-spacing:-.04em; line-height:1; padding-top:1px; -webkit-text-stroke:.5px var(--tinta); }
+.per .vals em { font-style:normal; width:22.6px; text-align:center; font-size:13.3px; border-right:var(--fio) solid var(--sangue); line-height:15px; padding-top:1px; }
+.per .vals b + em { margin-left:2px; }
+
+/* Talentos e antecedentes */
+.lista > div { padding:12px 10px 14px; position:relative; }
+.lista > div + div { background:var(--pt) 0 0/4px 2px repeat-x; }
+.lista .rot { display:block; margin-bottom:4px; }
+.lista .nome-g { text-decoration:underline; text-decoration-thickness:var(--fio); text-underline-offset:4px; margin-bottom:8px; padding-right:20px; }
+.lista p { font-size:12px; line-height:1.3; }
+.lista p.nome-g { font-size:20px; line-height:1.2; }
+.tal.off { opacity:.45; }
+.marca { position:absolute; right:12px; top:12px; width:13.3px; height:13.3px; border:var(--fio) solid var(--sangue); }
+.marca::before, .marca::after { content:''; position:absolute; left:50%; top:50%; width:21px; height:2px; margin:-1px 0 0 -10.5px; border-radius:1px; background:var(--tinta); transform:rotate(45deg); }
+.marca::after { transform:rotate(-45deg); }
+.off .marca::before, .off .marca::after { display:none; }
+.lista .marca { padding:0; }
+.marca-toque { position:absolute; right:0; top:0; width:44px; height:44px; }
+
+/* Aviso de fim de sessão */
+.aviso-fim { padding:14px 9px 0; text-align:center; }
+.aviso-fim .titulo { display:block; padding-bottom:10px; }
+.aviso-fim .ponto { margin:0; }
+.aviso-fim p { -webkit-text-stroke:.35px var(--sangue); color:var(--sangue); font-size:10px; letter-spacing:.1em; text-transform:uppercase; line-height:1.5; padding:12px 0 14px; }
+.aviso-fim .dois { display:grid; grid-template-columns:140.9px 140.9px; justify-content:center; gap:4px 17.6px; padding-bottom:18px; border-bottom:var(--fio) solid var(--sangue); margin-bottom:18px; }
+.aviso-fim .dois .rot { display:block; }
+.aviso-fim .dois button { height:41px; width:100%; border:var(--fio) solid var(--sangue); font-weight:700; font-size:10.7px; letter-spacing:.15em; text-transform:uppercase; line-height:1.35; color:var(--tinta); padding:0 4px; }
+
+/* Inventário e cards */
+.pagina { font-family:var(--f-titulo); font-size:40px; line-height:1.1; letter-spacing:.04em; text-transform:uppercase; color:var(--papel); text-align:center; margin:10px 0 0; }
+.item > summary, .item > .cab { list-style:none; display:flex; align-items:center; gap:8px; padding:14px 13px 11px 14px; }
+.item > summary { cursor:pointer; }
+.item > summary::-webkit-details-marker { display:none; }
+.item .nome-g { flex:1; min-width:0; }
+.item .nome-g small { font-size:10px; letter-spacing:.1em; color:var(--sangue); white-space:nowrap; }
+.item .q { display:flex; align-items:center; gap:5px; flex:none; }
+.item .q i { width:8.5px; height:8.5px; position:relative; }
+.item .q i::before, .item .q i::after { content:''; position:absolute; left:50%; top:50%; width:11.9px; height:var(--fio); margin-left:-5.95px; background:var(--sangue); transform:rotate(45deg); }
+.item .q i::after { transform:rotate(-45deg); }
+.item .q b { width:18.3px; height:18.3px; border:var(--fio) solid var(--sangue); display:grid; place-items:center; font-weight:400; font-size:13.7px; line-height:1; }
+.item:not([open]) > summary .seta { transform:rotate(-90deg); }
+.item .dentro { border-bottom:0; margin:0 9px; padding:14px 5px 16px; }
+.item .dentro img { width:100%; border-radius:3px; display:block; margin-bottom:12px; }
+.item .desc, .carta .desc { font-weight:700; font-size:12.5px; line-height:1.4; margin-bottom:12px; }
+.emjogo { padding:10px 12px 12px 10px; }
+.emjogo h3 { font-weight:700; font-size:10px; letter-spacing:.1em; text-transform:uppercase; color:var(--sangue); margin-bottom:6px; }
+.emjogo ul { margin:0; padding:0; list-style:none; }
+.emjogo li { font-size:12px; line-height:1.5; padding-left:15px; position:relative; }
+.emjogo li::before { content:''; position:absolute; left:1px; top:.62em; width:4px; height:4px; background:var(--tinta); }
+.emjogo li u { text-transform:uppercase; text-decoration-thickness:var(--fio); text-underline-offset:2px; }
+.item .link { margin-top:12px; font-size:12px; }
+.local { font-style:italic; font-size:12px; color:var(--tinta-clara); opacity:.85; margin:0 0 -6px; }
+.vazio { border:var(--fio) dashed #4a3d29; border-radius:3px; padding:18px; color:var(--tinta-clara); opacity:.75; font-size:12px; }
+/* Cards (feitiços, criaturas, regras): fechados, abrem com toque. Texto em markdown curto (ver md()) */
+.carta { padding:0; }
+.carta > summary { list-style:none; cursor:pointer; position:relative; padding:14px 34px 12px 14px; }
+.carta > summary::-webkit-details-marker { display:none; }
+.carta > summary .rot { display:block; margin-bottom:3px; }
+.carta > summary .nome-g { padding:0; border:0; margin:0; }
+.carta > summary .seta { position:absolute; right:13px; top:50%; margin-top:-5px; transition:transform .18s; }
+.carta:not([open]) > summary .seta { transform:rotate(-90deg); }
+.carta .corpo { border-top:var(--fio) solid var(--sangue); margin:0 9px; padding:16px 5px 18px; }
+.carta .ilus { display:block; width:100%; max-width:none; margin:0 0 16px; border-radius:2px; }
+.carta .ilus.traco { max-width:230px; margin-inline:auto; mix-blend-mode:multiply; }
+.carta .ilus-vazia { border:var(--fio) dashed var(--sangue); opacity:.55; height:120px; display:grid; place-items:center; margin-bottom:16px;
+  font-size:9px; letter-spacing:.22em; text-transform:uppercase; color:var(--sangue); }
+.carta .txt p { font-size:12px; line-height:1.5; margin:0 0 10px; text-align:left; hyphens:auto; }
+.carta .txt b { font-weight:700; }
+.carta .txt h3 { font-family:var(--f-titulo); font-size:17px; letter-spacing:.12em; text-transform:uppercase; color:var(--sangue);
+  -webkit-text-stroke:.6px var(--sangue); text-align:center; margin:20px 0 10px; display:flex; align-items:center; gap:10px; }
+.carta .txt h3::before, .carta .txt h3::after { content:''; flex:1; height:var(--fio); background:var(--sangue); }
+.carta .txt h4 { font-weight:700; font-size:10px; letter-spacing:.1em; text-transform:uppercase; color:var(--sangue); margin:12px 0 4px; }
+.carta .txt ul { margin:0 0 10px; padding:0; list-style:none; }
+.carta .txt li { font-size:12px; line-height:1.45; padding-left:15px; position:relative; margin-bottom:3px; }
+.carta .txt li::before { content:''; position:absolute; left:1px; top:.62em; width:4px; height:4px; background:var(--tinta); }
+.carta .txt ul.passos li { padding-left:0; }
+.carta .txt ul.passos li::before { display:none; }
+.carta .txt ul.passos .n { color:var(--sangue); }
+.carta .txt .obs { font-style:italic; font-size:11px; opacity:.85; }
+.carta .txt .fecho { border-top:var(--fio) solid var(--sangue); border-bottom:var(--fio) solid var(--sangue); padding:9px 4px; text-align:center;
+  font-size:10.5px; letter-spacing:.08em; text-transform:uppercase; font-weight:700; margin-top:14px; }
+/* Ficha de criatura */
+.cri { display:grid; grid-template-columns:repeat(3,1fr); border:var(--fio) solid var(--sangue); margin-bottom:12px; }
+.cri > div { display:flex; justify-content:space-between; align-items:baseline; padding:6px 8px 5px; border-right:var(--fio) solid var(--sangue); border-bottom:var(--fio) solid var(--sangue); }
+.cri > div:nth-child(3n) { border-right:0; }
+.cri > div:nth-last-child(-n+3) { border-bottom:0; }
+.cri .rot { font-size:15px; letter-spacing:.08em; -webkit-text-stroke:.45px var(--sangue); }
+.cri .num { font-size:20px; line-height:1; -webkit-text-stroke:0; }
+.atq { border:var(--fio) solid var(--sangue); margin-bottom:6px; }
+.atq > div { display:grid; grid-template-columns:1fr 92px 74px; align-items:center; gap:6px; padding:6px 8px 5px; }
+.atq > div + div { background:var(--pt) 0 0/4px 2px repeat-x; }
+.atq .nm { font-size:12px; letter-spacing:.08em; text-transform:uppercase; font-weight:700; }
+.atq .v { font-family:var(--f-titulo); font-size:18px; -webkit-text-stroke:0; white-space:nowrap; }
+.atq .v small { font-family:var(--f-maquina); font-size:10px; letter-spacing:.04em; }
+.atq .d { text-align:right; font-size:12px; white-space:nowrap; }
+.atq .cab { padding-top:5px; padding-bottom:3px; }
+.atq .cab span { font-size:8.5px; letter-spacing:.18em; text-transform:uppercase; color:var(--sangue); }
+.atq .cab span:last-child { text-align:right; }
+.nota-atq { font-size:10px; letter-spacing:.1em; text-transform:uppercase; color:var(--sangue); text-align:right; margin-bottom:12px; }
+.poder .vercard { display:inline-flex; align-items:center; gap:6px; margin-top:8px; font-size:10px; letter-spacing:.1em; text-transform:uppercase; color:var(--sangue); text-decoration:none; padding:6px 0; }
+.poder .vercard .seta { transform:rotate(-90deg); }
+.carta .fonte { margin-top:14px; font-size:8.2px; letter-spacing:.2em; text-transform:uppercase; color:var(--sangue); opacity:.7; display:flex; justify-content:space-between; }
+</style>
+</head>
+<body>
+<div class="mesa" id="mesa"></div>
+<div class="zoom" id="zoom" hidden><button class="fechar" data-z="fecha" aria-label="Fechar"><b>Fechar ×</b></button><img id="zoom-img" alt="Foto do grupo"><p class="dica">Dois dedos para ampliar</p></div>
+<script src="dados.js"></script>
+<script>
+/* Navegação por # : #/ (portal) · #/<pj> · #/<pj>/ficha · #/<pj>/inventario · #/<pj>/cartas
+   O que o jogador mexe (PV, PM, sanidade, sorte, armadura, munição, talento ligado) fica só neste
+   aparelho (localStorage "ths-pj:<pj>"). Nada é enviado a lugar nenhum. A ficha oficial é o ficha.yaml. */
+const D = window.DADOS, mesa = document.getElementById('mesa');
+const esc = s => String(s == null ? '' : s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/"/g, '&quot;');
+const semAcento = s => s.normalize('NFD').replace(/[̀-ͯ]/g, '').toLowerCase();
+const dd = v => v == null ? '—' : (v < 10 ? '0' + v : '' + v);
+const SETA = '<svg class="seta" viewBox="0 0 9 10" aria-hidden="true"><path d="M4.5 0v9M1.2 5.7l3.3 3.3 3.3-3.3"/></svg>';
+const caixa = (v, dano) => '<div class="caixa"><span class="num g">' + (v == null ? '—' : v) + '</span><span class="num m">' + (v == null ? '' : dd(Math.floor(v / 2))) + '</span><span class="num m">' + (v == null ? '' : dd(Math.floor(v / 5))) + '</span>' +
+  (dano != null ? '<span class="d"><span class="rot">Dano</span><b>' + esc(dano).replace(/\+/g, '+<wbr>') + '</b></span>' : '') + '</div>';
+let pj = null, E = null;
+const chave = () => 'ths-pj:' + pj.slug;
+/* Quando o Mestre registra a ficha de novo (campo registro do ficha.yaml), o que estava no aparelho dá lugar à ficha. */
+function carrega() {
+  const reg = pj.ficha ? pj.ficha.registro || '' : '';
+  try { E = JSON.parse(localStorage.getItem(chave())); } catch (_) { E = null; }
+  if (E && (E.registro || '') !== reg) E = null;
+  if (!E) { E = { registro: reg, mun: {}, off: {}, marc: {}, areas: { estado: 1, combate: 1 } }; ((pj.ficha && pj.ficha.marcadas) || []).forEach(n => { E.marc[n] = 1; }); }
+  E.marc = E.marc || {};
+}
+function salva() { try { localStorage.setItem(chave(), JSON.stringify(E)); } catch (_) {} }
+const atual = k => E[k] !== undefined ? E[k] : (k === 'arm' ? pj.ficha.armadura.valor : typeof pj.ficha[k] === 'object' ? pj.ficha[k].atual : pj.ficha[k]);
+const gasto = (a, i) => E.mun[i] != null ? E.mun[i] : (a.carregada != null ? a.municao - a.carregada : 0);
+
+function topo(volta, onde) {
+  return '<nav class="topo"><a class="voltar" href="' + volta + '"><i><svg viewBox="0 0 8 6"><path d="M8 3H.6M3 .5.6 3 3 5.5"/></svg></i><b>Voltar</b></a><span class="onde">' + esc(onde) + '</span></nav>';
+}
+function portal() {
+  document.title = 'A Serpente de Duas Cabeças';
+  mesa.innerHTML = '<header class="capa"><small>Arquivo · Nova York, 1933</small><h1>A Serpente<br>de Duas Cabeças</h1></header>' +
+    (D.foto ? '<button class="foto" data-z="abre" aria-label="Ampliar a foto do grupo"><img src="' + D.foto + '" alt="Foto do grupo"></button>' : '') +
+    '<p class="rotulo">Personagens</p>' +
+    D.pjs.map(p => '<a class="porta pj papel' + (p.ficha ? '' : ' sem') + '" href="#/' + p.slug + '"><b class="nome-g">' + esc(p.nome) + '</b><small class="rot">' + esc(p.jogador || '') + '</small>' + SETA + '</a>').join('') +
+    '<p class="rotulo">Acessórios</p>' +
+    '<a class="porta acc rosa" href="' + D.caderno + '"><span class="n">01</span><div><b class="nome-g">Caderno de Campo</b><small class="rot">Arquivos e documentos</small></div>' + SETA + '</a>' +
+    '<a class="porta acc rosa" href="' + D.trilha + '" target="_blank" rel="noopener"><span class="n">02</span><div><b class="nome-g">Trilha sonora</b><small class="rot">Não consta no livro, mas devia</small></div>' + SETA + '</a>' +
+    '<a class="porta acc azul" href="' + D.rolagem + '"><span class="n">03</span><div><b class="nome-g">Rolagem</b><small class="rot">Cálculo de dados e dificuldades</small></div>' + SETA + '</a>' +
+    '<p class="creditos">The Two-Headed Serpent é uma campanha épica, global e cheia de ação para Pulp Cthulhu escrita por Paul Fricker, Scott Dorward e Matthew Sanderson, publicada originalmente pela Chaosium Inc. e traduzida pela New Order Editora.<br>Todos os direitos reservados.</p>';
+}
+function area() {
+  const f = pj.ficha || {};
+  const cel = (rot, v, cls) => '<div class="' + (cls || '') + '"><span class="rot">' + rot + '</span><span class="v">' + esc(v == null || v === '' ? '—' : v) + '</span></div>';
+  mesa.innerHTML = topo('#/', 'personagem') +
+    (pj.retrato ? '<img class="retrato" src="' + pj.retrato + '" alt="Retrato de ' + esc(pj.nome) + '">' : '<div class="retrato vazio">retrato a caminho</div>') +
+    '<section class="ident papel"><div class="tabela"><div class="nome"><span class="rot">Nome</span><h1>' + esc(pj.nome) + '</h1></div>' +
+    (pj.ficha ? cel('Cidade natal', f.nascimento) + cel('Idade', f.idade) + cel('Peso', f.peso) + cel('Altura', f.altura, 'ult') +
+      cel('Ocupação', f.ocupacao, 'meia') + cel('Arquétipo', f.arquetipo, 'meia ult') : '') + '</div>' +
+    (pj.ficha ? '<nav class="botoes">' + [['ficha', 'Ficha'], ['inventario', 'Inventário'], ['cartas', 'Cards']].map(b => '<a href="#/' + pj.slug + '/' + b[0] + '"><span>' + b[1] + '</span>' + SETA + '</a>').join('') + '</nav>'
+      : '<p class="vazio" style="margin-top:10px;color:var(--tinta)">A ficha deste personagem ainda não foi passada para o sistema.</p>') + '</section>';
+}
+function bloco(id, titulo, dentro) {
+  return '<details class="area azul" data-area="' + id + '"' + (E.areas[id] ? ' open' : '') + '><summary><h2 class="titulo">' + titulo + '</h2>' + SETA + '</summary><div class="dentro">' + dentro + '</div></details>';
+}
+function medidor(k, rot, max) {
+  return '<div class="med"><span>' + rot + '</span><input type="number" inputmode="numeric" data-f="' + k + '" value="' + atual(k) + '" aria-label="' + rot + '"><i class="ponto"></i><small>' + (max != null ? 'max ' + max : '') + '</small>' +
+    '<div class="pm"><button class="mais" data-a="passo" data-k="' + k + '" data-v="1" aria-label="mais"></button><button data-a="passo" data-k="' + k + '" data-v="-1" aria-label="menos"></button></div></div>';
+}
+function armas() {
+  const dx = String(pj.ficha.dx || '').replace(/^\+/, '');
+  return pj.ficha.armas.map((a, i) => {
+    let b = '';
+    if (a.municao) { const g = gasto(a, i); b = '<div class="balas">'; for (let n = 0; n < a.municao; n++) b += '<button class="bc' + (n < a.municao - g ? ' x' : '') + '" data-a="bala" data-i="' + i + '" data-n="' + n + '" aria-label="bala ' + (n + 1) + '"><i class="circ"></i></button>'; b += '<button class="rec rot" data-a="recarga" data-i="' + i + '">recarregar</button></div>'; }
+    const dano = a.dano ? (/^0?$/.test(dx) ? String(a.dano).replace(/\s*\+\s*DX\b/i, '') : String(a.dano).replace(/\bDX\b/i, dx || 'DX')) : null;  // DX zero: some do dano
+    return '<div class="arma"><div class="esq"><div class="l"><span class="rot">' + esc(a.pericia || '') + '</span>' + (a.alcance ? '<span class="rot">dist.</span>' : '') + '</div>' +
+      '<div class="l"><b class="nome-g">' + esc(a.nome) + '</b>' + (a.alcance ? '<span class="nome-g">' + esc(a.alcance) + 'm</span>' : '') + '</div>' + b + '</div>' + caixa(a.valor, dano || '—') + '</div>';
+  }).join('');
+}
+function pericias(q) {
+  const t = semAcento(q || '');
+  const l = pj.ficha.pericias.filter(p => !t || semAcento(p[0]).includes(t));
+  return l.length ? l.map(p => { const m = p[0].match(/^(.*?)\s*(\(.*\))$/), v = p[1];
+    const marca = p[3] ? '<button class="bc' + (E.marc[p[0]] ? ' x' : '') + '" data-a="marca" data-p="' + esc(p[0]) + '" aria-label="Marcar ' + esc(p[0]) + ' para evolução"><i class="circ"></i></button>' : '<span class="bc sem"></span>';
+    return '<div class="per ' + (p[2] ? 'grad' : 'base') + '">' + marca + '<span class="nm">' + esc(m ? m[1] : p[0]) + (m ? '<i>' + esc(m[2].replace('/', ' e ')) + '</i>' : '') + '</span>' +
+      '<span class="vals"><b class="num">' + dd(v) + '</b><em class="num">' + dd(Math.floor(v / 2)) + '</em><em class="num">' + dd(Math.floor(v / 5)) + '</em></span></div>'; }).join('')
+    : '<div class="per base"><span class="nm" style="padding-left:30px">Nenhuma perícia com esse nome.</span></div>';
+}
+function ficha() {
+  const f = pj.ficha, A = f.atributos, an = f.antecedentes || {};
+  const rot = { descricao: 'Descrição', ideologia: 'Ideologia e crenças', pessoas_significativas: 'Pessoas significativas', locais_importantes: 'Locais importantes', pertences_queridos: 'Pertences queridos', caracteristicas: 'Características', ferimentos_e_cicatrizes: 'Ferimentos e cicatrizes', fobias_e_manias: 'Fobias e manias', historia: 'História' };
+  mesa.innerHTML = topo('#/' + pj.slug, pj.nome) +
+    bloco('estado', 'Estado atual', '<div class="medidores">' + medidor('pv', 'PV', f.pv.max) + medidor('sorte', 'Srt', null) + medidor('sanidade', 'San', null) + medidor('pm', 'PM', f.pm.max) + medidor('arm', 'Arm', null) + '</div>') +
+    bloco('combate', 'Combate', armas()) +
+    bloco('atributos', 'Atributos', '<div class="atribs">' + ['FOR', 'CON', 'DES', 'INT', 'TAM', 'POD', 'APA', 'EDU'].filter(k => A[k] != null).map(k => '<div><span class="a">' + k + '</span>' + caixa(A[k]) + '</div>').join('') + '</div>' +
+      '<div class="extras">' + [['MOV', dd(f.mov)], ['Corpo', f.corpo == null ? '—' : (f.corpo < 0 ? '' : '0') + f.corpo], ['DX', String(f.dx || '0').toLowerCase()]].map(x => '<div><span class="rot">' + x[0] + '</span><span class="num">' + esc(x[1]) + '</span></div>').join('') + '</div>') +
+    bloco('pericias', 'Perícias', '<input class="busca" id="busca" type="search" placeholder="Buscar perícia..." autocomplete="off"><div id="pers">' + pericias('') + '</div>') +
+    bloco('talentos', 'Talentos e Poderes', '<div class="lista">' + (f.talentos.length || poderes().length ? f.talentos.map((t, i) => '<div class="tal' + (E.off[i] ? ' off' : '') + '"><span class="rot">Talento nº' + (i + 1) + '</span><p class="nome-g">' + esc(t.nome) + '</p><p>' + esc(t.descricao || 'Sem descrição ainda.') + '</p>' +
+      '<span class="marca" aria-hidden="true"></span><button class="marca-toque" data-a="talento" data-i="' + i + '" aria-label="Ligar ou desligar ' + esc(t.nome) + '"></button></div>').join('') +
+      poderes().map(c => '<div class="poder"><span class="rot">' + esc(c.tipo || 'Poder') + '</span><p class="nome-g">' + esc(c.nome) + '</p>' + (c.descricao ? '<p>' + esc(c.descricao) + '</p>' : '') +
+      '<a class="vercard" href="#/' + pj.slug + '/cartas/' + c.slug + '">Ver o card ' + SETA + '</a></div>').join('') : '<div><p>Nenhum talento ou poder na ficha.</p></div>') + '</div>') +
+    bloco('antecedentes', 'Antecedentes', '<div class="lista">' + Object.keys(rot).filter(k => an[k]).map(k => '<div><span class="rot">' + rot[k] + '</span><p>' + esc(an[k]) + '</p></div>').join('') + '</div>') +
+    '<section class="aviso-fim rosa"><span class="titulo">Atenção!</span><i class="ponto" style="display:block"></i><p>O que você muda aqui fica só neste aparelho.<br>No fim da sessão, mande o resumo para o Mestre.</p>' +
+    '<div class="dois"><span class="rot">Fim de sessão</span><span class="rot">Reset</span><button data-a="copia">Copiar resumo para o Mestre</button><button data-a="restaura">Valores do último registro</button></div></section>';
+}
+function itemInv(it) {
+  const tem = it.descricao || it.img || (it.em_jogo && it.em_jogo.length) || it.link;
+  const cab = '<b class="nome-g">' + esc(it.nome) + (it.nota ? ' <small>· ' + esc(it.nota) + '</small>' : '') + '</b>' + (it.qtd != null ? '<span class="q"><i></i><b class="num">' + dd(it.qtd) + '</b></span>' : '');
+  if (!tem) return '<div class="item papel"><div class="cab">' + cab + '</div></div>';
+  const linha = x => { const m = x.match(/^([^:]{1,24}):\s*(.*)$/); return '<li>' + (m ? '<u>' + esc(m[1]) + ':</u> ' + esc(m[2]) : esc(x)) + '</li>'; };
+  return '<details class="item papel"><summary>' + cab + SETA + '</summary><div class="dentro">' +
+    (it.img ? '<img loading="lazy" src="' + it.img + '" alt="">' : '') + (it.descricao ? '<p class="desc">' + esc(it.descricao) + '</p>' : '') +
+    (it.em_jogo && it.em_jogo.length ? '<div class="emjogo pontilhado"><h3>Em jogo</h3><ul>' + it.em_jogo.map(linha).join('') + '</ul></div>' : '') +
+    (it.link ? '<p class="link"><a href="' + it.link + '">Abrir o Caderno de Campo →</a></p>' : '') + '</div></details>';
+}
+function inventario() {
+  const gu = (pj.guardado || []).filter(g => g.itens.length);
+  mesa.innerHTML = topo('#/' + pj.slug, pj.nome) + '<h1 class="pagina">Inventário</h1>' +
+    '<p class="rotulo">Na bolsa</p>' + (pj.inventario.length ? pj.inventario.map(itemInv).join('') : '<p class="vazio">Nada na bolsa.</p>') +
+    '<p class="rotulo">Guardado</p>' + (gu.length ? gu.map(g => (g.local ? '<p class="local">' + esc(g.local) + '</p>' : '') + g.itens.map(itemInv).join('')).join('') : '<p class="vazio">Nada guardado.</p>');
+}
+// Markdown curto dos cards (seção "## Texto"): ### título · #### subtítulo · - lista · 1. passo numerado · **negrito** · *linha em itálico* · !! fecho
+function md(t) {
+  const inl = s => esc(s).replace(/\*\*(.+?)\*\*/g, '<b>$1</b>');
+  let h = '', ul = false;
+  for (const raw of t.trim().split('\n')) {
+    const l = raw.trim();
+    const num = l.match(/^(\d+)\.\s+(.*)$/);
+    if (ul && (num ? ul !== 'n' : !l.startsWith('- ') || ul === 'n')) { h += '</ul>'; ul = false; }
+    if (!l) continue;
+    if (num) { if (!ul) { h += '<ul class="passos">'; ul = 'n'; } h += '<li><b class="n">' + num[1] + '.</b> ' + inl(num[2]) + '</li>'; continue; }
+    if (l.startsWith('#### ')) h += '<h4>' + inl(l.slice(5)) + '</h4>';
+    else if (l.startsWith('### ')) h += '<h3>' + inl(l.slice(4)) + '</h3>';
+    else if (l.startsWith('- ')) { if (!ul) { h += '<ul>'; ul = true; } h += '<li>' + inl(l.slice(2)) + '</li>'; }
+    else if (l.startsWith('!! ')) h += '<p class="fecho">' + inl(l.slice(3)) + '</p>';
+    else if (/^\*[^*].*\*$/.test(l)) h += '<p class="obs">' + inl(l.slice(1, -1)) + '</p>';
+    else h += '<p>' + inl(l) + '</p>';
+  }
+  return h + (ul ? '</ul>' : '');
+}
+function criatura(c) {
+  return '<div class="cri">' + c.attrs.map(a => '<div><span class="rot">' + esc(a[0]) + '</span><span class="num">' + esc(a[1] || '—') + '</span></div>').join('') + '</div>' +
+    (c.ataques.length ? '<div class="atq"><div class="cab"><span>Ataque</span><span>Valor</span><span>Dano</span></div>' +
+      c.ataques.map(a => '<div><span class="nm">' + esc(a[0]) + '</span><span class="v">' + (a[1] == null ? '—' : a[1]) + (a[2] ? ' <small>(' + a[2] + ')</small>' : '') + '</span><span class="d">' + esc(a[3]) + '</span></div>').join('') + '</div>' : '') +
+    (c.nota ? '<p class="nota-atq">' + esc(c.nota) + '</p>' : '') +
+    '<div class="txt">' + c.efeitos.map(e => '<h4>' + esc(e.nome) + '</h4><ul>' + e.itens.map(x => '<li>' + esc(x) + '</li>').join('') + '</ul>').join('') +
+    c.habilidades.map(x => '<p class="fecho">' + esc(x) + '</p>').join('') + '</div>';
+}
+/* Poderes: os cards do PJ que não são criatura (feitiços, regras, habilidades), resumidos na ficha com link para o card. */
+function poderes() { return (pj.cartas || []).filter(c => c.slug && c.tipo !== 'Criatura'); }
+function cartas() {
+  mesa.innerHTML = topo('#/' + pj.slug, pj.nome) + '<h1 class="pagina">Cards</h1>' +
+    (pj.cartas.length ? pj.cartas.map(c => '<details class="carta papel"' + (c.slug ? ' data-c="' + c.slug + '"' : '') + '><summary>' + (c.tipo ? '<span class="rot">' + esc(c.tipo) + '</span>' : '') + '<h2 class="nome-g">' + esc(c.nome) + '</h2>' + SETA + '</summary><div class="corpo">' +
+      (c.img ? '<img class="ilus' + (c.traco ? ' traco' : '') + '" loading="lazy" src="' + c.img + '" alt="">' : '') +
+      (c.criatura ? criatura(c.criatura) : '') +
+      (!c.texto && !c.criatura && c.descricao ? '<p class="desc">' + esc(c.descricao) + '</p>' : '') + (c.texto ? '<div class="txt">' + md(c.texto) + '</div>' : '') +
+      (c.em_jogo && c.em_jogo.length ? '<div class="emjogo pontilhado"><h3>Em jogo</h3><ul>' + c.em_jogo.map(x => '<li>' + esc(x) + '</li>').join('') + '</ul></div>' : '') +
+      '<p class="fonte"><span>Two-Headed Serpent</span><span>Pulp Cthulhu</span></p></div></details>').join('')
+      : '<p class="vazio">Nenhum card ainda. Os cards de poderes e rituais deste personagem vão aparecer aqui.</p>');
+}
+function rota() {
+  const p = location.hash.replace(/^#\/?/, '').split('/').filter(Boolean);
+  pj = D.pjs.find(x => x.slug === p[0]) || null;
+  if (!pj) { portal(); scrollTo(0, 0); return; }
+  document.title = pj.nome; carrega();
+  const tela = pj.ficha ? p[1] : null;
+  tela === 'ficha' ? ficha() : tela === 'inventario' ? inventario() : tela === 'cartas' ? cartas() : area();
+  const alvo = tela === 'cartas' && p[2] && document.querySelector('details[data-c="' + p[2] + '"]');
+  if (alvo) { alvo.open = true; alvo.scrollIntoView(); } else scrollTo(0, 0);
+}
+function resumo() {
+  const f = pj.ficha, l = [pj.nome, 'PV ' + atual('pv') + '/' + f.pv.max, 'PM ' + atual('pm') + '/' + f.pm.max, 'Sanidade ' + atual('sanidade'), 'Sorte ' + atual('sorte'), 'Armadura ' + atual('arm')];
+  f.armas.forEach((a, i) => { if (a.municao) l.push(a.nome + ': ' + (a.municao - gasto(a, i)) + '/' + a.municao + ' balas'); });
+  const off = f.talentos.filter((t, i) => E.off[i]).map(t => t.nome); if (off.length) l.push('Talentos desligados: ' + off.join(', '));
+  const marc = f.pericias.filter(p => E.marc[p[0]]).map(p => p[0]); l.push('Perícias marcadas: ' + (marc.length ? marc.join(', ') : 'nenhuma'));
+  return l.join('\n');
+}
+
+/* Foto do grupo: abre por cima, dois dedos ampliam, um dedo arrasta, dois toques alternam */
+const Z = document.getElementById('zoom'), ZI = document.getElementById('zoom-img');
+let zs = 1, zx = 0, zy = 0; const dedos = new Map(); let pinca = null, ultimoToque = 0;
+const zAplica = () => { ZI.style.transform = 'translate(' + zx + 'px,' + zy + 'px) scale(' + zs + ')'; };
+const zLimita = () => { zs = Math.min(6, Math.max(1, zs)); if (zs === 1) { zx = zy = 0; return; } const mx = Z.clientWidth * (zs - 1) / 2, my = Z.clientHeight * (zs - 1) / 2; zx = Math.max(-mx, Math.min(mx, zx)); zy = Math.max(-my, Math.min(my, zy)); };
+const zEm = (ns, cx, cy) => { const px = cx - Z.clientWidth / 2, py = cy - Z.clientHeight / 2; zx = px - (px - zx) * ns / zs; zy = py - (py - zy) * ns / zs; zs = ns; zLimita(); zAplica(); };
+function zAbre() { ZI.src = D.foto; zs = 1; zx = zy = 0; zAplica(); Z.hidden = false; document.body.style.overflow = 'hidden'; }
+function zFecha() { Z.hidden = true; document.body.style.overflow = ''; dedos.clear(); pinca = null; }
+Z.addEventListener('pointerdown', ev => { if (ev.target.closest('.fechar')) return; Z.setPointerCapture(ev.pointerId); dedos.set(ev.pointerId, { x: ev.clientX, y: ev.clientY });
+  if (dedos.size === 2) { const [a, b] = [...dedos.values()]; pinca = { d: Math.hypot(a.x - b.x, a.y - b.y), s: zs }; } });
+Z.addEventListener('pointermove', ev => { const p = dedos.get(ev.pointerId); if (!p) return; const dx = ev.clientX - p.x, dy = ev.clientY - p.y; p.x = ev.clientX; p.y = ev.clientY;
+  if (dedos.size === 2 && pinca) { const [a, b] = [...dedos.values()]; zEm(pinca.s * Math.hypot(a.x - b.x, a.y - b.y) / pinca.d, (a.x + b.x) / 2, (a.y + b.y) / 2); }
+  else if (dedos.size === 1 && zs > 1) { zx += dx; zy += dy; zLimita(); zAplica(); } });
+const zSolta = ev => { if (!dedos.has(ev.pointerId)) return; dedos.delete(ev.pointerId); if (dedos.size < 2) pinca = null;
+  if (ev.type === 'pointerup' && dedos.size === 0) { const t = Date.now(); if (t - ultimoToque < 300) { zEm(zs > 1 ? 1 : 2.5, ev.clientX, ev.clientY); ultimoToque = 0; } else ultimoToque = t; } };
+Z.addEventListener('pointerup', zSolta); Z.addEventListener('pointercancel', zSolta);
+Z.addEventListener('wheel', ev => { ev.preventDefault(); zEm(zs * (ev.deltaY < 0 ? 1.15 : 1 / 1.15), ev.clientX, ev.clientY); }, { passive: false });
+addEventListener('keydown', ev => { if (ev.key === 'Escape' && !Z.hidden) zFecha(); });
+
+document.addEventListener('click', ev => {
+  const z = ev.target.closest('[data-z]'); if (z) { z.dataset.z === 'abre' ? zAbre() : zFecha(); return; }
+  const b = ev.target.closest('[data-a]'); if (!b || !pj) return;
+  const a = b.dataset.a;
+  if (a === 'passo') { const k = b.dataset.k; E[k] = Math.max(0, (+atual(k) || 0) + (+b.dataset.v)); document.querySelector('input[data-f="' + k + '"]').value = E[k]; }
+  else if (a === 'bala' || a === 'recarga') {
+    const i = +b.dataset.i, at = pj.ficha.armas[i];
+    if (a === 'recarga') E.mun[i] = 0; else { const cheias = at.municao - gasto(at, i); E.mun[i] = at.municao - (+b.dataset.n < cheias ? cheias - 1 : cheias + 1); }
+    const g = gasto(at, i); b.closest('.balas').querySelectorAll('button[data-a=bala]').forEach((x, n) => x.classList.toggle('x', n < at.municao - g));
+  }
+  else if (a === 'marca') { const n = b.dataset.p; if (E.marc[n]) delete E.marc[n]; else E.marc[n] = 1; b.classList.toggle('x', !!E.marc[n]); }
+  else if (a === 'talento') { const i = b.dataset.i; E.off[i] = !E.off[i]; b.closest('.tal').classList.toggle('off', !!E.off[i]); }
+  else if (a === 'copia') { const t = resumo(); (navigator.clipboard ? navigator.clipboard.writeText(t) : Promise.reject()).then(() => { b.textContent = 'Copiado. Cole no WhatsApp'; }, () => { b.textContent = t; }); return; }
+  else if (a === 'restaura') { if (b.dataset.certo) { try { localStorage.removeItem(chave()); } catch (_) {} rota(); } else { b.dataset.certo = 1; b.textContent = 'Tem certeza? Toque de novo'; } return; }
+  salva();
+});
+document.addEventListener('input', ev => {
+  if (ev.target.id === 'busca') { document.getElementById('pers').innerHTML = pericias(ev.target.value); return; }
+  const k = ev.target.dataset.f; if (!k || !pj) return;
+  if (ev.target.value !== '') { E[k] = Math.max(0, parseInt(ev.target.value, 10) || 0); salva(); }
+});
+document.addEventListener('toggle', ev => { const d = ev.target; if (d.dataset && d.dataset.area && pj) { E.areas[d.dataset.area] = d.open ? 1 : 0; salva(); } }, true);
+addEventListener('hashchange', rota); rota();
+</script>
+</body>
+</html>
