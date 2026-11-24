@@ -52,3 +52,13 @@
   }
   botoes.forEach(function (b, i) { b.addEventListener('click', function () { abrir(i); }); });
 })();
+
+(function(){
+  /* Barra de voltar ao portal dos jogadores: só no site publicado, fora de iframe (o Portal do Mestre tem a dele). */
+  if(window.top!==window||!/\.github\.io$/.test(location.hostname))return;
+  var p=location.pathname,i=p.indexOf('/caderno/'),m=document.querySelector('.mesa');
+  if(i<0||!m)return;
+  var a=document.createElement('nav');a.className='ths-topo';
+  a.innerHTML='<a href="'+p.slice(0,i+1)+'"><i><svg viewBox="0 0 8 6"><path d="M8 3H.6M3 .5.6 3 3 5.5"/></svg></i><b>Portal</b></a><span>Caderno de Campo</span>';
+  m.insertBefore(a,m.firstChild);
+})();

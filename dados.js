@@ -1,8 +1,8 @@
 // Gerado por OS/8_Ferramentas/jogadores/gerar_site.py. Não editar à mão.
 window.DADOS = {
- "caderno": "https://arthurcduarte.github.io/caderno-de-campo-ths/",
+ "caderno": "caderno/",
  "trilha": "https://open.spotify.com/playlist/3vlwUwovy5TLqosp2Ck2kx",
- "rolagem": "https://arthurcduarte.github.io/THS_Ferramenta-de-Rolagem/",
+ "rolagem": "rolagem/",
  "foto": "img/foto-grupo.webp",
  "pjs": [
   {
@@ -506,7 +506,7 @@ window.DADOS = {
     {
      "nome": "Carta em português (documento da Caduceus)",
      "descricao": "Documento em poder do grupo. O texto está no Caderno de Campo.",
-     "link": "https://arthurcduarte.github.io/caderno-de-campo-ths/"
+     "link": "caderno/"
     }
    ],
    "guardado": [],
@@ -848,9 +848,10 @@ window.DADOS = {
      ]
     ],
     "marcadas": [
+     "Dirigir Automóveis",
      "Encontrar"
     ],
-    "registro": "2026-11-23",
+    "registro": "2026-11-24",
     "armas": [
      {
       "nome": "Revólver .45",
@@ -1043,7 +1044,7 @@ window.DADOS = {
        "texto": null,
        "tipo": "Tomo",
        "img": "img/anais-de-mu.webp",
-       "link": "https://arthurcduarte.github.io/caderno-de-campo-ths/"
+       "link": "caderno/"
       },
       {
        "slug": "pergaminhos-do-avo",
@@ -1071,7 +1072,7 @@ window.DADOS = {
        "texto": null,
        "tipo": "Item",
        "img": "img/documentos-queimados-do-covil.webp",
-       "link": "https://arthurcduarte.github.io/caderno-de-campo-ths/"
+       "link": "caderno/"
       },
       {
        "slug": "estatueta-de-tsathoggua",
@@ -1678,7 +1679,7 @@ window.DADOS = {
     {
      "nome": "O relatório sobre a Sonhadora (Recurso NY 5)",
      "descricao": "Documento em poder do grupo. O texto está no Caderno de Campo.",
-     "link": "https://arthurcduarte.github.io/caderno-de-campo-ths/"
+     "link": "caderno/"
     }
    ],
    "guardado": [],

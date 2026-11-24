@@ -324,7 +324,21 @@ function portal() {
     '<a class="porta acc azul" href="' + D.rolagem + '"><span class="n">03</span><div><b class="nome-g">Rolagem</b><small class="rot">Cálculo de dados e dificuldades</small></div>' + SETA + '</a>' +
     '<p class="creditos">The Two-Headed Serpent é uma campanha épica, global e cheia de ação para Pulp Cthulhu escrita por Paul Fricker, Scott Dorward e Matthew Sanderson, publicada originalmente pela Chaosium Inc. e traduzida pela New Order Editora.<br>Todos os direitos reservados.</p>';
 }
+/* Baixa em segundo plano as imagens do PJ (itens e cards) assim que a área dele abre, para já estarem prontas no clique. */
+const jaBaixou = new Set();
+function precarrega(o) {
+  const urls = [];
+  (function varre(x) {
+    if (Array.isArray(x)) x.forEach(varre);
+    else if (x && typeof x === 'object') for (const k in x) { if (k === 'img' && typeof x[k] === 'string') urls.push(x[k]); else varre(x[k]); }
+  })(o.ficha);
+  const novas = urls.filter(u => !jaBaixou.has(u));
+  novas.forEach(u => jaBaixou.add(u));
+  const baixa = () => novas.forEach(u => { new Image().src = u; });
+  if (window.requestIdleCallback) requestIdleCallback(baixa, { timeout: 1500 }); else setTimeout(baixa, 300);
+}
 function area() {
+  precarrega(pj);
   const f = pj.ficha || {};
   const cel = (rot, v, cls) => '<div class="' + (cls || '') + '"><span class="rot">' + rot + '</span><span class="v">' + esc(v == null || v === '' ? '—' : v) + '</span></div>';
   mesa.innerHTML = topo('#/', 'personagem') +
