@@ -462,7 +462,7 @@ window.DADOS = {
       "Uma dose por ampola. Aplicar leva uma rodada",
       "Serve para mordida de cobra. Faça um teste de Sorte: se passar, é o antiveneno certo para aquela cobra",
       "Se for o certo, o dano do veneno cai pela metade (soma com o teste de CON que já resistiu ao veneno)",
-      "Contra venenos estranhos, o Guardião decide"
+      "Contra veneno de criatura do Mythos: só com um teste Difícil de Sorte"
      ],
      "texto": null,
      "tipo": "Equipamento",
@@ -965,7 +965,7 @@ window.DADOS = {
       "Uma dose por ampola. Aplicar leva uma rodada",
       "Serve para mordida de cobra. Faça um teste de Sorte: se passar, é o antiveneno certo para aquela cobra",
       "Se for o certo, o dano do veneno cai pela metade (soma com o teste de CON que já resistiu ao veneno)",
-      "Contra venenos estranhos, o Guardião decide"
+      "Contra veneno de criatura do Mythos: só com um teste Difícil de Sorte"
      ],
      "texto": null,
      "tipo": "Equipamento",
