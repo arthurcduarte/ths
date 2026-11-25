@@ -920,7 +920,7 @@ window.DADOS = {
     {
      "slug": "pistola-de-chamas",
      "nome": "Pistola de Chamas",
-     "descricao": "Uma pistola de raios como as da ficção científica antiga, de um metal estranho e toda ornamentada, como os dispositivos do povo serpente. Carrega uma espécie de bobina, ou fusível: no disparo, solta uma bola de fogo, e a bobina fica incandescente por alguns instantes.",
+     "descricao": "Uma pistola de cano curto e bojudo, forjada num metal que não é ferro nem bronze: frio demais na mão, com um lustro esverdeado sob a luz. Escamas e espirais gravadas cobrem a peça inteira, no mesmo traço dos objetos do povo serpente. Onde estaria o tambor, encaixa-se uma bobina de vidro e filamentos, como um fusível. O disparo sai com um estalo seco e uma bola de fogo; depois, a bobina fica em brasa por alguns instantes, zumbindo baixo até esfriar.",
      "em_jogo": [
       "Perícia: Armas de Fogo (Pistolas)",
       "Dano: 1D10. Quem é atingido faz teste de Sorte para não pegar fogo",
