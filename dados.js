@@ -521,8 +521,528 @@ window.DADOS = {
   {
    "slug": "chris-odonnel",
    "nome": "Chris O'Donnel",
-   "jogador": "Bruno",
-   "retrato": null
+   "jogador": "Bruno Furlan",
+   "retrato": "img/chris-odonnel.webp",
+   "ficha": {
+    "ocupacao": "Pugilista",
+    "arquetipo": "Valentão",
+    "idade": 26,
+    "nascimento": "Limerick, Irlanda",
+    "peso": "138 kg",
+    "altura": "2,02 m",
+    "atributos": {
+     "FOR": 90,
+     "CON": 85,
+     "DES": 50,
+     "INT": 50,
+     "TAM": 85,
+     "POD": 60,
+     "APA": 40,
+     "EDU": 40
+    },
+    "pv": {
+     "max": 34,
+     "atual": 24
+    },
+    "pm": {
+     "max": 12,
+     "atual": 12
+    },
+    "armadura": {
+     "valor": 1,
+     "de": "Pele de Serpente"
+    },
+    "mov": 8,
+    "corpo": 2,
+    "dx": "+1D6",
+    "sorte": 33,
+    "sanidade": 60,
+    "pericias": [
+     [
+      "Antropologia",
+      1,
+      0,
+      1
+     ],
+     [
+      "Armas de Fogo (Pistolas)",
+      62,
+      1,
+      1
+     ],
+     [
+      "Armas de Fogo (Rifles/Espingardas)",
+      30,
+      1,
+      1
+     ],
+     [
+      "Arqueologia",
+      1,
+      0,
+      1
+     ],
+     [
+      "Arremessar",
+      20,
+      0,
+      1
+     ],
+     [
+      "Arte e Ofício",
+      5,
+      0,
+      1
+     ],
+     [
+      "Avaliação",
+      5,
+      0,
+      1
+     ],
+     [
+      "Cavalgar",
+      5,
+      0,
+      1
+     ],
+     [
+      "Charme",
+      15,
+      0,
+      1
+     ],
+     [
+      "Chaveiro",
+      1,
+      0,
+      1
+     ],
+     [
+      "Ciência",
+      1,
+      0,
+      1
+     ],
+     [
+      "Consertos Elétricos",
+      10,
+      0,
+      1
+     ],
+     [
+      "Consertos Mecânicos",
+      50,
+      1,
+      1
+     ],
+     [
+      "Contabilidade",
+      5,
+      0,
+      1
+     ],
+     [
+      "Direito",
+      5,
+      0,
+      1
+     ],
+     [
+      "Dirigir Automóveis",
+      70,
+      1,
+      1
+     ],
+     [
+      "Disfarce",
+      5,
+      0,
+      1
+     ],
+     [
+      "Encontrar",
+      57,
+      1,
+      1
+     ],
+     [
+      "Escalar",
+      20,
+      0,
+      1
+     ],
+     [
+      "Escutar",
+      20,
+      0,
+      1
+     ],
+     [
+      "Esquivar",
+      89,
+      1,
+      1
+     ],
+     [
+      "Furtividade",
+      20,
+      0,
+      1
+     ],
+     [
+      "História",
+      5,
+      0,
+      1
+     ],
+     [
+      "Intimidação",
+      60,
+      1,
+      1
+     ],
+     [
+      "Lábia",
+      5,
+      0,
+      1
+     ],
+     [
+      "Língua (Naacal)",
+      6,
+      1,
+      1
+     ],
+     [
+      "Língua (Nativa)",
+      40,
+      0,
+      1
+     ],
+     [
+      "Lutar (Briga)",
+      94,
+      1,
+      1
+     ],
+     [
+      "Medicina",
+      1,
+      0,
+      1
+     ],
+     [
+      "Mundo Natural",
+      70,
+      1,
+      1
+     ],
+     [
+      "Mythos de Cthulhu",
+      3,
+      1,
+      0
+     ],
+     [
+      "Natação",
+      20,
+      0,
+      1
+     ],
+     [
+      "Navegação",
+      10,
+      0,
+      1
+     ],
+     [
+      "Nível de Crédito",
+      26,
+      1,
+      0
+     ],
+     [
+      "Ocultismo",
+      5,
+      0,
+      1
+     ],
+     [
+      "Operar Maquinário Pesado",
+      1,
+      0,
+      1
+     ],
+     [
+      "Persuasão",
+      10,
+      0,
+      1
+     ],
+     [
+      "Pilotar",
+      1,
+      0,
+      1
+     ],
+     [
+      "Prestidigitação",
+      10,
+      0,
+      1
+     ],
+     [
+      "Primeiros Socorros",
+      50,
+      1,
+      1
+     ],
+     [
+      "Psicanálise",
+      1,
+      0,
+      1
+     ],
+     [
+      "Psicologia",
+      50,
+      1,
+      1
+     ],
+     [
+      "Rastrear",
+      10,
+      0,
+      1
+     ],
+     [
+      "Saltar",
+      41,
+      1,
+      1
+     ],
+     [
+      "Sobrevivência",
+      10,
+      0,
+      1
+     ],
+     [
+      "Usar Bibliotecas",
+      20,
+      0,
+      1
+     ]
+    ],
+    "marcadas": [],
+    "registro": "2026-11-24",
+    "armas": [
+     {
+      "nome": ".38 do pai",
+      "pericia": "Armas de Fogo (Pistolas)",
+      "valor": 62,
+      "dano": "1D10",
+      "alcance": 10,
+      "municao": 6,
+      "carregada": null
+     },
+     {
+      "nome": "Pistola de Chamas",
+      "pericia": "Armas de Fogo (Pistolas)",
+      "valor": 62,
+      "dano": "1D10+fogo (1 PM por tiro)",
+      "alcance": 10,
+      "municao": null,
+      "carregada": null
+     },
+     {
+      "nome": "Lâmina serpentóide",
+      "pericia": "Lutar (Briga)",
+      "valor": 94,
+      "dano": "1D6+DX",
+      "alcance": null,
+      "municao": null,
+      "carregada": null
+     },
+     {
+      "nome": "Desarmado",
+      "pericia": "Lutar (Briga)",
+      "valor": 94,
+      "dano": "1D3+DX",
+      "alcance": null,
+      "municao": null,
+      "carregada": null
+     }
+    ],
+    "talentos": [
+     {
+      "nome": "Calejado",
+      "descricao": "Não perde Sanidade por atacar outros humanos, por ver ferimentos horríveis ou por ver mortos."
+     },
+     {
+      "nome": "Golpes Fortes",
+      "descricao": "Pode gastar 10 de Sorte para somar um dado de dano a um ataque corpo a corpo que acertou. O dado depende da arma (1D3 desarmado, 1D6 espada)."
+     }
+    ],
+    "antecedentes": {
+     "descricao": "Grosseiro, desleixado, brincalhão, forte, musculoso. Usa uma camiseta puída, suspensórios, calças de brim e uma boina.\n",
+     "ideologia": "Católico. Crê em Deus e em Jesus Cristo.",
+     "pessoas_significativas": "O pai, Martin: \"Preciso provar que sou melhor que meu pai alcoólatra.\" Cecile: \"Preciso resolver esse problema com a Máfia para voltar aos braços da Cecile.\"\n",
+     "locais_importantes": "Um bosque perto da fazenda onde cresceu. Buscava contemplação em silêncio nadando no rio que cruzava o bosque.\n",
+     "pertences_queridos": "Um belo crucifixo de ouro, presente da Cecile. A pistola .38 que roubou do pai antes de fugir da Irlanda (o pai achava que ele não sabia onde a escondia). O terço que ganhou do amigo Raul em Oklahoma, num momento em que precisava de mais fé.\n",
+     "caracteristicas": "Generoso e piedoso (cristão). Boa reputação como lutador. Cresceu trabalhando na fazenda, mas hoje conhece muito bem a cidade de Nova York.\n",
+     "ferimentos_e_cicatrizes": "Nariz quebrado algumas vezes. Nós dos dedos com pequenas fraturas, hoje cobertos por uma pele escamosa. Pele marcada pelo sol. Cicatriz grande no abdômen, \"preenchida\" por uma pele escamosa, quase como um queloide, que se mistura com a pele humana.\n",
+     "fobias_e_manias": "Enrola e desenrola as bandagens que usa nos punhos e nos dedos para lutar quando está pensativo.\n",
+     "historia": "Filho de colonos irlandeses, perdeu a mãe muito cedo para a gripe espanhola e foi criado pelo pai, que afogava a solidão no fundo do copo de uísque. De dia ajudava o pai na fazenda; à noite brilhava nos ringues de luta clandestina. Ganhou o apelido de \"The Freak\" pelo estilo impiedoso de lutar e pela enorme resistência física, que contrastam com o jeito descontraído e amigável fora do ringue. Em Nova York se envolveu com a Cecile, filha do Frank Caroll, num romance escondido e complicado. Conteve a fúria do pai da moça vendendo a honra em lutas combinadas, até vencer a principal luta do ano, em que devia cair no quinto assalto. A Máfia passou a persegui-lo; ele fugiu para sobreviver e se alistou na Caduceus para a missão da Bolívia, para sumir de Nova York por um tempo.\n"
+    }
+   },
+   "inventario": [
+    {
+     "slug": "revolver-38-do-sr-odonnel",
+     "nome": ".38 do Sr. O'Donnel",
+     "descricao": "Revólver .38 de cano curto e cabo de madeira, que era do pai, Martin O'Donnel. O O'Donnel o roubou antes de fugir da Irlanda: o pai achava que ele não sabia onde a arma ficava escondida.",
+     "em_jogo": [
+      "Perícia: Armas de Fogo (Pistolas)",
+      "Dano: 1D10",
+      "Alcance: 10 m",
+      "Ataques: 1 (3)",
+      "Munição: 6",
+      "Defeito: 100"
+     ],
+     "texto": null,
+     "tipo": "Equipamento",
+     "img": "img/revolver-38-do-sr-odonnel.webp"
+    },
+    {
+     "slug": "pistola-de-chamas",
+     "nome": "Pistola de Chamas",
+     "descricao": "Pistola de metal em forma de serpente enrolada, que se enrosca no pulso de quem usa. Os olhos, duas pedras vermelhas, acendem no disparo, e uma bola de fogo sai pela boca.",
+     "em_jogo": [
+      "Perícia: Armas de Fogo (Pistolas)",
+      "Dano: 1D10. Quem é atingido faz teste de Sorte para não pegar fogo",
+      "Alcance: 10 m",
+      "Tiros: até 3 por rodada, com as regras de tiros múltiplos",
+      "Custo: 1 ponto de magia por tiro. Não tem munição",
+      "Sucesso Extremo: conta como empalamento"
+     ],
+     "texto": null,
+     "tipo": "Item",
+     "img": "img/pistola-de-chamas.webp"
+    },
+    {
+     "slug": "lamina-serpentoide",
+     "nome": "Lâmina serpentóide",
+     "descricao": "Lâmina curva de metal claro, do tamanho de uma faca de caça, com cabo articulado de feitio estranho. O O'Donnel a encontrou na base do povo serpente na Islândia.",
+     "em_jogo": [
+      "Perícia: Lutar (Briga)",
+      "Dano: 1D6+DX"
+     ],
+     "texto": null,
+     "tipo": "Item",
+     "img": "img/lamina-serpentoide.webp"
+    },
+    {
+     "slug": "kit-de-primeiros-socorros",
+     "nome": "Kit de primeiros socorros",
+     "descricao": "Caixa de metal com cruz vermelha: gaze, ataduras, antisséptico, tesoura.",
+     "em_jogo": [
+      "Uso: testes de Primeiros Socorros"
+     ],
+     "texto": null,
+     "tipo": "Equipamento",
+     "img": "img/kit-de-primeiros-socorros.webp",
+     "qtd": 1
+    },
+    {
+     "slug": "antidoto-de-veneno",
+     "nome": "Antídoto de veneno",
+     "descricao": "Ampola pequena de antídoto contra veneno.",
+     "em_jogo": [
+      "Regra: a definir"
+     ],
+     "texto": null,
+     "tipo": "Equipamento",
+     "img": "img/antidoto-de-veneno.webp",
+     "qtd": 1
+    },
+    {
+     "slug": "bandagens-do-odonnel",
+     "nome": "Bandagens do O'Donnel",
+     "descricao": "Faixas de pano gastas, que o O'Donnel enrola nos punhos e nos dedos para lutar. Quando está pensativo, enrola e desenrola as bandagens sem perceber.",
+     "em_jogo": [
+      "Proteção das mãos para a luta. Sem efeito de regra."
+     ],
+     "texto": null,
+     "tipo": "Equipamento",
+     "img": "img/bandagens-do-odonnel.webp"
+    },
+    {
+     "slug": "crucifixo-de-cecile",
+     "nome": "Crucifixo da Cecile",
+     "descricao": "Um belo crucifixo de ouro, presente da Cecile.",
+     "em_jogo": [
+      "Pertence querido. Sem efeito de regra."
+     ],
+     "texto": null,
+     "tipo": "Equipamento",
+     "img": "img/crucifixo-de-cecile.webp"
+    },
+    {
+     "slug": "terco-do-raul",
+     "nome": "Terço do Raul",
+     "descricao": "Terço que era da irmã do Frei Raul. O Raul o deu de presente ao O'Donnel em Oklahoma, num momento em que ele precisava de mais fé.",
+     "em_jogo": [
+      "Pertence querido. Sem efeito de regra."
+     ],
+     "texto": null,
+     "tipo": "Equipamento",
+     "img": "img/terco-do-raul.webp"
+    },
+    {
+     "slug": "moto-do-odonnel",
+     "nome": "Moto do O'Donnel",
+     "descricao": "A Harley do O'Donnel, motoqueiro de longa data. Hoje está arrebentada: na fuga do Edifício Meadham, o carro do Canning a acertou em cheio. Perdeu a roda da frente e o garfo quebrou. Não anda.",
+     "em_jogo": [
+      "Estado: arrebentada, sem a roda da frente, garfo quebrado. Não anda.",
+      "Conserto: Consertos Mecânicos, com peças e oficina."
+     ],
+     "texto": null,
+     "tipo": "Equipamento",
+     "img": "img/moto-do-odonnel.webp",
+     "nota": "arrebentada, sem a roda da frente"
+    }
+   ],
+   "guardado": [
+    {
+     "local": "no apartamento do Greenwich Village",
+     "itens": [
+      {
+       "slug": "arma-de-petrificacao",
+       "nome": "Arma de Petrificação",
+       "descricao": "Cruzamento de espingarda curta com seringa, com um cilindro de vidro de fluido cinza-prateado e uma agulha de metal afiada na ponta. O cabo é um pouco grande para uma mão humana. Veio da Islândia.",
+       "em_jogo": [
+        "Perícia: Lutar (Briga). Só corpo a corpo: a agulha precisa ser pressionada no alvo",
+        "Cargas: 3 no cilindro. Cada rodada de agulha pressionada gasta 1 carga"
+       ],
+       "texto": null,
+       "tipo": "Item",
+       "img": "img/arma-de-petrificacao.webp"
+      }
+     ]
+    }
+   ],
+   "cartas": [
+    {
+     "slug": "pele-de-serpente",
+     "nome": "Pele de Serpente",
+     "descricao": "A condição do O'Donnel desde a internação na Caduceus, na volta de Bornéu: o corpo cicatriza com escamas de serpente.",
+     "em_jogo": [],
+     "texto": "**Desde a internação na Caduceus, seu corpo cicatriza com escamas de serpente.**\n### O que já se vê\n- **Nós dos dedos:** as pequenas fraturas das lutas cicatrizaram com pele escamosa.\n- **Barriga:** a cicatriz grande do ferimento de Bornéu foi \"preenchida\" por escamas, quase como um queloide, misturadas à pele humana.\n- **O corpo todo:** uma camada fina de escamas, quase invisível.\n### Em jogo\n- **Armadura 1:** as escamas finas absorvem 1 ponto de dano de cada ataque.\n- **Imune a veneno:** picadas e mordidas venenosas não fazem efeito.\n- **Artefatos do povo serpente:** você consegue usar artefatos que dependem de quem os empunha ser serpente, como a Pistola de Chamas.\n*O que mais essa pele faz, ou ainda vai fazer, o Guardião decide na história.*",
+     "tipo": "Condição",
+     "img": null
+    }
+   ]
   },
   {
    "slug": "ahmet-saad",

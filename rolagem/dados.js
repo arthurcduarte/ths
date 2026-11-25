@@ -50,6 +50,18 @@ window.BANCO = {
    "fonte": "LG 402"
   },
   {
+   "id": "r38",
+   "nome": "Revólver .38",
+   "sub": "pistola",
+   "tipo": "pistola",
+   "base": 15,
+   "dano": "1D10",
+   "municao": 6,
+   "defeito": 100,
+   "frequente": false,
+   "fonte": "LG 402"
+  },
+  {
    "id": "r32",
    "nome": "Revólver .32",
    "sub": "pistola",
@@ -184,19 +196,31 @@ window.BANCO = {
    "id": "chris-odonnel",
    "nome": "Chris O'Donnel",
    "grupo": "pj",
-   "des": null,
+   "des": 50,
    "corpo": 2,
-   "dano_extra": null,
-   "pericias": {},
+   "dano_extra": "1D6",
+   "pericias": {
+    "pistola": 62,
+    "espingarda": 30,
+    "rifle": 30
+   },
    "armas": [
-    "p38"
+    "r38"
    ],
    "talentos": [],
-   "lutar": null,
-   "esquivar": null,
-   "fonte": "OS/2_Personagens/pjs.md",
+   "lutar": 94,
+   "esquivar": 89,
+   "fonte": "ficha.yaml do PJ",
+   "mente_tal": [
+    "calejado"
+   ],
+   "pv": 34,
+   "san": 60,
+   "int": 50,
+   "sorte": 33,
+   "mythos": 3,
    "jogador": "Bruno",
-   "nota": "Golpes Fortes."
+   "nota": "Calejado. Golpes Fortes. Armadura 1."
   },
   {
    "id": "frei-raul",
