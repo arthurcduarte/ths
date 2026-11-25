@@ -447,7 +447,7 @@ window.DADOS = {
      "nome": "Kit de primeiros socorros",
      "descricao": "Caixa de metal com cruz vermelha: gaze, ataduras, antisséptico, tesoura.",
      "em_jogo": [
-      "Uso: testes de Primeiros Socorros"
+      "1 dado de bônus nos testes de Primeiros Socorros ou Medicina"
      ],
      "texto": null,
      "tipo": "Equipamento",
@@ -457,9 +457,12 @@ window.DADOS = {
     {
      "slug": "antidoto-de-veneno",
      "nome": "Antídoto de veneno",
-     "descricao": "Ampola pequena de antídoto contra veneno.",
+     "descricao": "Ampola pequena de antiveneno contra mordida de cobra.",
      "em_jogo": [
-      "Regra: a definir"
+      "Uma dose por ampola. Aplicar leva uma rodada",
+      "Serve para mordida de cobra. Faça um teste de Sorte: se passar, é o antiveneno certo para aquela cobra",
+      "Se for o certo, o dano do veneno cai pela metade (soma com o teste de CON que já resistiu ao veneno)",
+      "Contra venenos estranhos, o Guardião decide"
      ],
      "texto": null,
      "tipo": "Equipamento",
@@ -917,7 +920,7 @@ window.DADOS = {
     {
      "slug": "pistola-de-chamas",
      "nome": "Pistola de Chamas",
-     "descricao": "Pistola de metal em forma de serpente enrolada, que se enrosca no pulso de quem usa. Os olhos, duas pedras vermelhas, acendem no disparo, e uma bola de fogo sai pela boca.",
+     "descricao": "Uma pistola de raios como as da ficção científica antiga, de um metal estranho e toda ornamentada, como os dispositivos do povo serpente. Carrega uma espécie de bobina, ou fusível: no disparo, solta uma bola de fogo, e a bobina fica incandescente por alguns instantes.",
      "em_jogo": [
       "Perícia: Armas de Fogo (Pistolas)",
       "Dano: 1D10. Quem é atingido faz teste de Sorte para não pegar fogo",
@@ -947,7 +950,7 @@ window.DADOS = {
      "nome": "Kit de primeiros socorros",
      "descricao": "Caixa de metal com cruz vermelha: gaze, ataduras, antisséptico, tesoura.",
      "em_jogo": [
-      "Uso: testes de Primeiros Socorros"
+      "1 dado de bônus nos testes de Primeiros Socorros ou Medicina"
      ],
      "texto": null,
      "tipo": "Equipamento",
@@ -957,9 +960,12 @@ window.DADOS = {
     {
      "slug": "antidoto-de-veneno",
      "nome": "Antídoto de veneno",
-     "descricao": "Ampola pequena de antídoto contra veneno.",
+     "descricao": "Ampola pequena de antiveneno contra mordida de cobra.",
      "em_jogo": [
-      "Regra: a definir"
+      "Uma dose por ampola. Aplicar leva uma rodada",
+      "Serve para mordida de cobra. Faça um teste de Sorte: se passar, é o antiveneno certo para aquela cobra",
+      "Se for o certo, o dano do veneno cai pela metade (soma com o teste de CON que já resistiu ao veneno)",
+      "Contra venenos estranhos, o Guardião decide"
      ],
      "texto": null,
      "tipo": "Equipamento",
@@ -1009,8 +1015,7 @@ window.DADOS = {
      ],
      "texto": null,
      "tipo": "Equipamento",
-     "img": "img/moto-do-odonnel.webp",
-     "nota": "arrebentada, sem a roda da frente"
+     "img": "img/moto-do-odonnel.webp"
     }
    ],
    "guardado": [
