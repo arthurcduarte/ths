@@ -908,11 +908,11 @@ window.DADOS = {
     {
      "slug": "evangelho-de-yig",
      "nome": "Evangelho de Yig",
-     "descricao": "Tomo grande, encadernado em couro. Já foi uma Bíblia comum. As margens estão tomadas por notas e desenhos à mão, com passagens alteradas, riscadas e reescritas. Era o livro que o Reverendo Kornfield lia nos cultos de Bingham.",
+     "descricao": "Tomo grande, encadernado em couro. Já foi uma Bíblia comum. As margens estão tomadas por notas e desenhos à mão, com passagens alteradas, riscadas e reescritas. Era o livro que o Reverendo Kornfield lia nos cultos de Bingham. O texto está no Caderno de Campo.",
      "em_jogo": [
       "Feitiços: Contactar Yig, Palavras de Poder"
      ],
-     "texto": "**A Bíblia pessoal que o Reverendo Kornfield usava nas pregações, reescrita à luz do culto a Yig.**\n### O que há nas páginas\n- Notas à mão, desenhos e passagens riscadas e substituídas por novas.\n- Deus é Yig. Jesus é descrito como um filho da serpente.\n- No Éden, a serpente liberta Eva com o conhecimento da verdade.\n### O que as anotações contam\n- O Kornfield era um pastor batista em Bingham.\n- Fez uma jornada espiritual sozinho pelo deserto, 40 dias e 40 noites, e ali morreu.\n- As serpentes levaram o corpo para uma caverna sagrada nos ermos, onde ele foi preservado por magia.\n- Desde então, Yig usava esse corpo como semente para fazer brotar novos Kornfields.\n- O novo Kornfield era profeta e líder da comunidade. Levava peregrinos até a caverna, onde os escolhidos eram \"abençoados por Yig\": tocavam o cadáver original e ouviam a voz do deus-serpente.\n### Feitiços\n- Contactar Yig\n- Palavras de Poder\n*Ainda não estudados.*",
+     "texto": null,
      "tipo": "Tomo",
      "img": "img/evangelho-de-yig.webp?v=f1f45388",
      "link": "caderno/"
@@ -920,7 +920,7 @@ window.DADOS = {
     {
      "slug": "livros-de-estudo-do-raul",
      "nome": "Livros de estudo do Raul",
-     "descricao": "Três livros que o Raul juntou à coleção depois da Islândia, sobre doutrinas fora da teologia católica: Espiritismo, Candomblé e macumba, e Nietzsche.",
+     "descricao": "Três livros sobre doutrinas fora da teologia católica: Espiritismo, Candomblé e macumba, e Nietzsche. O Raul os pegou emprestados da biblioteca do mosteiro dos franciscanos, o mosteiro do Professor Olavo.",
      "em_jogo": [
       "Leitura de estudo. Sem efeito de regra."
      ],
@@ -953,7 +953,7 @@ window.DADOS = {
     {
      "slug": "seringa-roxa",
      "nome": "Seringa roxa",
-     "descricao": "Seringa com um líquido roxo, guardada num estojo de metal.",
+     "descricao": "Seringa com um líquido roxo, guardada num estojo de metal. O Hawkes a achou na sala de arquivos do 7º andar do Edifício Meadham, junto com a carta em português.",
      "em_jogo": [
       "Conteúdo desconhecido."
      ],
@@ -964,7 +964,7 @@ window.DADOS = {
     {
      "slug": "seringa-verde",
      "nome": "Seringa verde",
-     "descricao": "Seringa com um líquido verde.",
+     "descricao": "Seringa com um líquido verde. O Zapata a achou no covil da Noite Interior, onde um corpo estava sendo tratado com um soro.",
      "em_jogo": [
       "Conteúdo desconhecido."
      ],
@@ -1009,18 +1009,6 @@ window.DADOS = {
      "tipo": "Poder psíquico",
      "img": "img/ataque-psiquico-e-possessao.webp?v=a2da433c",
      "traco": 1
-    },
-    {
-     "slug": "evangelho-de-yig",
-     "nome": "Evangelho de Yig",
-     "descricao": "Tomo grande, encadernado em couro. Já foi uma Bíblia comum. As margens estão tomadas por notas e desenhos à mão, com passagens alteradas, riscadas e reescritas. Era o livro que o Reverendo Kornfield lia nos cultos de Bingham.",
-     "em_jogo": [
-      "Feitiços: Contactar Yig, Palavras de Poder"
-     ],
-     "texto": "**A Bíblia pessoal que o Reverendo Kornfield usava nas pregações, reescrita à luz do culto a Yig.**\n### O que há nas páginas\n- Notas à mão, desenhos e passagens riscadas e substituídas por novas.\n- Deus é Yig. Jesus é descrito como um filho da serpente.\n- No Éden, a serpente liberta Eva com o conhecimento da verdade.\n### O que as anotações contam\n- O Kornfield era um pastor batista em Bingham.\n- Fez uma jornada espiritual sozinho pelo deserto, 40 dias e 40 noites, e ali morreu.\n- As serpentes levaram o corpo para uma caverna sagrada nos ermos, onde ele foi preservado por magia.\n- Desde então, Yig usava esse corpo como semente para fazer brotar novos Kornfields.\n- O novo Kornfield era profeta e líder da comunidade. Levava peregrinos até a caverna, onde os escolhidos eram \"abençoados por Yig\": tocavam o cadáver original e ouviam a voz do deus-serpente.\n### Feitiços\n- Contactar Yig\n- Palavras de Poder\n*Ainda não estudados.*",
-     "tipo": "Tomo",
-     "img": "img/evangelho-de-yig.webp?v=f1f45388",
-     "link": "caderno/"
     }
    ]
   },
