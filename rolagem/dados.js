@@ -7,11 +7,11 @@ window.BANCO = {
    "sub": "pistola",
    "tipo": "pistola",
    "base": 15,
-   "dano": "1D10+2",
+   "dano": "1D10+1",
    "municao": 7,
    "defeito": 100,
    "frequente": true,
-   "fonte": "LG 402"
+   "fonte": "LG 402 (1D10+2 no livro; 1D10+1 é regra da mesa, 25/11/2026)"
   },
   {
    "id": "p38",
@@ -43,11 +43,11 @@ window.BANCO = {
    "sub": "pistola",
    "tipo": "pistola",
    "base": 15,
-   "dano": "1D10+2",
+   "dano": "1D10+1",
    "municao": 6,
    "defeito": 100,
    "frequente": false,
-   "fonte": "LG 402"
+   "fonte": "LG 402 (1D10+2 no livro; 1D10+1 é regra da mesa, 25/11/2026)"
   },
   {
    "id": "r38",
@@ -79,11 +79,11 @@ window.BANCO = {
    "sub": "submetralhadora",
    "tipo": "auto",
    "base": 20,
-   "dano": "1D10+2",
+   "dano": "1D10+1",
    "municao": 20,
    "defeito": 96,
    "frequente": true,
-   "fonte": "LG 404"
+   "fonte": "LG 404 (1D10+2 no livro; 1D10+1 é regra da mesa, 25/11/2026)"
   },
   {
    "id": "e12",
@@ -226,19 +226,24 @@ window.BANCO = {
    "id": "frei-raul",
    "nome": "Frei Raul",
    "grupo": "pj",
-   "des": null,
-   "corpo": null,
-   "dano_extra": null,
+   "des": 60,
+   "corpo": 0,
+   "dano_extra": "0",
    "pericias": {},
    "armas": [],
    "talentos": [],
    "lutar": null,
-   "esquivar": null,
-   "fonte": "memória do Arthur (conferir o 80 de Arremessar na ficha)",
-   "telecinese": 80,
+   "esquivar": 33,
+   "fonte": "ficha.yaml do PJ",
+   "pv": 22,
+   "telecinese": 81,
    "arremessar": 80,
+   "san": 77,
+   "int": 80,
+   "sorte": 65,
+   "mythos": 24,
    "jogador": "Tadeu",
-   "nota": "Voluntarioso."
+   "nota": "Poder Psíquico. Voluntarioso."
   },
   {
    "id": "javier-zapata",

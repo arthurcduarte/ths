@@ -335,7 +335,7 @@ window.DADOS = {
       "nome": "Sr. Colt",
       "pericia": "Armas de Fogo (Pistolas)",
       "valor": 97,
-      "dano": "1D10+2",
+      "dano": "1D10+1",
       "alcance": 10,
       "municao": 7,
       "carregada": null
@@ -344,7 +344,7 @@ window.DADOS = {
       "nome": "Sra. Colt",
       "pericia": "Armas de Fogo (Pistolas)",
       "valor": 97,
-      "dano": "1D10+2",
+      "dano": "1D10+1",
       "alcance": 10,
       "municao": 7,
       "carregada": null
@@ -406,7 +406,7 @@ window.DADOS = {
      "descricao": "As duas Colts .45 automáticas do Hawkes. Ele as chama de Sr. Colt e Sra. Colt.",
      "em_jogo": [
       "Perícia: Armas de Fogo (Pistolas)",
-      "Dano: 1D10+2 cada",
+      "Dano: 1D10+1 cada",
       "Alcance: 10 m",
       "Munição: 7 balas no pente de cada uma",
       "Tiros: 1 por rodada, ou até 3 com penalidade"
@@ -518,8 +518,511 @@ window.DADOS = {
   {
    "slug": "frei-raul",
    "nome": "Frei Raul",
-   "jogador": "Tadeu",
-   "retrato": null
+   "jogador": "Tadeu Migoto",
+   "retrato": "img/frei-raul.webp",
+   "ficha": {
+    "ocupacao": "Exorcista",
+    "arquetipo": "Místico",
+    "idade": 60,
+    "nascimento": "Córdoba, Argentina",
+    "peso": "76 kg",
+    "altura": "1,75 m",
+    "atributos": {
+     "FOR": 40,
+     "CON": 60,
+     "DES": 60,
+     "INT": 80,
+     "TAM": 50,
+     "POD": 90,
+     "APA": 50,
+     "EDU": 80
+    },
+    "pv": {
+     "max": 22,
+     "atual": 3
+    },
+    "pm": {
+     "max": 18,
+     "atual": 2
+    },
+    "armadura": {
+     "valor": 0
+    },
+    "mov": 8,
+    "corpo": 0,
+    "dx": "0",
+    "sorte": 65,
+    "sanidade": 77,
+    "pericias": [
+     [
+      "Antropologia",
+      1,
+      0,
+      1
+     ],
+     [
+      "Armas de Fogo (Pistolas)",
+      20,
+      0,
+      1
+     ],
+     [
+      "Armas de Fogo (Rifles/Espingardas)",
+      25,
+      0,
+      1
+     ],
+     [
+      "Arqueologia",
+      1,
+      0,
+      1
+     ],
+     [
+      "Arremessar",
+      80,
+      1,
+      1
+     ],
+     [
+      "Arte e Ofício",
+      5,
+      0,
+      1
+     ],
+     [
+      "Avaliação",
+      5,
+      0,
+      1
+     ],
+     [
+      "Cavalgar",
+      5,
+      0,
+      1
+     ],
+     [
+      "Charme",
+      15,
+      0,
+      1
+     ],
+     [
+      "Chaveiro",
+      1,
+      0,
+      1
+     ],
+     [
+      "Ciência",
+      1,
+      0,
+      1
+     ],
+     [
+      "Consertos Elétricos",
+      10,
+      0,
+      1
+     ],
+     [
+      "Consertos Mecânicos",
+      10,
+      0,
+      1
+     ],
+     [
+      "Contabilidade",
+      5,
+      0,
+      1
+     ],
+     [
+      "Direito",
+      5,
+      0,
+      1
+     ],
+     [
+      "Dirigir Automóveis",
+      20,
+      0,
+      1
+     ],
+     [
+      "Disfarce",
+      5,
+      0,
+      1
+     ],
+     [
+      "Encontrar",
+      36,
+      1,
+      1
+     ],
+     [
+      "Escalar",
+      38,
+      1,
+      1
+     ],
+     [
+      "Escutar",
+      20,
+      0,
+      1
+     ],
+     [
+      "Esquivar",
+      33,
+      1,
+      1
+     ],
+     [
+      "Furtividade",
+      20,
+      0,
+      1
+     ],
+     [
+      "História",
+      75,
+      1,
+      1
+     ],
+     [
+      "Intimidação",
+      15,
+      0,
+      1
+     ],
+     [
+      "Lábia",
+      5,
+      0,
+      1
+     ],
+     [
+      "Língua (Naacal)",
+      28,
+      1,
+      1
+     ],
+     [
+      "Língua (Nativa)",
+      80,
+      0,
+      1
+     ],
+     [
+      "Lutar (Briga)",
+      25,
+      0,
+      1
+     ],
+     [
+      "Medicina",
+      80,
+      1,
+      1
+     ],
+     [
+      "Mundo Natural",
+      10,
+      0,
+      1
+     ],
+     [
+      "Mythos de Cthulhu",
+      24,
+      1,
+      0
+     ],
+     [
+      "Natação",
+      20,
+      0,
+      1
+     ],
+     [
+      "Navegação",
+      10,
+      0,
+      1
+     ],
+     [
+      "Nível de Crédito",
+      27,
+      1,
+      0
+     ],
+     [
+      "Ocultismo",
+      80,
+      1,
+      1
+     ],
+     [
+      "Operar Maquinário Pesado",
+      1,
+      0,
+      1
+     ],
+     [
+      "Persuasão",
+      88,
+      1,
+      1
+     ],
+     [
+      "Pilotar",
+      1,
+      0,
+      1
+     ],
+     [
+      "Prestidigitação",
+      10,
+      0,
+      1
+     ],
+     [
+      "Primeiros Socorros",
+      87,
+      1,
+      1
+     ],
+     [
+      "Psicanálise",
+      1,
+      0,
+      1
+     ],
+     [
+      "Psicologia",
+      90,
+      1,
+      1
+     ],
+     [
+      "Rastrear",
+      10,
+      0,
+      1
+     ],
+     [
+      "Saltar",
+      20,
+      0,
+      1
+     ],
+     [
+      "Sobrevivência",
+      10,
+      0,
+      1
+     ],
+     [
+      "Telecinese",
+      81,
+      1,
+      1
+     ],
+     [
+      "Usar Bibliotecas",
+      20,
+      0,
+      1
+     ]
+    ],
+    "marcadas": [],
+    "registro": "2026-11-25",
+    "armas": [
+     {
+      "nome": "Cajado",
+      "pericia": "Lutar (Briga)",
+      "valor": 25,
+      "dano": "1D8+DX",
+      "alcance": null,
+      "municao": null,
+      "carregada": null
+     },
+     {
+      "nome": "Desarmado",
+      "pericia": "Lutar (Briga)",
+      "valor": 25,
+      "dano": "1D3+DX",
+      "alcance": null,
+      "municao": null,
+      "carregada": null
+     }
+    ],
+    "talentos": [
+     {
+      "nome": "Poder Psíquico",
+      "descricao": "Tem um poder psíquico (Clarividência, Divinação, Mediunidade, Psicometria ou Telecinese), que funciona como uma perícia. Os pontos dela vêm dos pontos de ocupação ou de interesse pessoal."
+     },
+     {
+      "nome": "Voluntarioso",
+      "descricao": "Recebe um dado de bônus em testes de POD."
+     }
+    ],
+    "antecedentes": {
+     "descricao": "Velho e magro, de barba longa. Sério e concentrado. Sempre de robe escuro, com a Bíblia na mão. Anda com um bastão de madeira simples, que serve de apoio para as pernas fracas e, se preciso, de arma.\n",
+     "ideologia": "Frei beneditino, devoto de São Bento. Casto, católico. Há pouco tempo começou a abrir os estudos para além da teologia católica, ainda de forma superficial e curiosa.\n",
+     "pessoas_significativas": "A irmã mais velha.",
+     "locais_importantes": "O mosteiro onde estudou. A fazenda na Patagônia onde cresceu.",
+     "pertences_queridos": "O terço da irmã, que deixou com o O'Donnel.",
+     "caracteristicas": "Justo, verdadeiro, atencioso.",
+     "ferimentos_e_cicatrizes": "Uma dermatite nos cotovelos, parecida com psoríase, que surgiu quando tentou exorcizar o Blitzzkrieg do Zapata na fuga da Islândia. Marcas de autoflagelação nas costas.\n",
+     "fobias_e_manias": "Aperta o terço nas mãos quando fica inseguro.",
+     "encontros_estranhos": "Além dos demônios que exorcizou ao longo da vida, exorcizou uma possessão de Yig, salvando a esposa do ferreiro Bill, em Bingham, Oklahoma.\n"
+    }
+   },
+   "inventario": [
+    {
+     "slug": "cajado-do-raul",
+     "nome": "Cajado do Raul",
+     "descricao": "Bastão de madeira simples. Apoio para as pernas fracas do frei e, se preciso, arma.",
+     "em_jogo": [
+      "Perícia: Lutar (Briga)",
+      "Dano: 1D8 mais o dano extra"
+     ],
+     "texto": null,
+     "tipo": "Equipamento",
+     "img": "img/cajado-do-raul.webp"
+    },
+    {
+     "slug": "kit-de-exorcismo",
+     "nome": "Kit de exorcismo",
+     "descricao": "Maleta do exorcista: crucifixos, frascos de água benta, óleos e os objetos do rito.",
+     "em_jogo": [
+      "Ferramenta de trabalho do exorcista. Sem efeito de regra."
+     ],
+     "texto": null,
+     "tipo": "Equipamento",
+     "img": "img/kit-de-exorcismo.webp"
+    },
+    {
+     "slug": "evangelho-de-yig",
+     "nome": "Evangelho de Yig",
+     "descricao": "Tomo grande, encadernado em couro. Já foi uma Bíblia comum. As margens estão tomadas por notas e desenhos à mão, com passagens alteradas, riscadas e reescritas. Era o livro que o Reverendo Kornfield lia nos cultos de Bingham.",
+     "em_jogo": [
+      "Feitiços: Contactar Yig, Palavras de Poder"
+     ],
+     "texto": "**A Bíblia pessoal que o Reverendo Kornfield usava nas pregações, reescrita à luz do culto a Yig.**\n### O que há nas páginas\n- Notas à mão, desenhos e passagens riscadas e substituídas por novas.\n- Deus é Yig. Jesus é descrito como um filho da serpente.\n- No Éden, a serpente liberta Eva com o conhecimento da verdade.\n### O que as anotações contam\n- O Kornfield era um pastor batista em Bingham.\n- Fez uma jornada espiritual sozinho pelo deserto, 40 dias e 40 noites, e ali morreu.\n- As serpentes levaram o corpo para uma caverna sagrada nos ermos, onde ele foi preservado por magia.\n- Desde então, Yig usava esse corpo como semente para fazer brotar novos Kornfields.\n- O novo Kornfield era profeta e líder da comunidade. Levava peregrinos até a caverna, onde os escolhidos eram \"abençoados por Yig\": tocavam o cadáver original e ouviam a voz do deus-serpente.\n### Feitiços\n- Contactar Yig\n- Palavras de Poder\n*Ainda não estudados.*",
+     "tipo": "Tomo",
+     "img": "img/evangelho-de-yig.webp",
+     "link": "caderno/"
+    },
+    {
+     "slug": "livros-de-estudo-do-raul",
+     "nome": "Livros de estudo do Raul",
+     "descricao": "Três livros que o Raul juntou à coleção depois da Islândia, sobre doutrinas fora da teologia católica: Espiritismo, Candomblé e macumba, e Nietzsche.",
+     "em_jogo": [
+      "Leitura de estudo. Sem efeito de regra."
+     ],
+     "texto": null,
+     "tipo": "Equipamento",
+     "img": "img/livros-de-estudo-do-raul.webp"
+    },
+    {
+     "slug": "bandana-do-zapata",
+     "nome": "Bandana do Zapata",
+     "descricao": "Bandana vermelha do Zapata, recolhida no barracão dele.",
+     "em_jogo": [
+      "Objeto afetivo do Zapata, guardado para o exorcismo. Sem efeito de regra."
+     ],
+     "texto": null,
+     "tipo": "Equipamento",
+     "img": "img/bandana-do-zapata.webp"
+    },
+    {
+     "slug": "quartzo-boliviano",
+     "nome": "Quartzo boliviano",
+     "descricao": "Cristal de quartzo avermelhado que o Zapata achou na Bolívia.",
+     "em_jogo": [
+      "Objeto afetivo do Zapata, guardado para o exorcismo. Sem efeito de regra."
+     ],
+     "texto": null,
+     "tipo": "Equipamento",
+     "img": "img/quartzo-boliviano.webp"
+    },
+    {
+     "slug": "seringa-roxa",
+     "nome": "Seringa roxa",
+     "descricao": "Seringa com um líquido roxo, guardada num estojo de metal.",
+     "em_jogo": [
+      "Conteúdo desconhecido."
+     ],
+     "texto": null,
+     "tipo": "Equipamento",
+     "img": "img/seringa-roxa.webp"
+    },
+    {
+     "slug": "seringa-verde",
+     "nome": "Seringa verde",
+     "descricao": "Seringa com um líquido verde.",
+     "em_jogo": [
+      "Conteúdo desconhecido."
+     ],
+     "texto": null,
+     "tipo": "Equipamento",
+     "img": "img/seringa-verde.webp"
+    },
+    {
+     "slug": "dinamite",
+     "nome": "Dinamite",
+     "descricao": "Banana de dinamite com pavio.",
+     "em_jogo": [
+      "Perícia: Arremessar",
+      "Alcance: 2/3 de FOR dividido por 5, em metros (com FOR 55: 7 m)",
+      "Dano: 4D10 num raio de 3 metros",
+      "Uso: único"
+     ],
+     "texto": null,
+     "tipo": "Equipamento",
+     "img": "img/dinamite.webp",
+     "qtd": 1
+    }
+   ],
+   "guardado": [],
+   "cartas": [
+    {
+     "slug": "telecinese",
+     "nome": "Telecinese",
+     "descricao": "Mover objetos com a força da mente.",
+     "em_jogo": [],
+     "texto": "**Você move objetos inanimados com a mente: qualquer coisa que uma pessoa comum ergue e arremessa sem esforço.**\n### Dificuldade\n- **Com calma** (tempo e silêncio): Regular.\n- **Em ação** (luta, fuga, pressão): Difícil.\n- **Mais de 5 metros:** um passo a mais de dificuldade.\n### Mover um objeto\n- **Custo:** 1 ponto de magia por objeto.\n- **Teste:** Telecinese.\n- **Efeito:** move o objeto em qualquer direção, devagar ou rápido, por até 5 metros.\n- Falhou: pode forçar, com uma boa justificativa.\n### Arremessar em alguém\n- **Custo:** 1 ponto de magia.\n- **Teste:** um dado só, que precisa passar em Telecinese e em Arremessar. Não pode ser forçado.\n- **Defesa:** o alvo que vê o objeto vindo pode esquivar (Esquivar dele contra a sua jogada).\n- **Dano:** de 1D4 (objeto pequeno) a 1D6 (objeto médio).\n### Escudo\n- Uma armadura invisível contra ataques físicos.\n- **Custo:** 2 pontos de magia por ponto de armadura, a cada ataque.\n- **Teste:** Telecinese, um por ataque. Não pode ser forçado.\n- Declare os pontos antes de saber o dano.\n### Objeto pesado\n- Algo que precisaria de várias pessoas para erguer.\n- **Custo:** 2 pontos de magia por pessoa necessária (carroça: 3 ou 4; carro pequeno: 6).\n- **Teste:** Telecinese, sempre Extremo.\n- **Efeito:** só arrasta, devagar, por até 3 metros. Não ergue nem arremessa.\n### Regras gerais\n- **Falhou:** nada acontece e o ponto de magia é perdido.\n- **Sem pontos de magia suficientes:** antes, teste de CON. Passou: o que falta sai dos PV. Falhou: desmaia, e nada acontece.\n- Só objetos inanimados. Pessoas e criaturas, não.",
+     "tipo": "Poder psíquico",
+     "img": "img/telecinese.webp",
+     "traco": 1
+    },
+    {
+     "slug": "ataque-psiquico-e-possessao",
+     "nome": "Ataque Psíquico e Possessão",
+     "descricao": "Uma batalha de vontades, mente contra mente. Quem perde, fica sem forças ou sob o controle do outro.",
+     "em_jogo": [],
+     "texto": "**Uma disputa de mente contra mente: POD contra POD.**\n### Custo\n- **Cada turno de ataque:** 1 ponto de magia.\n- **Possuir o alvo:** 1D4 de Sanidade.\n### Como funciona\n1. **Alcance:** você precisa ver o alvo ou estar a menos de 2 metros dele.\n2. **Role POD contra o POD do alvo** (teste resistido).\n3. **Você venceu:** o alvo perde 1D8 pontos de magia.\n4. **O alvo venceu:** você perde 1D8 pontos de magia.\n5. **Sem pontos de magia:** quem zerar cai inconsciente na hora, ou é possuído, se for essa a vontade do atacante.\n### Possessão\n- Permite induzir o possuído a uma ação, que pode prejudicar outra pessoa ou ele mesmo.\n- **Duração:** 1D4 rodadas.\n- **Estender:** mais 1D4 rodadas pedem um teste de POD Extremo.\n- Só funciona 1 vez por dia.\n- Não funciona em certas entidades dos Mythos.\n### Quem está em volta\n- Pode notar o alvo parecendo confuso ou com dor, mas não sabe o que de fato está acontecendo.",
+     "tipo": "Poder psíquico",
+     "img": "img/ataque-psiquico-e-possessao.webp",
+     "traco": 1
+    },
+    {
+     "slug": "evangelho-de-yig",
+     "nome": "Evangelho de Yig",
+     "descricao": "Tomo grande, encadernado em couro. Já foi uma Bíblia comum. As margens estão tomadas por notas e desenhos à mão, com passagens alteradas, riscadas e reescritas. Era o livro que o Reverendo Kornfield lia nos cultos de Bingham.",
+     "em_jogo": [
+      "Feitiços: Contactar Yig, Palavras de Poder"
+     ],
+     "texto": "**A Bíblia pessoal que o Reverendo Kornfield usava nas pregações, reescrita à luz do culto a Yig.**\n### O que há nas páginas\n- Notas à mão, desenhos e passagens riscadas e substituídas por novas.\n- Deus é Yig. Jesus é descrito como um filho da serpente.\n- No Éden, a serpente liberta Eva com o conhecimento da verdade.\n### O que as anotações contam\n- O Kornfield era um pastor batista em Bingham.\n- Fez uma jornada espiritual sozinho pelo deserto, 40 dias e 40 noites, e ali morreu.\n- As serpentes levaram o corpo para uma caverna sagrada nos ermos, onde ele foi preservado por magia.\n- Desde então, Yig usava esse corpo como semente para fazer brotar novos Kornfields.\n- O novo Kornfield era profeta e líder da comunidade. Levava peregrinos até a caverna, onde os escolhidos eram \"abençoados por Yig\": tocavam o cadáver original e ouviam a voz do deus-serpente.\n### Feitiços\n- Contactar Yig\n- Palavras de Poder\n*Ainda não estudados.*",
+     "tipo": "Tomo",
+     "img": "img/evangelho-de-yig.webp",
+     "link": "caderno/"
+    }
+   ]
   },
   {
    "slug": "chris-odonnel",
@@ -838,8 +1341,10 @@ window.DADOS = {
       1
      ]
     ],
-    "marcadas": [],
-    "registro": "2026-11-24",
+    "marcadas": [
+     "Dirigir Automóveis"
+    ],
+    "registro": "2026-11-25",
     "armas": [
      {
       "nome": ".38 do pai",
@@ -1382,7 +1887,7 @@ window.DADOS = {
       "nome": "Revólver .45",
       "pericia": "Armas de Fogo (Pistolas)",
       "valor": 39,
-      "dano": "1D10+2",
+      "dano": "1D10+1",
       "alcance": 10,
       "municao": 6,
       "carregada": null
@@ -1453,7 +1958,7 @@ window.DADOS = {
      "descricao": "Revólver calibre .45, de seis tiros, cabo de madeira.",
      "em_jogo": [
       "Perícia: Armas de Fogo (Pistolas)",
-      "Dano: 1D10+2",
+      "Dano: 1D10+1",
       "Alcance: 10 m",
       "Ataques: 1 (3)",
       "Munição: 6",
