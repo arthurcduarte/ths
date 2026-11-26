@@ -3,13 +3,13 @@ window.DADOS = {
  "caderno": "caderno/",
  "trilha": "https://open.spotify.com/playlist/3vlwUwovy5TLqosp2Ck2kx",
  "rolagem": "rolagem/",
- "foto": "img/foto-grupo.webp",
+ "foto": "img/foto-grupo.webp?v=6da962e5",
  "pjs": [
   {
    "slug": "richard-hawkes",
    "nome": "Richard Hawkes",
    "jogador": "Matheus Migotto",
-   "retrato": "img/richard-hawkes.webp",
+   "retrato": "img/richard-hawkes.webp?v=03ea6234",
    "ficha": {
     "ocupacao": "Investigador de Polícia",
     "arquetipo": "Aventureiro",
@@ -413,7 +413,7 @@ window.DADOS = {
      ],
      "texto": null,
      "tipo": "Equipamento",
-     "img": "img/sr-e-sra-colt.webp"
+     "img": "img/sr-e-sra-colt.webp?v=e54ceb26"
     },
     {
      "slug": "canivete-do-hawkes",
@@ -425,7 +425,7 @@ window.DADOS = {
      ],
      "texto": null,
      "tipo": "Equipamento",
-     "img": "img/canivete-do-hawkes.webp"
+     "img": "img/canivete-do-hawkes.webp?v=015328ae"
     },
     {
      "slug": "granada-de-mao",
@@ -439,7 +439,7 @@ window.DADOS = {
      ],
      "texto": null,
      "tipo": "Equipamento",
-     "img": "img/granada-de-mao.webp",
+     "img": "img/granada-de-mao.webp?v=45554c4a",
      "qtd": 1
     },
     {
@@ -451,7 +451,7 @@ window.DADOS = {
      ],
      "texto": null,
      "tipo": "Equipamento",
-     "img": "img/kit-de-primeiros-socorros.webp",
+     "img": "img/kit-de-primeiros-socorros.webp?v=1824e425",
      "qtd": 1
     },
     {
@@ -466,7 +466,7 @@ window.DADOS = {
      ],
      "texto": null,
      "tipo": "Equipamento",
-     "img": "img/antidoto-de-veneno.webp",
+     "img": "img/antidoto-de-veneno.webp?v=505f3716",
      "qtd": 1
     },
     {
@@ -478,7 +478,7 @@ window.DADOS = {
      ],
      "texto": null,
      "tipo": "Equipamento",
-     "img": "img/colete-a-prova-de-balas.webp",
+     "img": "img/colete-a-prova-de-balas.webp?v=7f9f9c9b",
      "qtd": 1
     },
     {
@@ -493,7 +493,7 @@ window.DADOS = {
      ],
      "texto": null,
      "tipo": "Equipamento",
-     "img": "img/pistola-sinalizadora.webp",
+     "img": "img/pistola-sinalizadora.webp?v=4574b01e",
      "qtd": 1,
      "nota": "sem cartucho"
     },
@@ -504,7 +504,7 @@ window.DADOS = {
      "em_jogo": [],
      "texto": null,
      "tipo": "Equipamento",
-     "img": "img/cartao-de-acesso-da-caduceus.webp"
+     "img": "img/cartao-de-acesso-da-caduceus.webp?v=08bbadd8"
     },
     {
      "nome": "Carta em português (documento da Caduceus)",
@@ -519,7 +519,7 @@ window.DADOS = {
    "slug": "frei-raul",
    "nome": "Frei Raul",
    "jogador": "Tadeu Migoto",
-   "retrato": "img/frei-raul.webp",
+   "retrato": "img/frei-raul.webp?v=9ab4ec12",
    "ficha": {
     "ocupacao": "Exorcista",
     "arquetipo": "Místico",
@@ -892,7 +892,7 @@ window.DADOS = {
      ],
      "texto": null,
      "tipo": "Equipamento",
-     "img": "img/cajado-do-raul.webp"
+     "img": "img/cajado-do-raul.webp?v=319c75da"
     },
     {
      "slug": "kit-de-exorcismo",
@@ -903,7 +903,7 @@ window.DADOS = {
      ],
      "texto": null,
      "tipo": "Equipamento",
-     "img": "img/kit-de-exorcismo.webp"
+     "img": "img/kit-de-exorcismo.webp?v=20c1efa7"
     },
     {
      "slug": "evangelho-de-yig",
@@ -914,7 +914,7 @@ window.DADOS = {
      ],
      "texto": "**A Bíblia pessoal que o Reverendo Kornfield usava nas pregações, reescrita à luz do culto a Yig.**\n### O que há nas páginas\n- Notas à mão, desenhos e passagens riscadas e substituídas por novas.\n- Deus é Yig. Jesus é descrito como um filho da serpente.\n- No Éden, a serpente liberta Eva com o conhecimento da verdade.\n### O que as anotações contam\n- O Kornfield era um pastor batista em Bingham.\n- Fez uma jornada espiritual sozinho pelo deserto, 40 dias e 40 noites, e ali morreu.\n- As serpentes levaram o corpo para uma caverna sagrada nos ermos, onde ele foi preservado por magia.\n- Desde então, Yig usava esse corpo como semente para fazer brotar novos Kornfields.\n- O novo Kornfield era profeta e líder da comunidade. Levava peregrinos até a caverna, onde os escolhidos eram \"abençoados por Yig\": tocavam o cadáver original e ouviam a voz do deus-serpente.\n### Feitiços\n- Contactar Yig\n- Palavras de Poder\n*Ainda não estudados.*",
      "tipo": "Tomo",
-     "img": "img/evangelho-de-yig.webp",
+     "img": "img/evangelho-de-yig.webp?v=f1f45388",
      "link": "caderno/"
     },
     {
@@ -926,7 +926,7 @@ window.DADOS = {
      ],
      "texto": null,
      "tipo": "Equipamento",
-     "img": "img/livros-de-estudo-do-raul.webp"
+     "img": "img/livros-de-estudo-do-raul.webp?v=fe17d1ad"
     },
     {
      "slug": "bandana-do-zapata",
@@ -937,7 +937,7 @@ window.DADOS = {
      ],
      "texto": null,
      "tipo": "Equipamento",
-     "img": "img/bandana-do-zapata.webp"
+     "img": "img/bandana-do-zapata.webp?v=a39eb2b4"
     },
     {
      "slug": "quartzo-boliviano",
@@ -948,7 +948,7 @@ window.DADOS = {
      ],
      "texto": null,
      "tipo": "Equipamento",
-     "img": "img/quartzo-boliviano.webp"
+     "img": "img/quartzo-boliviano.webp?v=71bcfa2e"
     },
     {
      "slug": "seringa-roxa",
@@ -959,7 +959,7 @@ window.DADOS = {
      ],
      "texto": null,
      "tipo": "Equipamento",
-     "img": "img/seringa-roxa.webp"
+     "img": "img/seringa-roxa.webp?v=0e6ca49c"
     },
     {
      "slug": "seringa-verde",
@@ -970,7 +970,7 @@ window.DADOS = {
      ],
      "texto": null,
      "tipo": "Equipamento",
-     "img": "img/seringa-verde.webp"
+     "img": "img/seringa-verde.webp?v=0e2da4ef"
     },
     {
      "slug": "dinamite",
@@ -984,7 +984,7 @@ window.DADOS = {
      ],
      "texto": null,
      "tipo": "Equipamento",
-     "img": "img/dinamite.webp",
+     "img": "img/dinamite.webp?v=759b3c10",
      "qtd": 1
     }
    ],
@@ -997,7 +997,7 @@ window.DADOS = {
      "em_jogo": [],
      "texto": "**Você move objetos inanimados com a mente: qualquer coisa que uma pessoa comum ergue e arremessa sem esforço.**\n### Dificuldade\n- **Com calma** (tempo e silêncio): Regular.\n- **Em ação** (luta, fuga, pressão): Difícil.\n- **Mais de 5 metros:** um passo a mais de dificuldade.\n### Mover um objeto\n- **Custo:** 1 ponto de magia por objeto.\n- **Teste:** Telecinese.\n- **Efeito:** move o objeto em qualquer direção, devagar ou rápido, por até 5 metros.\n- Falhou: pode forçar, com uma boa justificativa.\n### Arremessar em alguém\n- **Custo:** 1 ponto de magia.\n- **Teste:** um dado só, que precisa passar em Telecinese e em Arremessar. Não pode ser forçado.\n- **Defesa:** o alvo que vê o objeto vindo pode esquivar (Esquivar dele contra a sua jogada).\n- **Dano:** de 1D4 (objeto pequeno) a 1D6 (objeto médio).\n### Escudo\n- Uma armadura invisível contra ataques físicos.\n- **Custo:** 2 pontos de magia por ponto de armadura, a cada ataque.\n- **Teste:** Telecinese, um por ataque. Não pode ser forçado.\n- Declare os pontos antes de saber o dano.\n### Objeto pesado\n- Algo que precisaria de várias pessoas para erguer.\n- **Custo:** 2 pontos de magia por pessoa necessária (carroça: 3 ou 4; carro pequeno: 6).\n- **Teste:** Telecinese, sempre Extremo.\n- **Efeito:** só arrasta, devagar, por até 3 metros. Não ergue nem arremessa.\n### Regras gerais\n- **Falhou:** nada acontece e o ponto de magia é perdido.\n- **Sem pontos de magia suficientes:** antes, teste de CON. Passou: o que falta sai dos PV. Falhou: desmaia, e nada acontece.\n- Só objetos inanimados. Pessoas e criaturas, não.",
      "tipo": "Poder psíquico",
-     "img": "img/telecinese.webp",
+     "img": "img/telecinese.webp?v=ed7a08c1",
      "traco": 1
     },
     {
@@ -1007,7 +1007,7 @@ window.DADOS = {
      "em_jogo": [],
      "texto": "**Uma disputa de mente contra mente: POD contra POD.**\n### Custo\n- **Cada turno de ataque:** 1 ponto de magia.\n- **Possuir o alvo:** 1D4 de Sanidade.\n### Como funciona\n1. **Alcance:** você precisa ver o alvo ou estar a menos de 2 metros dele.\n2. **Role POD contra o POD do alvo** (teste resistido).\n3. **Você venceu:** o alvo perde 1D8 pontos de magia.\n4. **O alvo venceu:** você perde 1D8 pontos de magia.\n5. **Sem pontos de magia:** quem zerar cai inconsciente na hora, ou é possuído, se for essa a vontade do atacante.\n### Possessão\n- Permite induzir o possuído a uma ação, que pode prejudicar outra pessoa ou ele mesmo.\n- **Duração:** 1D4 rodadas.\n- **Estender:** mais 1D4 rodadas pedem um teste de POD Extremo.\n- Só funciona 1 vez por dia.\n- Não funciona em certas entidades dos Mythos.\n### Quem está em volta\n- Pode notar o alvo parecendo confuso ou com dor, mas não sabe o que de fato está acontecendo.",
      "tipo": "Poder psíquico",
-     "img": "img/ataque-psiquico-e-possessao.webp",
+     "img": "img/ataque-psiquico-e-possessao.webp?v=a2da433c",
      "traco": 1
     },
     {
@@ -1019,7 +1019,7 @@ window.DADOS = {
      ],
      "texto": "**A Bíblia pessoal que o Reverendo Kornfield usava nas pregações, reescrita à luz do culto a Yig.**\n### O que há nas páginas\n- Notas à mão, desenhos e passagens riscadas e substituídas por novas.\n- Deus é Yig. Jesus é descrito como um filho da serpente.\n- No Éden, a serpente liberta Eva com o conhecimento da verdade.\n### O que as anotações contam\n- O Kornfield era um pastor batista em Bingham.\n- Fez uma jornada espiritual sozinho pelo deserto, 40 dias e 40 noites, e ali morreu.\n- As serpentes levaram o corpo para uma caverna sagrada nos ermos, onde ele foi preservado por magia.\n- Desde então, Yig usava esse corpo como semente para fazer brotar novos Kornfields.\n- O novo Kornfield era profeta e líder da comunidade. Levava peregrinos até a caverna, onde os escolhidos eram \"abençoados por Yig\": tocavam o cadáver original e ouviam a voz do deus-serpente.\n### Feitiços\n- Contactar Yig\n- Palavras de Poder\n*Ainda não estudados.*",
      "tipo": "Tomo",
-     "img": "img/evangelho-de-yig.webp",
+     "img": "img/evangelho-de-yig.webp?v=f1f45388",
      "link": "caderno/"
     }
    ]
@@ -1028,7 +1028,7 @@ window.DADOS = {
    "slug": "chris-odonnel",
    "nome": "Chris O'Donnel",
    "jogador": "Bruno Furlan",
-   "retrato": "img/chris-odonnel.webp",
+   "retrato": "img/chris-odonnel.webp?v=e63e325e",
    "ficha": {
     "ocupacao": "Pugilista",
     "arquetipo": "Valentão",
@@ -1420,7 +1420,7 @@ window.DADOS = {
      ],
      "texto": null,
      "tipo": "Equipamento",
-     "img": "img/revolver-38-do-sr-odonnel.webp"
+     "img": "img/revolver-38-do-sr-odonnel.webp?v=2653ab8e"
     },
     {
      "slug": "pistola-de-chamas",
@@ -1436,7 +1436,7 @@ window.DADOS = {
      ],
      "texto": null,
      "tipo": "Item",
-     "img": "img/pistola-de-chamas.webp"
+     "img": "img/pistola-de-chamas.webp?v=6c570252"
     },
     {
      "slug": "lamina-serpentoide",
@@ -1448,7 +1448,7 @@ window.DADOS = {
      ],
      "texto": null,
      "tipo": "Item",
-     "img": "img/lamina-serpentoide.webp"
+     "img": "img/lamina-serpentoide.webp?v=37da856a"
     },
     {
      "slug": "kit-de-primeiros-socorros",
@@ -1459,7 +1459,7 @@ window.DADOS = {
      ],
      "texto": null,
      "tipo": "Equipamento",
-     "img": "img/kit-de-primeiros-socorros.webp",
+     "img": "img/kit-de-primeiros-socorros.webp?v=1824e425",
      "qtd": 1
     },
     {
@@ -1474,7 +1474,7 @@ window.DADOS = {
      ],
      "texto": null,
      "tipo": "Equipamento",
-     "img": "img/antidoto-de-veneno.webp",
+     "img": "img/antidoto-de-veneno.webp?v=505f3716",
      "qtd": 1
     },
     {
@@ -1486,7 +1486,7 @@ window.DADOS = {
      ],
      "texto": null,
      "tipo": "Equipamento",
-     "img": "img/bandagens-do-odonnel.webp"
+     "img": "img/bandagens-do-odonnel.webp?v=edcba3ec"
     },
     {
      "slug": "crucifixo-de-cecile",
@@ -1497,7 +1497,7 @@ window.DADOS = {
      ],
      "texto": null,
      "tipo": "Equipamento",
-     "img": "img/crucifixo-de-cecile.webp"
+     "img": "img/crucifixo-de-cecile.webp?v=f0023964"
     },
     {
      "slug": "terco-do-raul",
@@ -1508,7 +1508,7 @@ window.DADOS = {
      ],
      "texto": null,
      "tipo": "Equipamento",
-     "img": "img/terco-do-raul.webp"
+     "img": "img/terco-do-raul.webp?v=bf91ac11"
     },
     {
      "slug": "moto-do-odonnel",
@@ -1520,7 +1520,7 @@ window.DADOS = {
      ],
      "texto": null,
      "tipo": "Equipamento",
-     "img": "img/moto-do-odonnel.webp"
+     "img": "img/moto-do-odonnel.webp?v=a49ac038"
     }
    ],
    "guardado": [
@@ -1537,7 +1537,7 @@ window.DADOS = {
        ],
        "texto": null,
        "tipo": "Item",
-       "img": "img/arma-de-petrificacao.webp"
+       "img": "img/arma-de-petrificacao.webp?v=d334dd1d"
       }
      ]
     }
@@ -1558,7 +1558,7 @@ window.DADOS = {
    "slug": "ahmet-saad",
    "nome": "Ahmet Saad",
    "jogador": "Rodrigo Poggian",
-   "retrato": "img/ahmet-saad.webp",
+   "retrato": "img/ahmet-saad.webp?v=8b521e85",
    "ficha": {
     "ocupacao": "Arqueólogo",
     "arquetipo": "Erudito",
@@ -1966,7 +1966,7 @@ window.DADOS = {
      ],
      "texto": null,
      "tipo": "Equipamento",
-     "img": "img/revolver-45.webp"
+     "img": "img/revolver-45.webp?v=26283159"
     },
     {
      "slug": "machete",
@@ -1978,7 +1978,7 @@ window.DADOS = {
      ],
      "texto": null,
      "tipo": "Equipamento",
-     "img": "img/machete.webp"
+     "img": "img/machete.webp?v=a5a59255"
     },
     {
      "slug": "canivete-do-ahmet",
@@ -1990,7 +1990,7 @@ window.DADOS = {
      ],
      "texto": null,
      "tipo": "Equipamento",
-     "img": "img/canivete-do-ahmet.webp"
+     "img": "img/canivete-do-ahmet.webp?v=abb6b6dc"
     },
     {
      "slug": "colete-a-prova-de-balas",
@@ -2001,7 +2001,7 @@ window.DADOS = {
      ],
      "texto": null,
      "tipo": "Equipamento",
-     "img": "img/colete-a-prova-de-balas.webp",
+     "img": "img/colete-a-prova-de-balas.webp?v=7f9f9c9b",
      "qtd": 1
     },
     {
@@ -2016,7 +2016,7 @@ window.DADOS = {
      ],
      "texto": null,
      "tipo": "Equipamento",
-     "img": "img/dinamite.webp",
+     "img": "img/dinamite.webp?v=759b3c10",
      "qtd": 1
     },
     {
@@ -2029,7 +2029,7 @@ window.DADOS = {
      ],
      "texto": null,
      "tipo": "Equipamento",
-     "img": "img/tocha.webp",
+     "img": "img/tocha.webp?v=e8cdd2bb",
      "qtd": 1
     },
     {
@@ -2039,7 +2039,7 @@ window.DADOS = {
      "em_jogo": [],
      "texto": null,
      "tipo": "Equipamento",
-     "img": "img/corda.webp"
+     "img": "img/corda.webp?v=cb63d468"
     },
     {
      "slug": "lupa-de-prata-do-avo",
@@ -2048,7 +2048,7 @@ window.DADOS = {
      "em_jogo": [],
      "texto": null,
      "tipo": "Equipamento",
-     "img": "img/lupa-de-prata-do-avo.webp"
+     "img": "img/lupa-de-prata-do-avo.webp?v=4e33a7d7"
     },
     {
      "slug": "itens-pessoais-do-ahmet",
@@ -2057,7 +2057,7 @@ window.DADOS = {
      "em_jogo": [],
      "texto": null,
      "tipo": "Equipamento",
-     "img": "img/itens-pessoais-do-ahmet.webp"
+     "img": "img/itens-pessoais-do-ahmet.webp?v=d250b83e"
     }
    ],
    "guardado": [
@@ -2073,7 +2073,7 @@ window.DADOS = {
        ],
        "texto": null,
        "tipo": "Tomo",
-       "img": "img/anais-de-mu.webp",
+       "img": "img/anais-de-mu.webp?v=b2edc706",
        "link": "caderno/"
       },
       {
@@ -2083,7 +2083,7 @@ window.DADOS = {
        "em_jogo": [],
        "texto": null,
        "tipo": "Item",
-       "img": "img/pergaminhos-do-avo.webp"
+       "img": "img/pergaminhos-do-avo.webp?v=7bdb8406"
       },
       {
        "slug": "chicote-da-dor",
@@ -2092,7 +2092,7 @@ window.DADOS = {
        "em_jogo": [],
        "texto": null,
        "tipo": "Item",
-       "img": "img/chicote-da-dor.webp"
+       "img": "img/chicote-da-dor.webp?v=db7324ff"
       },
       {
        "slug": "documentos-queimados-do-covil",
@@ -2101,7 +2101,7 @@ window.DADOS = {
        "em_jogo": [],
        "texto": null,
        "tipo": "Item",
-       "img": "img/documentos-queimados-do-covil.webp",
+       "img": "img/documentos-queimados-do-covil.webp?v=93dbe3e6",
        "link": "caderno/"
       },
       {
@@ -2111,7 +2111,7 @@ window.DADOS = {
        "em_jogo": [],
        "texto": null,
        "tipo": "Item",
-       "img": "img/estatueta-de-tsathoggua.webp"
+       "img": "img/estatueta-de-tsathoggua.webp?v=f7761dab"
       },
       {
        "slug": "escamas-de-cobra-gigante",
@@ -2120,7 +2120,7 @@ window.DADOS = {
        "em_jogo": [],
        "texto": null,
        "tipo": "Item",
-       "img": "img/escamas-de-cobra-gigante.webp"
+       "img": "img/escamas-de-cobra-gigante.webp?v=307c7dba"
       },
       {
        "slug": "restos-de-prole-amorfa",
@@ -2129,7 +2129,7 @@ window.DADOS = {
        "em_jogo": [],
        "texto": null,
        "tipo": "Item",
-       "img": "img/restos-de-prole-amorfa.webp"
+       "img": "img/restos-de-prole-amorfa.webp?v=4ab39b2c"
       },
       {
        "slug": "amostra-de-troll",
@@ -2138,7 +2138,7 @@ window.DADOS = {
        "em_jogo": [],
        "texto": null,
        "tipo": "Item",
-       "img": "img/amostra-de-troll.webp"
+       "img": "img/amostra-de-troll.webp?v=e46c786d"
       }
      ]
     }
@@ -2151,7 +2151,7 @@ window.DADOS = {
      "em_jogo": [],
      "texto": "### Invocação\n#### Custo\n- 1 PM para cada 10% de chance de sucesso + 1D4+1 de Sanidade.\n- 96 a 100 é sempre um fracasso.\n*Companheiros concentrados podem investir PMs também.*\n#### Tempo de conjuração\n- Nº de pontos de magia gastos +1, em rodadas entoando cânticos.\n#### Torpor de conjuração\n- 1D3 rodadas.\n### Vinculação\n#### Custo\n- 1 ponto de Sanidade por tentativa.\n- Sucesso em um teste resistido de POD contra a criatura ou contra o seu invocador.\n*Companheiros concentrados podem investir PMs também. Cada nova tentativa acrescenta 1 dado de penalidade.*\n#### Bônus opcional\n- Gaste PMs igual a 1/5 do POD da criatura para 1 dado de bônus.\n#### Tempo de conjuração\n- 1 rodada.\n*A vinculação só afeta uma criatura por vez.*\n#### Efeitos\n- A criatura obedece um ou dois comandos simples e depois disso é desconjurada.\n- Manter a criatura conjurada por mais de 30 min exige um teste Extremo de POD nos próximos 30 minutos.\n*Tentativas subsequentes acrescentam 1 dado de penalidade.*",
      "tipo": "Feitiço",
-     "img": "img/invocar-e-vincular-prole-amorfa.webp",
+     "img": "img/invocar-e-vincular-prole-amorfa.webp?v=0e8c232b",
      "traco": 1
     },
     {
@@ -2161,7 +2161,7 @@ window.DADOS = {
      "em_jogo": [],
      "texto": null,
      "tipo": "Criatura",
-     "img": "img/prole-amorfa-de-tsathoggua.webp",
+     "img": "img/prole-amorfa-de-tsathoggua.webp?v=dc7b2ab5",
      "criatura": {
       "attrs": [
        [
@@ -2257,7 +2257,7 @@ window.DADOS = {
      "em_jogo": [],
      "texto": "**Improvise um efeito mágico com a perícia Mythos de Cthulhu, sem precisar saber um feitiço.**\n### Como funciona\n1. **Declare o objetivo:** diga o que quer que aconteça.\n2. **O Guardião avalia:** aceita, ou sugere algo parecido em vez de vetar.\n3. **O Guardião define o custo:** em pontos de magia e Sanidade.\n4. **Role Mythos de Cthulhu.**\n#### Dificuldade\n- **Regular:** tire igual ou menos que o seu Mythos de Cthulhu.\n- **Alvo que resiste:** teste resistido, o seu Mythos de Cthulhu contra o POD do alvo.\n#### Forçar o teste\n- Mesmo custo e mesmas consequências de forçar a conjuração de um feitiço (Pulp Cthulhu p. 83).\n- Mesmo falhando, o Guardião pode deixar o objetivo acontecer. Não é garantido.\n### Exemplos\n#### Causar dano físico\n- **Custo:** os PM que quiser, mais metade disso em Sanidade.\n- **Teste:** Mythos de Cthulhu contra o POD do alvo.\n- **Efeito:** o alvo sofre dano igual aos PM gastos. É sempre um dano horrível.\n#### Banir uma criatura\n- **Custo:** PM igual a 1/5 do POD do monstro, mais 1D4 de Sanidade.\n- **Teste:** Mythos de Cthulhu contra o POD do monstro.\n- **Efeito:** você se torna repulsivo para a criatura por 1D10 rodadas.\n#### Falar com os recém-falecidos\n- **Custo:** 10 PM, mais 1D8 de Sanidade.\n- **Efeito:** o morto fala por 1D6 rodadas.\n#### Compreender línguas do Mythos\n- **Custo:** 8 PM, mais 1D4 de Sanidade.\n- **Efeito:** você lê e entende totalmente uma língua do Mythos por cerca de 1 hora.\n#### Decifrar artefato\n- **Custo:** 6 PM, mais 1D4 de Sanidade.\n- **Efeito:** em concentração ritual, você entende em parte o propósito, o funcionamento e a ativação de um artefato do Mythos. Itens mais complexos podem pedir testes a mais.\n*Os exemplos não limitam o uso. Toda ação precisa ser justificada na narrativa.*",
      "tipo": "Perícia · Mythos de Cthulhu",
-     "img": "img/uso-espontaneo-de-mythos.webp",
+     "img": "img/uso-espontaneo-de-mythos.webp?v=504ba350",
      "traco": 1
     }
    ]
@@ -2266,7 +2266,7 @@ window.DADOS = {
    "slug": "vincent-moretti",
    "nome": "Vincent Moretti",
    "jogador": "Luiz Veloso",
-   "retrato": "img/vincent-moretti.webp",
+   "retrato": "img/vincent-moretti.webp?v=87e66b15",
    "ficha": {
     "ocupacao": "Jornalista Investigativo",
     "arquetipo": "Buscante",
@@ -2634,7 +2634,7 @@ window.DADOS = {
      ],
      "texto": null,
      "tipo": "Equipamento",
-     "img": "img/leica-ii.webp"
+     "img": "img/leica-ii.webp?v=88e081c9"
     },
     {
      "slug": "filmes-fotograficos",
@@ -2643,7 +2643,7 @@ window.DADOS = {
      "em_jogo": [],
      "texto": null,
      "tipo": "Equipamento",
-     "img": "img/filmes-fotograficos.webp"
+     "img": "img/filmes-fotograficos.webp?v=72d30664"
     },
     {
      "slug": "caderno-do-moretti",
@@ -2652,7 +2652,7 @@ window.DADOS = {
      "em_jogo": [],
      "texto": null,
      "tipo": "Equipamento",
-     "img": "img/caderno-do-moretti.webp"
+     "img": "img/caderno-do-moretti.webp?v=b9eab7b0"
     },
     {
      "slug": "zippo-e-cigarros",
@@ -2661,7 +2661,7 @@ window.DADOS = {
      "em_jogo": [],
      "texto": null,
      "tipo": "Equipamento",
-     "img": "img/zippo-e-cigarros.webp"
+     "img": "img/zippo-e-cigarros.webp?v=444eda5a"
     },
     {
      "slug": "foto-de-helena",
@@ -2670,7 +2670,7 @@ window.DADOS = {
      "em_jogo": [],
      "texto": null,
      "tipo": "Equipamento",
-     "img": "img/foto-de-helena.webp"
+     "img": "img/foto-de-helena.webp?v=fec2e872"
     },
     {
      "slug": "fotos-entregues-pela-mafia",
@@ -2679,7 +2679,7 @@ window.DADOS = {
      "em_jogo": [],
      "texto": null,
      "tipo": "Equipamento",
-     "img": "img/fotos-entregues-pela-mafia.webp"
+     "img": "img/fotos-entregues-pela-mafia.webp?v=98a7c630"
     },
     {
      "slug": "revolver-32",
@@ -2695,7 +2695,7 @@ window.DADOS = {
      ],
      "texto": null,
      "tipo": "Equipamento",
-     "img": "img/revolver-32.webp"
+     "img": "img/revolver-32.webp?v=7e9408c1"
     },
     {
      "slug": "cartao-de-acesso-da-caduceus",
@@ -2704,7 +2704,7 @@ window.DADOS = {
      "em_jogo": [],
      "texto": null,
      "tipo": "Equipamento",
-     "img": "img/cartao-de-acesso-da-caduceus.webp"
+     "img": "img/cartao-de-acesso-da-caduceus.webp?v=08bbadd8"
     },
     {
      "nome": "O relatório sobre a Sonhadora (Recurso NY 5)",
