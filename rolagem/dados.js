@@ -172,19 +172,22 @@ window.BANCO = {
    "corpo": 0,
    "dano_extra": "0",
    "pericias": {
-    "pistola": 39
+    "pistola": 39,
+    "espingarda": 25,
+    "rifle": 25
    },
    "armas": [
     "r45"
    ],
    "talentos": [],
-   "lutar": null,
+   "lutar": 25,
    "esquivar": 33,
    "fonte": "ficha.yaml do PJ",
    "mente_tal": [
     "resiliente"
    ],
    "pv": 21,
+   "arremessar": 20,
    "san": 59,
    "int": 65,
    "sorte": 33,
@@ -215,6 +218,7 @@ window.BANCO = {
     "calejado"
    ],
    "pv": 34,
+   "arremessar": 20,
    "san": 60,
    "int": 50,
    "sorte": 33,
@@ -229,10 +233,14 @@ window.BANCO = {
    "des": 60,
    "corpo": 0,
    "dano_extra": "0",
-   "pericias": {},
+   "pericias": {
+    "pistola": 20,
+    "espingarda": 25,
+    "rifle": 25
+   },
    "armas": [],
    "talentos": [],
-   "lutar": null,
+   "lutar": 25,
    "esquivar": 33,
    "fonte": "ficha.yaml do PJ",
    "pv": 22,
@@ -262,17 +270,17 @@ window.BANCO = {
     "ser"
    ],
    "talentos": [],
-   "lutar": null,
+   "lutar": 25,
    "esquivar": 50,
    "fonte": "ficha.yaml do PJ",
-   "sortudo": true,
    "pv": 20,
+   "arremessar": 20,
    "san": 23,
    "int": 40,
    "sorte": 31,
    "mythos": 66,
    "jogador": "Lucas",
-   "nota": "Sortudo. Sombra. Ciência Estranha."
+   "nota": "Sombra. Ciência Estranha."
   },
   {
    "id": "richard-hawkes",
@@ -318,13 +326,15 @@ window.BANCO = {
    "corpo": 0,
    "dano_extra": "0",
    "pericias": {
-    "pistola": 40
+    "pistola": 40,
+    "espingarda": 25,
+    "rifle": 25
    },
    "armas": [
     "r32"
    ],
    "talentos": [],
-   "lutar": null,
+   "lutar": 25,
    "esquivar": 60,
    "fonte": "ficha.yaml do PJ",
    "pv": 19,
@@ -332,6 +342,7 @@ window.BANCO = {
    "san": 65,
    "int": 90,
    "sorte": 51,
+   "mythos": 0,
    "jogador": "Luiz",
    "nota": "Sagaz. Engenhoso."
   }

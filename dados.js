@@ -11,12 +11,12 @@ window.DADOS = {
    "jogador": "Matheus Migotto",
    "retrato": "img/richard-hawkes.webp?v=03ea6234",
    "ficha": {
-    "ocupacao": "Investigador de Polícia",
+    "ocupacao": "Investigador",
     "arquetipo": "Aventureiro",
     "idade": 40,
     "nascimento": "Londres",
-    "peso": null,
-    "altura": null,
+    "peso": "110 kg",
+    "altura": "1,90 m",
     "atributos": {
      "FOR": 55,
      "CON": 80,
@@ -526,7 +526,7 @@ window.DADOS = {
     "ocupacao": "Exorcista",
     "arquetipo": "Místico",
     "idade": 60,
-    "nascimento": "Córdoba, Argentina",
+    "nascimento": "Córdoba",
     "peso": "76 kg",
     "altura": "1,75 m",
     "atributos": {
@@ -1025,7 +1025,7 @@ window.DADOS = {
     "ocupacao": "Pugilista",
     "arquetipo": "Valentão",
     "idade": 26,
-    "nascimento": "Limerick, Irlanda",
+    "nascimento": "Limerick",
     "peso": "138 kg",
     "altura": "2,02 m",
     "atributos": {
@@ -2264,7 +2264,7 @@ window.DADOS = {
    "jogador": "Luiz Veloso",
    "retrato": "img/vincent-moretti.webp?v=87e66b15",
    "ficha": {
-    "ocupacao": "Jornalista Investigativo",
+    "ocupacao": "Jornalista",
     "arquetipo": "Buscante",
     "idade": 37,
     "nascimento": "Nova York",
@@ -2722,7 +2722,7 @@ window.DADOS = {
     "ocupacao": "Contrabandista",
     "arquetipo": "Malandro",
     "idade": 38,
-    "nascimento": "Cali, Colômbia",
+    "nascimento": "Cali",
     "peso": null,
     "altura": null,
     "atributos": {
@@ -3282,8 +3282,7 @@ window.DADOS = {
      "em_jogo": [],
      "texto": "**Uma mente alienígena dividindo o corpo do Zapata. Útil, poderosa e nada confiável.**\n### Quem é\n- **Nome:** soa como uma luz neon defeituosa. O fonema mais próximo para ouvidos humanos é Blitzzkrieg.\n- **Origem:** Yuggoth (Plutão ou além).\n- **Raça:** Mi-Go, fungos pandimensionais.\n- **Casta:** Engenheiro.\n- **Divindade:** Shub-Niggurath.\n### Poderes\n{{poderes}}\n### O conhecimento do Mi-Go\n- As perícias em vermelho na ficha são do Blitzzkrieg: Mythos de Cthulhu 66, Psicologia 70, Medicina 60, Consertos Elétricos 80 e Consertos Mecânicos 80.\n- **Antes de usar uma delas, teste de Sanidade.** Passou: o Zapata segue no controle. Falhou: não perde Sanidade, mas o Blitzzkrieg toma o controle por 1D4 rodadas.\n- Talento Ciência Estranha (ver o card).\n- Com Mythos 66, a Sanidade máxima do Zapata é 33.\n### O preço\n- **Atributos:** sempre os do Zapata.\n- **O Blitzzkrieg tira do Zapata o talento Sortudo.** Na ficha, ele vem desligado.\n### Quando ele vem à tona\n- O Zapata está em **insanidade indefinida** (a etiqueta \"Insano\" na caixa de SAN).\n- **Qualquer perda de Sanidade traz o Blitzzkrieg:** é o acesso de loucura. Por um tempo, quem age é ele, e o Mestre o conduz.\n- Os poderes custam Sanidade. **Usar um poder é chamar o Blitzzkrieg.**\n- Ele faz parte da mente-colmeia dos fungos de Yuggoth: o Mestre pode agir por ele a qualquer momento.\n- Sanidade é difícil de recuperar. Em 0, a loucura fica para sempre.\n### O que ele quer\n- Manter o corpo do Zapata inteiro até chegar à Cidadela, em Mu.\n- Lá, usar os aparatos científicos para passar a consciência a um corpo Mi-Go. **O processo mata o Zapata.**\n- Vingar-se do povo serpente, que odeia. Não desperdiça uma chance.\n- Colabora com humanos e divide informação até certo ponto, enquanto isso servir ao plano.\n- Não sente compaixão nem lealdade humana: vê aliados como instrumentos inteligentes e descartáveis.\n### História\n1. Veio à Terra numa missão científica dos Mi-Go, atraído pela atividade tecnológica em Mu.\n2. Na guerra de Mu, foi capturado pelo povo serpente, que queria mentes alienígenas como interface para a rede neural de uma base de pesquisa.\n3. O cérebro foi removido e preso num cilindro de metal, onde ficou por séculos, alimentando à força os sistemas da base de pesquisa genética.\n4. Só recobrou a autonomia quando o Zapata tocou o cilindro. Libertou-se dentro do corpo dele.\n### O que ele sabe de Mu\n- **O Segundo Império:** o povo serpente dominava a Terra em tempos antigos, mesmo depois do surgimento da humanidade. O centro do poder era o continente de Mu, onde ciência e feitiçaria se uniam.\n- **O cisma:** o povo serpente se dividiu em três facções. Adoradores de Yig queriam escravizar a humanidade; os de Tsathoggua, exterminá-la; os de Ghatanothoa, hibridizar humanos e serpentes. Lutaram pela Cidadela de Yaddith-Gho, centro de energia e conhecimento no coração de Mu, e o conflito alimentou os extremos.\n- **A queda:** as Coisas Antigas (Elder Things), que também viviam em Mu, atacaram a Cidadela com shoggoths e armas de gravidade. O povo serpente a defendeu tirando-a de fase com a realidade, o que a tornou invulnerável. Derrotadas, as Coisas Antigas selaram Mu em outra dimensão.\n- **Depois:** as lendas humanas dizem que Mu afundou no oceano. O povo serpente nunca mais achou o continente, e os sobreviventes vivem escondidos sob a terra, longe dos humanos, a nova raça dominante.",
      "tipo": "Possessão Mi-Go",
-     "img": "img/blitzzkrieg-mi-go.webp?v=389f847f",
-     "traco": 1,
+     "img": "img/blitzzkrieg-mi-go.webp?v=d7349970",
      "poderes": [
       {
        "nome": "Projeção Sensorial",
@@ -3292,8 +3291,7 @@ window.DADOS = {
        "uso": "1/dia",
        "efeito": [
         "Amplia os sentidos além dos humanos por 1D10 minutos.",
-        "Visão infravermelha, audição sensível, paladar que analisa química.",
-        "Pode não perder Sanidade (1D4−1)."
+        "Exemplos: visão infravermelha, audição sensível, paladar que analisa química. Escolher um sentido."
        ]
       },
       {
@@ -3312,7 +3310,7 @@ window.DADOS = {
        "san": "1D4",
        "uso": "1/dia",
        "efeito": [
-        "Zumbido agudo num cone de até 10 metros (1 ponto de magia por metro).",
+        "Zumbido agudo num cone de até 7 metros (1 ponto de magia por metro).",
         "Cada alvo faz um teste resistido de POD. Quem falha fica atordoado por 1D4+1 rodadas."
        ]
       }

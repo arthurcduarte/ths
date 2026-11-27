@@ -220,6 +220,7 @@ details.bloco:not([open])>summary::after,.dobra-b[aria-expanded="false"]::after{
 .k-lin{margin:0;justify-content:space-between}
 .k-lin span{color:var(--tinta);-webkit-text-stroke:0;font-weight:700;font-size:11.5px;letter-spacing:.08em;line-height:1.2}
 .k-lin small{display:block;font-weight:400;color:var(--sangue);font-size:var(--t-rot)}
+.k-lin .k-v{font-family:var(--f-titulo);font-size:24px;color:var(--escuro);-webkit-text-stroke:.4px var(--escuro);min-width:40px;text-align:right;font-weight:400}
 
 @media (max-width:380px){ .v-dif{font-size:32px} .abas button{letter-spacing:.08em} }
 
@@ -258,7 +259,7 @@ details.bloco:not([open])>summary::after,.dobra-b[aria-expanded="false"]::after{
   <p class="rodape">Regras: Livro do Guardião, cap. 6 e 8 (LG) e Pulp Cthulhu, cap. 4 e 5. Itens com a etiqueta MESA são ajustes da casa.</p>
 </div>
 
-<script src="dados.js?v=f50c188d"></script>
+<script src="dados.js?v=c134964e"></script>
 <script>
 const B=window.BANCO||{armas:[],personagens:[]};
 const ARMAS=B.armas, PERS=B.personagens;
@@ -896,7 +897,7 @@ function kSalva(){ try{ localStorage.setItem('rolagem-sorte-v2',JSON.stringify(K
 const KPJ=PERS.filter(p=>p.grupo==='pj').sort(ordem);
 const KNPC=PERS.filter(p=>p.grupo!=='pj'&&p.sorte!=null).sort(ordem);
 /* correção do Mestre só vale enquanto a ficha tiver o mesmo número de quando ele corrigiu */
-const kSorte=p=>{ if(!p) return null; const m=KMEU[p.id], f=p.sorte!=null?p.sorte:null; return (m&&m.base===f&&m.v>=0&&m.v<=99)?m.v:f; };
+const kSorte=p=>{ if(!p) return null; return p.sorte!=null?p.sorte:null; };   // só a ficha; a edição aqui saiu em 27/11/2026
 const kQuem=()=>PERS.find(p=>p.id===K.quem)||null;
 const kNpc=()=>K.quem==='npc'||(kQuem()&&kQuem().grupo!=='pj');
 const kNome=p=>p.grupo==='pj'?zCurto(p):p.nome;
@@ -1056,7 +1057,7 @@ function renderControlesSorte(){
     h+='<section class="bloco azul"><h2>Dificuldade<small>quase sempre Regular</small></h2><div class="seg">'+['Regular','Difícil','Extremo'].map((d,i)=>chip('kdif',i,d,'',K.dif===i)).join('')+'</div></section>';
   }
   if(m==='grupo'||m==='recuperar') h+='<section class="bloco azul"><h2>Quem está '+(m==='grupo'?'na cena':'na sessão')+'<small>toque para tirar</small></h2>'+kChipsPJ('kfora',x=>!K.fora[x.id])+'</div></section>';
-  h+='<section class="bloco azul">'+kDobra('lista','Sorte atual','corrigir na mesa','<div class="k-grade">'+KPJ.map(x=>'<label class="pericia k-lin"><span>'+esc(zCurto(x))+'<small>'+(x.sorte!=null?'ficha '+z2(x.sorte):'sem ficha')+'</small></span><input id="kl-'+x.id+'" type="number" inputmode="numeric" min="0" max="99" placeholder="..." value="'+(kSorte(x)!=null?kSorte(x):'')+'"></label>').join('')+'</div><p class="nota">Vem da ficha e se atualiza sozinha a cada publicação. A correção feita aqui fica neste aparelho e vale até a ficha mudar.</p>')+'</section>';
+  h+='<section class="bloco azul">'+kDobra('lista','Sorte atual','da ficha','<div class="k-grade">'+KPJ.map(x=>'<div class="pericia k-lin"><span>'+esc(zCurto(x))+'<small>'+(x.sorte!=null?'ficha':'sem ficha')+'</small></span><b class="k-v">'+(kSorte(x)!=null?z2(kSorte(x)):'—')+'</b></div>').join('')+'</div><p class="nota">Só para ver. A Sorte se muda na ficha de cada um, no Estado atual do site dos jogadores, e chega aqui a cada publicação.</p>')+'</section>';
   document.getElementById('controles').innerHTML=h;
 }
 function cliqueSorte(a,v){

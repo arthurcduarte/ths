@@ -99,7 +99,7 @@ p { margin:0; }
 .tabela .nome .rot { position:absolute; left:7px; top:4px; }
 .tabela .nome h1 { font-family:var(--f-titulo); font-size:27px; line-height:1.05; letter-spacing:.111em; text-transform:uppercase; color:#191717; -webkit-text-stroke:.8px #191717; }
 .tabela .meia { grid-column:span 2; }
-.tabela .v { display:block; text-align:center; font-size:13.3px; letter-spacing:.1em; text-transform:uppercase; line-height:1.25; padding-top:2px; overflow-wrap:anywhere; }
+.tabela .v { display:block; text-align:center; font-size:13.3px; letter-spacing:.1em; text-transform:uppercase; line-height:1.25; padding-top:2px; white-space:nowrap; }   /* uma linha só: cidade, ocupação numa palavra, "110 kg" (27/11/2026) */
 .botoes { display:grid; grid-template-columns:repeat(3,1fr); gap:7.7px; margin-top:10px; }
 .botoes a { position:relative; height:41px; border:var(--fio) solid var(--sangue); display:grid; place-items:center; text-decoration:none; }
 .botoes a span { font-family:var(--f-titulo); font-size:15.5px; letter-spacing:.065em; text-transform:uppercase; color:var(--sangue); -webkit-text-stroke:.8px var(--sangue); padding-bottom:3px;
@@ -309,7 +309,7 @@ details.area:not([open]) > summary .seta { transform:rotate(-90deg); }
 <div class="mesa" id="mesa"></div>
 <div class="pop" id="pop" hidden></div>
 <div class="zoom" id="zoom" hidden><button class="fechar" data-z="fecha" aria-label="Fechar"><b>Fechar ×</b></button><img id="zoom-img" alt="Foto do grupo"><p class="dica">Dois dedos para ampliar</p></div>
-<script src="dados.js?v=1887e32a"></script>
+<script src="dados.js?v=eb765cc5"></script>
 <script>
 /* Navegação por # : #/ (portal) · #/<pj> · #/<pj>/ficha · #/<pj>/inventario · #/<pj>/cartas
    O que o jogador mexe (PV, PM, sanidade, sorte, armadura, munição, talento ligado) fica só neste
@@ -340,6 +340,7 @@ function topo(volta, onde) {
   return '<nav class="topo"><a class="voltar" href="' + volta + '"><i><svg viewBox="0 0 8 6"><path d="M8 3H.6M3 .5.6 3 3 5.5"/></svg></i><b>Voltar</b></a><span class="onde">' + esc(onde) + '</span></nav>';
 }
 function portal() {
+  D.pjs.forEach(p => { if (p.retrato) precarrega({ retrato: p.retrato }); });   // retratos prontos antes do clique no PJ
   document.title = 'A Serpente de Duas Cabeças';
   mesa.innerHTML = '<header class="capa"><small>Arquivo · Nova York, 1933</small><h1>A Serpente<br>de Duas Cabeças</h1></header>' +
     (D.foto ? '<button class="foto" data-z="abre" aria-label="Ampliar a foto do grupo"><img src="' + D.foto + '" alt="Foto do grupo"></button>' : '') +
@@ -359,7 +360,7 @@ function precarrega(o) {
   (function varre(x) {
     if (Array.isArray(x)) x.forEach(varre);
     else if (x && typeof x === 'object') for (const k in x) { if (k === 'img' && typeof x[k] === 'string') urls.push(x[k]); else varre(x[k]); }
-  })([o.inventario, o.guardado, o.cartas]);
+  })([o.retrato ? { img: o.retrato } : null, o.inventario, o.guardado, o.cartas]);
   urls.filter(u => !jaBaixou.has(u)).forEach(u => {
     jaBaixou.add(u);
     const im = new Image(); im.decoding = 'async'; im.src = u; PRONTAS.push(im);
@@ -495,6 +496,7 @@ function rota() {
   pj = D.pjs.find(x => x.slug === p[0]) || null;
   if (!pj) { portal(); scrollTo(0, 0); return; }
   document.title = pj.nome; carrega(); precarrega(pj);
+  if (typeof POP !== 'undefined') POP.hidden = true;   // trocou de tela: fecha o pop-up de condição
   const tela = pj.ficha ? p[1] : null;
   tela === 'ficha' ? ficha() : tela === 'inventario' ? inventario() : tela === 'cartas' ? cartas() : area();
   const alvo = tela === 'cartas' && p[2] && document.querySelector('details[data-c="' + p[2] + '"]');
@@ -534,7 +536,7 @@ document.addEventListener('click', ev => {
   const z = ev.target.closest('[data-z]'); if (z) { z.dataset.z === 'abre' ? zAbre() : zFecha(); return; }
   const b = ev.target.closest('[data-a]'); if (!b || !pj) return;
   const a = b.dataset.a;
-  if (a === 'cond') { const c = pj.ficha.condicoes[+b.dataset.i]; POP.innerHTML = '<div class="caixa-pop papel" role="dialog" aria-modal="true"><button class="fechar-pop" data-p="fecha">Fechar ×</button><span class="rot">Condição</span><h2>' + esc(c.nome) + '</h2><p>' + esc(c.nota || '') + '</p></div>'; POP.hidden = false; return; }
+  if (a === 'cond') { const c = pj.ficha.condicoes[+b.dataset.i]; POP.innerHTML = '<div class="caixa-pop rosa" role="dialog" aria-modal="true"><button class="fechar-pop" data-p="fecha">Fechar ×</button><span class="rot">Condição</span><h2>' + esc(c.nome) + '</h2><p>' + esc(c.nota || '') + '</p></div>'; POP.hidden = false; return; }
   if (a === 'passo') { const k = b.dataset.k; E[k] = Math.max(0, (+atual(k) || 0) + (+b.dataset.v)); document.querySelector('input[data-f="' + k + '"]').value = E[k]; }
   else if (a === 'bala' || a === 'recarga') {
     const i = +b.dataset.i, at = pj.ficha.armas[i];
