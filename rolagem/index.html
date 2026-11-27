@@ -40,7 +40,7 @@ button:focus-visible,input:focus-visible,summary:focus-visible{outline:1px dashe
 /* Barra do topo: o lugar e as abas, caixas de fio claro sobre a mesa */
 .topo{display:flex;flex-direction:column;gap:9px;color:var(--tinta-clara);border-bottom:var(--fio) solid var(--tinta-clara);padding:0 1px 10px}
 .topo h1{font-family:var(--f-maquina);font-weight:400;font-size:9.3px;letter-spacing:.2em;text-transform:uppercase;margin:0}
-.abas{display:grid;grid-template-columns:.7fr 1.4fr 1.15fr 1fr;gap:6px}
+.abas{display:grid;grid-template-columns:.7fr 1.4fr 1.15fr 1fr .8fr;gap:5px}
 .abas button{height:32px;padding:0 4px;white-space:nowrap;border:var(--fio) solid transparent;color:var(--tinta-clara);opacity:.6;font-weight:700;font-size:10px;letter-spacing:.14em;text-transform:uppercase}
 .abas button[aria-pressed="true"]{opacity:1;border-color:var(--tinta-clara)}
 
@@ -205,6 +205,22 @@ details.bloco:not([open])>summary::after,.dobra-b[aria-expanded="false"]::after{
 .rodape{border-top:var(--fio) solid var(--tinta-clara);margin:22px 0 0;padding:12px 6px 0;color:var(--tinta-clara);font-size:8.5px;letter-spacing:.06em;text-transform:uppercase;line-height:1.5;text-align:center;text-wrap:balance}
 [hidden]{display:none!important}
 
+/* Aba Sorte */
+.k-tab{margin-top:4px}
+.k-tab td:first-child{font-size:18px}
+.k-tab b{text-transform:uppercase;letter-spacing:.06em;font-size:11.5px}
+.k-rec td{padding-top:8px}
+.k-rec b{display:block;margin-bottom:2px}
+.k-passa,.k-falha{display:block}
+.k-passa{font-weight:700;color:var(--tinta)}
+.k-falha{opacity:.7}
+.k-aviso{text-transform:none;letter-spacing:0}
+.k-aviso b{font-family:var(--f-maquina);font-size:inherit;font-weight:700;-webkit-text-stroke:0;vertical-align:0;text-transform:uppercase;letter-spacing:.06em}
+.k-grade{display:grid;grid-template-columns:1fr 1fr;gap:8px 14px;padding-top:6px}
+.k-lin{margin:0;justify-content:space-between}
+.k-lin span{color:var(--tinta);-webkit-text-stroke:0;font-weight:700;font-size:11.5px;letter-spacing:.08em;line-height:1.2}
+.k-lin small{display:block;font-weight:400;color:var(--sangue);font-size:var(--t-rot)}
+
 @media (max-width:380px){ .v-dif{font-size:32px} .abas button{letter-spacing:.08em} }
 
 /* Portal do Mestre (900 px ou mais): mesma receita, escala 1,2 e fio vermelho de 1,9 px */
@@ -242,7 +258,7 @@ details.bloco:not([open])>summary::after,.dobra-b[aria-expanded="false"]::after{
   <p class="rodape">Regras: Livro do Guardião, cap. 6 e 8 (LG) e Pulp Cthulhu, cap. 4 e 5. Itens com a etiqueta MESA são ajustes da casa.</p>
 </div>
 
-<script src="dados.js?v=5ebde5a2"></script>
+<script src="dados.js?v=f50c188d"></script>
 <script>
 const B=window.BANCO||{armas:[],personagens:[]};
 const ARMAS=B.armas, PERS=B.personagens;
@@ -448,8 +464,8 @@ function renderFolha(){
   el.hidden=false;
 }
 function render(soVeredito){
-  const fn={tiro:[renderControles,renderVeredito],luta:[renderControlesLuta,renderVereditoLuta],tele:[renderControlesTele,renderVereditoTele],san:[renderControlesSan,renderVereditoSan]}[S.aba];
-  document.getElementById('abas').innerHTML=[['tiro','Tiro'],['luta','Corpo a corpo'],['tele','Telecinese'],['san','Sanidade']].map(a=>'<button data-a="aba" data-v="'+a[0]+'" aria-pressed="'+(S.aba===a[0])+'">'+a[1]+'</button>').join('');
+  const fn={tiro:[renderControles,renderVeredito],luta:[renderControlesLuta,renderVereditoLuta],tele:[renderControlesTele,renderVereditoTele],san:[renderControlesSan,renderVereditoSan],sorte:[renderControlesSorte,renderVereditoSorte]}[S.aba];
+  document.getElementById('abas').innerHTML=[['tiro','Tiro'],['luta','Corpo a corpo'],['tele','Telecinese'],['san','Sanidade'],['sorte','Sorte']].map(a=>'<button data-a="aba" data-v="'+a[0]+'" aria-pressed="'+(S.aba===a[0])+'">'+a[1]+'</button>').join('');
   renderFolha();
   if(!soVeredito) fn[0]();
   fn[1]();
@@ -869,6 +885,200 @@ function cliqueSan(a,v){
   return false;
 }
 
+/* ---------- Sorte ---------- */
+/* Regras: Pulp 61 a 64 e 67, LG 90 e 99, e as regras da casa (OS/MESTRAGEM.md, "Sorte").
+   MAPA-DE-REGRAS.md, seção 7. A Sorte de cada PJ vem da ficha (gerar.py); o Mestre pode
+   corrigir na mesa, e a correção vale só até a ficha mudar na próxima publicação. */
+const K={modo:'gastar',quem:null,gasto:'ajustar',npcTipo:'imp',dif:0,fora:{},ab:{},narrar:false};
+let KMEU={};
+try{ KMEU=JSON.parse(localStorage.getItem('rolagem-sorte-v2')||'{}')||{}; }catch(e){}
+function kSalva(){ try{ localStorage.setItem('rolagem-sorte-v2',JSON.stringify(KMEU)); }catch(e){} }
+const KPJ=PERS.filter(p=>p.grupo==='pj').sort(ordem);
+const KNPC=PERS.filter(p=>p.grupo!=='pj'&&p.sorte!=null).sort(ordem);
+/* correção do Mestre só vale enquanto a ficha tiver o mesmo número de quando ele corrigiu */
+const kSorte=p=>{ if(!p) return null; const m=KMEU[p.id], f=p.sorte!=null?p.sorte:null; return (m&&m.base===f&&m.v>=0&&m.v<=99)?m.v:f; };
+const kQuem=()=>PERS.find(p=>p.id===K.quem)||null;
+const kNpc=()=>K.quem==='npc'||(kQuem()&&kQuem().grupo!=='pj');
+const kNome=p=>p.grupo==='pj'?zCurto(p):p.nome;
+
+const KMODOS=[['gastar','Gastar','o que a Sorte compra'],['teste','Teste','um PJ testa Sorte'],['grupo','Grupo','quem testa por todos'],['recuperar','Recuperar','começo da sessão']];
+const KGASTO=[
+  {id:'ajustar',g:'Qualquer teste',t:'Ajustar um teste',d:'baixa o resultado, 1 de Sorte por ponto',c:'1 por 1',
+   r:'Depois do teste de perícia ou atributo, o jogador gasta Sorte para baixar o resultado, 1 por 1, sem limite além da Sorte que tem. Só vale para o próprio herói. Baixar até 01 dá Extremo, nunca Crítico (só desempata dois Extremos em combate).',f:'Pulp 61 e 63'},
+  {id:'desastre',g:'Combate',t:'Ignorar Desastre ou defeito',d:'a arma não quebra nem emperra',c:'10',n:10,
+   r:'Desastre num ataque corpo a corpo ou defeito numa arma de fogo: 10 de Sorte ignoram as consequências. O dado não muda e o ataque continua falho, mas a arma não quebra e a pistola não emperra. Fora do combate, a Sorte não evita um 100.',f:'Pulp 62 e 63'},
+  {id:'acordado',g:'Combate',t:'Evitar a inconsciência',d:'1 de Sorte, dobrando a cada rodada',c:'1, 2, 4...',n:1,
+   r:'Falhou no teste de CON para ficar consciente, ou o desmaio seria automático: 1 de Sorte mantém o herói de pé até o fim da rodada. A cada rodada seguinte o custo dobra (2, 4, 8, 16), pago no começo dela. Parou de pagar ou a Sorte acabou: cai inconsciente na hora. De pé, ele continua sendo um alvo.',f:'Pulp 62'},
+  {id:'arranhao',g:'Combate',mesa:1,t:'Foi só um arranhão!',d:'recupera 1D4 PV na hora. Só vale após tomar dano.',c:'15',n:15,
+   r:'Ao receber dano, o herói gasta 15 de Sorte e recupera 1D4 PV na hora, sem passar do máximo. O Mestre pode deixar o gasto para depois, para acelerar a recuperação de quem está muito ferido. No livro: 20 de Sorte e 1D6 PV.',f:'Regra da mesa; Pulp 62'},
+  {id:'morte',g:'Combate',mesa:1,t:'Escapar da morte certa',d:'toda a Sorte, com mínimo de 25',c:'tudo',
+   r:'Com 25 de Sorte ou mais, o herói gasta tudo e volta da beira da morte: recupera 1D6+1 PV, não precisa mais de testes de CON para ficar consciente ou vivo, e aparece na cena seguinte num estado apropriado. O jogador descreve como escapou. As lesões continuam. Fica sem Sorte pelo resto da sessão. No livro, o mínimo é 30.',f:'Regra da mesa; Pulp 62 e 67'},
+  {id:'sanidade',g:'Sanidade',t:'Conter perda de Sanidade',d:'a perda cai à metade; custa o dobro dela',c:'2x perda',
+   r:'Depois de um teste de Sanidade falho, o jogador gasta Sorte igual ao dobro da perda e perde só a metade. Perda 8: gasta 16 e perde 4. O teste em si não muda. Quem tem Resiliente ainda desconta o que sobrou, 1 por 1.',f:'Pulp 62'}
+];
+const KNPCG=[
+  {id:'n-ajustar',t:'Ajustar um teste',d:'1 de Sorte por ponto',c:'1 por 1',r:'Depois de um teste de perícia ou atributo do NPC, o Mestre gasta Sorte para baixar o resultado, 1 por 1.',f:'Pulp 64'},
+  {id:'n-ataque',t:'Comprar um segundo ataque',d:'mais um ataque com arma corpo a corpo',c:'10',n:10,r:'O NPC gasta 10 de Sorte e ganha um segundo ataque com arma corpo a corpo.',f:'Pulp 64'},
+  {id:'n-desastre',t:'Ignorar Desastre ou defeito',d:'a arma não quebra nem emperra',c:'10',n:10,r:'Desastre corpo a corpo ou defeito de arma de fogo: 10 de Sorte ignoram as consequências. O ataque continua falho.',f:'Pulp 64'},
+  {id:'n-cuidado',t:'Cuidado, Mestre!!',d:'um lacaio a até 2 m leva o golpe',c:'tudo',r:'Um herói acerta um vilão importante: o vilão queima toda a Sorte e um lacaio a até 2 m se joga na frente e leva o golpe, morto ou incapacitado na hora. O vilão fica sem Sorte pelo resto do cenário. Só com um lacaio de verdade na cena: nunca aparece um do nada.',f:'Pulp 64'}
+];
+const KNAO=['Teste de Sorte','Rolagem de dano','Teste forçado (ou força, ou gasta Sorte)','O próprio teste de Sanidade, só a perda','Marca de experiência: sucesso comprado com Sorte não marca'];
+
+function kRow(a,it,on){
+  const k=a+it.id, ab=!!K.ab[k];
+  let h='<div class="cond"><div class="cond-linha"><button class="cond-btn" data-a="'+a+'" data-v="'+it.id+'" aria-pressed="'+on+'"><span class="caixa"></span><span><span class="cond-t">'+esc(it.t)+'<span class="tag">'+esc(it.c)+'</span>'+(it.mesa?'<span class="tag">mesa</span>':'')+'</span><span class="cond-d">'+esc(it.d)+'</span></span></button><button class="info" data-a="kab" data-v="'+k+'" aria-expanded="'+ab+'" aria-label="Regra: '+esc(it.t)+'">?</button></div>';
+  if(ab) h+='<div class="detalhe"><p>'+esc(it.r)+'</p><p class="fonte">'+esc(it.f)+'</p></div>';
+  return h+'</div>';
+}
+function kCalc(){
+  const p=kQuem(), L=kSorte(p), npc=kNpc(), r={notas:[],lin:[]};
+  const sobra=n=>{ if(L==null||n==null) return; r.notas.push([L>=n?'Fica com '+(L-n)+' de Sorte.':'Não tem Sorte para isso: tem '+L+', precisa de '+n+'.',1]); };
+  if(K.modo==='gastar'){
+    r.rot=p?kNome(p)+' · Sorte '+(L!=null?z2(L):'?'):npc?'NPC':'Gastar Sorte'; r.dir='gastar';
+    if(npc){
+      const g=KNPCG.find(x=>x.id===K.gasto)||KNPCG[0]; r.tit=g.t;
+      if(!p&&K.npcTipo==='sem'){ r.tit='Sem Sorte'; r.notas.push(['Lacaio, comerciante, policial de patrulha e monstro não têm Sorte.',1]); return r; }
+      if(!p&&K.npcTipo==='sub') r.notas.push(['Subordinado: Sorte de metade do POD ou menos.',1]);
+      if(g.n){ r.lin.push('Custa <b>'+g.n+'</b>'); sobra(g.n); }
+      else if(g.id==='n-cuidado'){ r.lin.push(L!=null?'Custa <b>'+L+'</b>, tudo':'Custa toda a Sorte'); r.notas.push(['Fica sem Sorte até o fim do cenário.',1]); }
+      else r.lin.push('Custo: <b>o dado menos o alvo</b>');
+      r.notas.push(['A Sorte do NPC não volta no começo da sessão. Só o grande vilão recupera, entre cenários, se escapar vivo.',1]);
+      r.notas.push(['Sorte de NPC nunca briga com a lógica da cena. O Mestre joga limpo.']);
+      r.notas.push(['Importante: Sorte igual ao POD. Subordinado: metade do POD ou menos. Lacaio e monstro: sem Sorte. Pulp 63.']);
+      return r;
+    }
+    const g=KGASTO.find(x=>x.id===K.gasto)||KGASTO[0]; r.tit=g.t;
+    if(g.id==='ajustar'){
+      r.lin.push('Custo: <b>o dado menos o alvo</b>');
+      if(L!=null) r.notas.push(['Com '+L+' de Sorte, salva um teste que errou por até '+L+'.',1]);
+      r.notas.push(['O jogador escolhe: forçar o teste OU gastar Sorte. Não dá para gastar num teste forçado.',1]);
+      r.notas.push(['Sucesso comprado com Sorte não ganha marca de experiência.',1]);
+      r.notas.push(['Baixar até 01 vale Extremo, não Crítico.']);
+      r.notas.push(['Vale em combate também. Um 100 natural fora do combate não se evita.']);
+    }else if(g.id==='acordado'){
+      let tot=0,k=0; const pg=[1,2,4,8,16,32];
+      r.tab=pg.map((v,i)=>{ tot+=v; if(L!=null&&tot<=L) k=i+1; return [z2(v),'Rodada '+(i+1),'total '+tot]; });
+      if(L!=null) r.notas.push([k?'Com '+L+' de Sorte, fica de pé por '+k+(k>1?' rodadas':' rodada')+'.':'Sem Sorte para pagar: cai inconsciente agora.',1]);
+      r.notas.push(['Paga no começo de cada rodada. Parou de pagar: cai na hora.',1]);
+    }else if(g.id==='morte'){
+      r.lin.push(L==null?'Precisa de <b>25</b> ou mais':L>=25?'Gasta <b>'+L+'</b> e fica com <b>00</b>':'Tem <b>'+z2(L)+'</b>, precisa de <b>25</b>');
+      r.notas.push(['Recupera 1D6+1 PV e vive até a próxima cena. O jogador descreve a escapada.',1]);
+      r.notas.push(['Sem Sorte pelo resto da sessão.',1]);
+      r.notas.push(['Sem os 25, ou se preferir: fulgor de glória. Morre, mas antes faz uma última ação espetacular, com 1 dado de bônus se houver teste. Não custa Sorte. Pulp 67.']);
+    }else if(g.id==='sanidade'){
+      r.lin.push('Custa <b>o dobro da perda</b>');
+      r.notas.push(['A conta completa, com Resiliente, está na aba Sanidade.',1]);
+    }else{
+      r.lin.push('Custa <b>'+g.n+'</b>'); sobra(g.n);
+      if(g.id==='desastre') r.notas.push(['O ataque continua falho. Só evita a arma quebrar ou emperrar.',1]);
+      if(g.id==='arranhao') r.notas.push(['Recupera 1D4 PV, sem passar do máximo.',1]);
+    }
+  }else if(K.modo==='teste'){
+    r.rot=p?kNome(p)+' · Sorte '+(L!=null?z2(L):'?'):'Teste de Sorte'; r.dir='teste';
+    r.tit=['Regular','Difícil','Extremo'][K.dif];
+    if(L!=null) r.alvo=[L,Math.floor(L/2),Math.floor(L/5)][K.dif];
+    else r.notas.push([p?'Falta a Sorte de '+kNome(p)+': preencha em Sorte atual.':'Escolha o PJ.',1]);
+    r.notas.push(['Para o que não depende de perícia: o acaso, as circunstâncias de fora. Se uma perícia serve, use a perícia.',1]);
+    r.notas.push(['Não pode ser forçado, e a Sorte não compra teste de Sorte.',1]);
+    r.notas.push(['Ex.: haver um táxi às duas da manhã numa rua ruim; uma arma improvisada estar à mão. LG 90 e 104.']);
+    r.notas.push(['Engenhoso: em vez do teste, gasta 10 e acha o item. Pulp 27.']);
+  }else if(K.modo==='grupo'){
+    r.rot='Teste coletivo de Sorte'; r.dir='menor Sorte';
+    const na=KPJ.filter(x=>!K.fora[x.id]), com=na.filter(x=>kSorte(x)!=null), sem=na.filter(x=>kSorte(x)==null);
+    if(!na.length){ r.tit='Ninguém na cena'; return r; }
+    if(!com.length){ r.tit='Falta a Sorte'; r.notas.push(['Preencha a Sorte atual dos PJs na cena.',1]); return r; }
+    const min=Math.min(...com.map(kSorte)), q=com.filter(x=>kSorte(x)===min);
+    r.tit=q.map(kNome).join(' ou '); r.alvo=min;
+    if(q.length>1) r.notas.push(['Empate: o Mestre escolhe quem testa.',1]);
+    if(sem.length) r.notas.push(['Sem Sorte preenchida: '+sem.map(kNome).join(', ')+'. Pode mudar quem testa.',1]);
+    r.notas.push(['Testa quem tem a menor Sorte entre os presentes na cena.',1]);
+    r.notas.push(['Se algo ruim tem de cair em alguém do grupo, cai nele, sem teste.',1]);
+    r.notas.push(['Desastre de tiro em alvo no corpo a corpo também acerta o aliado de menor Sorte. LG 90 e 114.']);
+  }else{
+    r.rot='Começo da sessão'; r.dir='recuperar'; r.tit='Cada um rola 1D100';
+    r.aviso='Aqui é ao contrário: <b>passar é tirar acima</b> da Sorte.';
+    r.rec=KPJ.filter(x=>!K.fora[x.id]).map(x=>{
+      const L=kSorte(x), s=!!x.sortudo;
+      if(L==null) return [kNome(x),'??','<span class="k-falha">Sorte a preencher</span>'];
+      if(L>=99) return [kNome(x),z2(L),'<span class="k-falha">já está no máximo</span>'];
+      return [kNome(x),z2(L),'<span class="k-passa">'+(L+1)+' a 100: '+(s?'+2D10 (Sortudo)':'+1D10')+'</span><span class="k-falha">01 a '+z2(L)+': '+(s?'+1D10 (Sortudo)':'nada')+'</span>'];
+    });
+    r.notas.push(['Passou (acima da Sorte): +1D10. Falhou (igual ou abaixo): nada.',1]);
+    if(KPJ.some(x=>x.sortudo&&!K.fora[x.id])) r.notas.push(['Sortudo: mais 1D10 em toda recuperação, passando ou não.',1]);
+    r.notas.push(['A Sorte nunca passa de 99; o que sobra se perde. A Sorte inicial da ficha pode ser ultrapassada.',1]);
+    r.notas.push(['Regra da mesa. No livro: passou +2D10+10, falhou +1D10+5. Pulp 63.']);
+    r.notas.push(['Depois da rolagem, atualize a Sorte na ficha antes de publicar.']);
+  }
+  return r;
+}
+function renderVereditoSorte(){
+  const r=kCalc(), el=document.getElementById('veredito');
+  let h='<div class="v-rotulo"><span>'+esc(r.rot)+'</span><span>'+esc(r.dir)+'</span></div>';
+  h+='<div class="v-linha"><div class="v-dif san">'+esc(r.tit)+'</div></div>';
+  if(r.aviso) h+='<div class="v-alvo k-aviso">'+r.aviso+'</div>';
+  if(r.alvo!=null) h+='<div class="v-alvo">Passa com <b>'+z2(r.alvo)+'</b> ou menos</div>';
+  r.lin.forEach(l=>h+='<div class="v-alvo">'+l+'</div>');
+  if(r.tab) h+='<table class="tabela k-tab">'+r.tab.map(x=>'<tr><td>'+esc(x[0])+'</td><td><b>'+esc(x[1])+'</b> · '+esc(x[2])+'</td></tr>').join('')+'</table>';
+  if(r.rec) h+='<table class="tabela k-tab k-rec">'+r.rec.map(x=>'<tr><td>'+esc(x[1])+'</td><td><b>'+esc(x[0])+'</b>'+x[2]+'</td></tr>').join('')+'</table>';
+  const ns=r.notas.filter(n=>n[1]||K.narrar);
+  if(ns.length) h+='<ul class="v-notas">'+ns.map(n=>'<li'+(n[1]?' class="forte"':'')+'>'+esc(n[0])+'</li>').join('')+'</ul>';
+  if(r.notas.some(n=>!n[1])) h+='<div class="v-acoes"><button data-a="narrar" aria-expanded="'+K.narrar+'">Detalhes</button></div>';
+  el.innerHTML=h;
+}
+function kChipsPJ(a,on){ return '<div class="chips">'+KPJ.map(p=>{const L=kSorte(p); return chip(a,p.id,zCurto(p),L!=null?'Sorte '+z2(L):'sem Sorte',on(p));}).join(''); }
+function kDobra(k,titulo,sub,miolo){
+  const ab=!!K.ab[k];
+  return '<button class="dobra-b" data-a="kab" data-v="'+k+'" aria-expanded="'+ab+'">'+titulo+'<small>'+sub+'</small></button>'+(ab?miolo:'');
+}
+function renderControlesSorte(){
+  const m=K.modo, npc=kNpc();
+  let h='<section class="bloco azul"><h2>O que fazer<small>como gastar a Sorte</small></h2><div class="seg dois">'+KMODOS.map(x=>chip('kmodo',x[0],x[1],x[2],m===x[0])).join('')+'</div></section>';
+  if(m==='gastar'){
+    h+='<section class="bloco azul"><h2>Quem gasta<small>opcional</small></h2>'+kChipsPJ('kquem',x=>K.quem===x.id)+chip('kquem','npc','NPC','',npc)+'</div>';
+    if(npc){
+      if(KNPC.length) h+='<div class="sub chips">'+KNPC.map(x=>chip('kquem',x.id,x.nome,'Sorte '+z2(kSorte(x)),K.quem===x.id)).join('')+'</div>';
+      else h+='<div class="sub seg">'+[['imp','Importante','Sorte = POD'],['sub','Subordinado','metade do POD'],['sem','Lacaio','sem Sorte']].map(x=>chip('knpct',x[0],x[1],x[2],K.npcTipo===x[0])).join('')+'</div>';
+    }
+    h+='</section>';
+    if(npc){
+      h+='<section class="bloco azul"><h2>Gastar em<small>truques sujos · Pulp 63 e 64</small></h2>'+KNPCG.map(g=>kRow('kgasto',g,K.gasto===g.id)).join('')+'</section>';
+    }else{
+      let ult='', it='';
+      KGASTO.forEach(g=>{ if(g.g!==ult){ it+='<p class="grupo-t">'+g.g+'</p>'; ult=g.g; } it+=kRow('kgasto',g,K.gasto===g.id); });
+      h+='<section class="bloco azul"><h2>Gastar em<small>toque no ? para a regra</small></h2>'+it;
+      if(K.gasto==='sanidade') h+='<div class="sub"><button class="chip" data-a="aba" data-v="san">Abrir a aba Sanidade</button></div>';
+      h+='</section>';
+      h+='<section class="bloco azul">'+kDobra('nao','A Sorte não compra','Pulp 63, LG 99','<ul class="v-notas">'+KNAO.map(x=>'<li>'+esc(x)+'</li>').join('')+'</ul>')+'</section>';
+    }
+  }
+  if(m==='teste'){
+    h+='<section class="bloco azul"><h2>Quem testa</h2>'+kChipsPJ('kquem',x=>K.quem===x.id)+'</div></section>';
+    h+='<section class="bloco azul"><h2>Dificuldade<small>quase sempre Regular</small></h2><div class="seg">'+['Regular','Difícil','Extremo'].map((d,i)=>chip('kdif',i,d,'',K.dif===i)).join('')+'</div></section>';
+  }
+  if(m==='grupo'||m==='recuperar') h+='<section class="bloco azul"><h2>Quem está '+(m==='grupo'?'na cena':'na sessão')+'<small>toque para tirar</small></h2>'+kChipsPJ('kfora',x=>!K.fora[x.id])+'</div></section>';
+  h+='<section class="bloco azul">'+kDobra('lista','Sorte atual','corrigir na mesa','<div class="k-grade">'+KPJ.map(x=>'<label class="pericia k-lin"><span>'+esc(zCurto(x))+'<small>'+(x.sorte!=null?'ficha '+z2(x.sorte):'sem ficha')+'</small></span><input id="kl-'+x.id+'" type="number" inputmode="numeric" min="0" max="99" placeholder="..." value="'+(kSorte(x)!=null?kSorte(x):'')+'"></label>').join('')+'</div><p class="nota">Vem da ficha e se atualiza sozinha a cada publicação. A correção feita aqui fica neste aparelho e vale até a ficha mudar.</p>')+'</section>';
+  document.getElementById('controles').innerHTML=h;
+}
+function cliqueSorte(a,v){
+  if(a==='kmodo'){ K.modo=v; K.narrar=false; return true; }
+  if(a==='kquem'){ const era=kNpc(); K.quem=K.quem===v?null:v; if(era!==kNpc()) K.gasto=kNpc()?'n-ajustar':'ajustar'; return true; }
+  if(a==='knpct'){ K.npcTipo=v; return true; }
+  if(a==='kgasto'){ K.gasto=v; return true; }
+  if(a==='kdif'){ K.dif=+v; return true; }
+  if(a==='kfora'){ K.fora[v]=!K.fora[v]; return true; }
+  if(a==='kab'){ K.ab[v]=!K.ab[v]; return true; }
+  if(a==='narrar'){ K.narrar=!K.narrar; return true; }
+  return false;
+}
+function inputSorte(e){
+  const id=e.target.id, n=parseInt(e.target.value,10);
+  if(!id.startsWith('kl-')) return false;
+  const k=id.slice(3), p=PERS.find(x=>x.id===k), f=p&&p.sorte!=null?p.sorte:null;
+  if(n>=0&&n<=99&&n!==f) KMEU[k]={v:n,base:f}; else delete KMEU[k];
+  kSalva(); return true;
+}
+document.addEventListener('change',e=>{ if(S.aba==='sorte'&&e.target.id&&e.target.id.startsWith('kl-')) render(); });
+
 document.addEventListener('click',e=>{
   if(e.target.id==='folha'){ S.folha=null; render(); return; }
   const b=e.target.closest('[data-a]'); if(!b) return;
@@ -878,6 +1088,7 @@ document.addEventListener('click',e=>{
   else if(S.aba==='luta'&&cliqueLuta(a,v)){}
   else if(S.aba==='tele'&&cliqueTele(a,v)){}
   else if(S.aba==='san'&&cliqueSan(a,v)){}
+  else if(S.aba==='sorte'&&cliqueSorte(a,v)){}
   else if(a==='folha'){ S.folha=v; S.lista=null; }
   else if(a==='lista') S.lista=v;
   else if(a==='voltar') S.lista=null;
@@ -909,6 +1120,7 @@ document.addEventListener('click',e=>{
 });
 document.addEventListener('input',e=>{
   const id=e.target.id;
+  if(S.aba==='sorte'){ if(inputSorte(e)) render(true); return; }
   if(id==='tTel'||id==='tArr'){ const m=parseInt(e.target.value,10); T[id==='tTel'?'tel':'arr']=(m>=1&&m<=99)?m:null; render(true); return; }
   if(id==='pA'||id==='pD'){ const m=parseInt(e.target.value,10); L[id]=(m>=1&&m<=99)?m:null; render(true); return; }
   if(id==='zSanIn'||id==='zIntIn'){ const m=parseInt(e.target.value,10); Z[id==='zSanIn'?'san':'intv']=(m>=1&&m<=99)?m:null; render(true); return; }

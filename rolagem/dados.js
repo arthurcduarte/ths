@@ -265,6 +265,7 @@ window.BANCO = {
    "lutar": null,
    "esquivar": 50,
    "fonte": "ficha.yaml do PJ",
+   "sortudo": true,
    "pv": 20,
    "san": 23,
    "int": 40,

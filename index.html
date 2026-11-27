@@ -178,19 +178,28 @@ details.area:not([open]) > summary .seta { transform:rotate(-90deg); }
 /* Perícia que vem de um card (o Blitzzkrieg do Zapata): nome em sangue e etiqueta que abre o card */
 .per.orig .nm { color:var(--sangue); -webkit-text-stroke:.3px var(--sangue); }
 .per .nm a.orig { display:inline-flex; align-items:center; gap:4px; margin-left:6px; vertical-align:2px; font-size:8.5px; font-weight:700; letter-spacing:.12em; color:var(--papel); background:var(--sangue); padding:1px 2px 0 5px; text-decoration:none; -webkit-text-stroke:0; }
-.per .nm a.orig i.q { display:inline-grid; font-size:8px; width:11px; height:11px; letter-spacing:0; font-style:normal; }
-.q { display:inline-grid; place-items:center; width:13px; height:13px; border-radius:50%; border:var(--fio) solid currentColor; font-size:9px; font-weight:700; line-height:1; font-style:normal; }
-/* Condições que duram (insanidade): etiqueta no Estado atual; o "?" abre o texto do card */
-.conds { display:flex; flex-wrap:wrap; justify-content:flex-end; gap:6px 10px; padding:12px 0 2px; }
-.cond { display:inline-flex; align-items:center; gap:8px; }
-.cond .rot { -webkit-text-stroke:.35px var(--sangue); }
-.cond .etq { font-size:10px; font-weight:700; letter-spacing:.12em; text-transform:uppercase; color:var(--papel); background:var(--sangue); padding:3px 7px 2px; }
-.cond button { color:var(--sangue); padding:6px; margin:-6px; }
-.cond button .q { width:17px; height:17px; font-size:11px; }
-.cond-txt { margin:10px 0 4px; padding:12px 12px 10px; }
-.cond-txt h3 { font-weight:700; font-size:10px; letter-spacing:.1em; text-transform:uppercase; color:var(--sangue); margin:10px 0 4px; }
-.cond-txt ul { margin:0; padding-left:16px; } .cond-txt li { margin:3px 0; }
-.cond-txt .nota { margin-top:10px; padding-top:8px; border-top:var(--fio) solid var(--sangue); font-weight:700; }
+.per .nm a.orig i.qm { width:11px; height:11px; font-size:8px; }
+/* "?" num círculo de fio. Classe qm (não "q": .item .q é o quadradinho de quantidade) */
+.qm { display:inline-grid; place-items:center; width:13px; height:13px; border-radius:50%; border:var(--fio) solid currentColor; font-size:9px; font-weight:700; line-height:1; font-style:normal; letter-spacing:0; }
+/* Condição que dura (insanidade): etiqueta curta dentro da caixa de SAN, no lugar do "max"; o toque abre um pop-up */
+.med .insano { display:inline-flex; align-items:center; gap:4px; height:20px; padding:0 2px; color:var(--papel); }
+.med .insano b { font-size:9px; font-weight:700; letter-spacing:.12em; text-transform:uppercase; background:var(--sangue); padding:2px 4px 1px; line-height:1.1; }
+.med .insano .qm { color:var(--sangue); width:12px; height:12px; font-size:8px; }
+.pop { position:fixed; inset:0; z-index:9; background:rgba(10,7,5,.78); display:grid; place-items:center; padding:24px; }
+.pop[hidden] { display:none; }
+.pop .caixa-pop { width:100%; max-width:340px; padding:16px 18px 18px; position:relative; }
+.pop .caixa-pop .rot { display:block; }
+.pop .caixa-pop h2 { font-family:var(--f-titulo); color:var(--sangue); font-size:20px; letter-spacing:.12em; text-transform:uppercase; -webkit-text-stroke:.6px var(--sangue); margin:4px 0 10px; padding-bottom:9px; border-bottom:var(--fio) solid var(--sangue); }
+.pop .caixa-pop p { font-size:12.5px; line-height:1.45; font-weight:700; }
+.pop .fechar-pop { position:absolute; top:12px; right:12px; color:var(--sangue); font-size:9px; font-weight:700; letter-spacing:.2em; text-transform:uppercase; border:var(--fio) solid var(--sangue); padding:3px 7px 2px; }
+/* Poderes de um card no formato de ataque (Blitzzkrieg): tabela de custo e uso, depois o efeito de cada um */
+.pod { border:var(--fio) solid var(--sangue); margin:4px 0 8px; }
+.pod > div { display:grid; grid-template-columns:1fr 58px 50px 44px; align-items:center; gap:4px; padding:6px 8px 5px; }
+.pod > div + div { background:var(--pt) 0 0/4px 2px repeat-x; }
+.pod .nm { font-size:11.5px; letter-spacing:.06em; text-transform:uppercase; font-weight:700; line-height:1.2; }
+.pod .v { font-family:var(--f-titulo); font-size:15px; white-space:nowrap; text-align:center; }
+.pod .cab span { font-size:8.5px; letter-spacing:.18em; text-transform:uppercase; color:var(--sangue); text-align:center; }
+.pod .cab span:first-child { text-align:left; }
 .per .vals { display:flex; align-items:center; flex:none; }
 .per .vals b { width:21.1px; height:23.4px; border:var(--fio) solid var(--sangue); display:grid; place-items:center; font-weight:400; font-size:18.7px; letter-spacing:-.04em; line-height:1; padding-top:1px; -webkit-text-stroke:.5px var(--tinta); }
 .per .vals em { font-style:normal; width:22.6px; text-align:center; font-size:13.3px; border-right:var(--fio) solid var(--sangue); line-height:15px; padding-top:1px; }
@@ -291,15 +300,16 @@ details.area:not([open]) > summary .seta { transform:rotate(-90deg); }
 .atq .cab span { font-size:8.5px; letter-spacing:.18em; text-transform:uppercase; color:var(--sangue); }
 .atq .cab span:last-child { text-align:right; }
 .nota-atq { font-size:10px; letter-spacing:.1em; text-transform:uppercase; color:var(--sangue); text-align:right; margin-bottom:12px; }
-.poder .vercard { display:inline-flex; align-items:center; gap:6px; margin-top:8px; font-size:10px; letter-spacing:.1em; text-transform:uppercase; color:var(--sangue); text-decoration:none; padding:6px 0; }
-.poder .vercard .seta { transform:rotate(-90deg); }
+.poder .vercard, .tal .vercard { display:inline-flex; align-items:center; gap:6px; margin-top:8px; font-size:10px; letter-spacing:.1em; text-transform:uppercase; color:var(--sangue); text-decoration:none; padding:6px 0; }
+.poder .vercard .seta, .tal .vercard .seta { transform:rotate(-90deg); }
 .carta .fonte { margin-top:14px; font-size:8.2px; letter-spacing:.2em; text-transform:uppercase; color:var(--sangue); opacity:.7; display:flex; justify-content:space-between; }
 </style>
 </head>
 <body>
 <div class="mesa" id="mesa"></div>
+<div class="pop" id="pop" hidden></div>
 <div class="zoom" id="zoom" hidden><button class="fechar" data-z="fecha" aria-label="Fechar"><b>Fechar ×</b></button><img id="zoom-img" alt="Foto do grupo"><p class="dica">Dois dedos para ampliar</p></div>
-<script src="dados.js?v=96f0e5f8"></script>
+<script src="dados.js?v=1887e32a"></script>
 <script>
 /* Navegação por # : #/ (portal) · #/<pj> · #/<pj>/ficha · #/<pj>/inventario · #/<pj>/cartas
    O que o jogador mexe (PV, PM, sanidade, sorte, armadura, munição, talento ligado) fica só neste
@@ -318,7 +328,8 @@ function carrega() {
   const reg = pj.ficha ? pj.ficha.registro || '' : '';
   try { E = JSON.parse(localStorage.getItem(chave())); } catch (_) { E = null; }
   if (E && (E.registro || '') !== reg) E = null;
-  if (!E) { E = { registro: reg, mun: {}, off: {}, marc: {}, areas: { estado: 1, combate: 1 } }; ((pj.ficha && pj.ficha.marcadas) || []).forEach(n => { E.marc[n] = 1; }); }
+  if (!E) { E = { registro: reg, mun: {}, off: {}, marc: {}, areas: { estado: 1, combate: 1 } }; ((pj.ficha && pj.ficha.marcadas) || []).forEach(n => { E.marc[n] = 1; });
+    const desl = (pj.ficha && pj.ficha.desligados) || []; ((pj.ficha && pj.ficha.talentos) || []).forEach((t, i) => { if (desl.includes(t.nome)) E.off[i] = 1; }); }
   E.marc = E.marc || {};
 }
 function salva() { try { localStorage.setItem(chave(), JSON.stringify(E)); } catch (_) {} }
@@ -370,7 +381,11 @@ function bloco(id, titulo, dentro) {
   return '<details class="area azul" data-area="' + id + '"' + (E.areas[id] ? ' open' : '') + '><summary><h2 class="titulo">' + titulo + '</h2>' + SETA + '</summary><div class="dentro">' + dentro + '</div></details>';
 }
 function medidor(k, rot, max) {
-  return '<div class="med"><span>' + rot + '</span><input type="number" inputmode="numeric" data-f="' + k + '" value="' + atual(k) + '" aria-label="' + rot + '"><i class="ponto"></i><small>' + (max != null ? 'max ' + max : '') + '</small>' +
+  // Na caixa de SAN, a condição que dura (insanidade) entra no lugar do "max": etiqueta curta que abre um pop-up
+  const cs = k === 'sanidade' ? (pj.ficha.condicoes || []) : [];
+  const baixo = cs.length ? cs.map((c, i) => '<button class="insano" data-a="cond" data-i="' + i + '" aria-label="' + esc(c.nome) + '"><b>' + esc(c.rotulo || c.nome) + '</b><i class="qm">?</i></button>').join('')
+    : '<small>' + (max != null ? 'max ' + max : '') + '</small>';
+  return '<div class="med"><span>' + rot + '</span><input type="number" inputmode="numeric" data-f="' + k + '" value="' + atual(k) + '" aria-label="' + rot + '"><i class="ponto"></i>' + baixo +
     '<div class="pm"><button class="mais" data-a="passo" data-k="' + k + '" data-v="1" aria-label="mais"></button><button data-a="passo" data-k="' + k + '" data-v="-1" aria-label="menos"></button></div></div>';
 }
 function armas() {
@@ -388,27 +403,21 @@ function pericias(q) {
   const l = pj.ficha.pericias.filter(p => !t || semAcento(p[0]).includes(t));
   return l.length ? l.map(p => { const m = p[0].match(/^(.*?)\s*(\(.*\))$/), v = p[1];
     const marca = p[3] ? '<button class="bc' + (E.marc[p[0]] ? ' x' : '') + '" data-a="marca" data-p="' + esc(p[0]) + '" aria-label="Marcar ' + esc(p[0]) + ' para evolução"><i class="circ"></i></button>' : '<span class="bc sem"></span>';
-    const o = p[4] ? '<a class="orig" href="#/' + pj.slug + '/cartas/' + p[4][1] + '" aria-label="Vem do card ' + esc(p[4][0]) + '">' + esc(p[4][0]) + '<i class="q">?</i></a>' : '';
+    const o = p[4] ? '<a class="orig" href="#/' + pj.slug + '/cartas/' + p[4][1] + '" aria-label="Vem do card ' + esc(p[4][0]) + '">' + esc(p[4][0]) + '<i class="qm">?</i></a>' : '';
     return '<div class="per ' + (p[2] ? 'grad' : 'base') + (p[4] ? ' orig' : '') + '">' + marca + '<span class="nm">' + esc(m ? m[1] : p[0]) + o + (m ? '<i>' + esc(m[2].replace('/', ' e ')) + '</i>' : '') + '</span>' +
       '<span class="vals"><b class="num">' + dd(v) + '</b><em class="num">' + dd(Math.floor(v / 2)) + '</em><em class="num">' + dd(Math.floor(v / 5)) + '</em></span></div>'; }).join('')
     : '<div class="per base"><span class="nm" style="padding-left:30px">Nenhuma perícia com esse nome.</span></div>';
-}
-function condicoes() {
-  const c = pj.ficha.condicoes || [];
-  if (!c.length) return '';
-  return '<div class="conds">' + c.map((x, i) => '<span class="cond"><span class="rot">San</span><span class="etq">' + esc(x.nome) + '</span><button data-a="cond" data-i="' + i + '" aria-label="O que é ' + esc(x.nome) + '"><i class="q">?</i></button></span>').join('') + '</div>' +
-    c.map((x, i) => '<div class="cond-txt pontilhado" id="cond-' + i + '" hidden>' + (x.texto ? '<div class="txt">' + md(x.texto) + '</div>' : '') + (x.nota ? '<p class="nota">' + esc(x.nota) + '</p>' : '') + '</div>').join('');
 }
 function ficha() {
   const f = pj.ficha, A = f.atributos, an = f.antecedentes || {};
   const rot = { descricao: 'Descrição', ideologia: 'Ideologia e crenças', pessoas_significativas: 'Pessoas significativas', locais_importantes: 'Locais importantes', pertences_queridos: 'Pertences queridos', caracteristicas: 'Características', ferimentos_e_cicatrizes: 'Ferimentos e cicatrizes', fobias_e_manias: 'Fobias e manias', encontros_estranhos: 'Encontros com entidades estranhas', historia: 'História' };
   mesa.innerHTML = topo('#/' + pj.slug, pj.nome) +
-    bloco('estado', 'Estado atual', condicoes() + '<div class="medidores">' + medidor('pv', 'PV', f.pv.max) + medidor('sorte', 'Srt', null) + medidor('sanidade', 'San', null) + medidor('pm', 'PM', f.pm.max) + medidor('arm', 'Arm', null) + '</div>') +
+    bloco('estado', 'Estado atual', '<div class="medidores">' + medidor('pv', 'PV', f.pv.max) + medidor('sorte', 'Srt', null) + medidor('sanidade', 'San', null) + medidor('pm', 'PM', f.pm.max) + medidor('arm', 'Arm', null) + '</div>') +
     bloco('combate', 'Combate', armas()) +
     bloco('atributos', 'Atributos', '<div class="atribs">' + ['FOR', 'CON', 'DES', 'INT', 'TAM', 'POD', 'APA', 'EDU'].filter(k => A[k] != null).map(k => '<div><span class="a">' + k + '</span>' + caixa(A[k]) + '</div>').join('') + '</div>' +
       '<div class="extras">' + [['MOV', dd(f.mov)], ['Corpo', f.corpo == null ? '—' : (f.corpo < 0 ? '' : '0') + f.corpo], ['DX', String(f.dx || '0').toLowerCase()]].map(x => '<div><span class="rot">' + x[0] + '</span><span class="num">' + esc(x[1]) + '</span></div>').join('') + '</div>') +
     bloco('pericias', 'Perícias', '<input class="busca" id="busca" type="search" placeholder="Buscar perícia..." autocomplete="off"><div id="pers">' + pericias('') + '</div>') +
-    bloco('talentos', 'Talentos e Poderes', '<div class="lista">' + (f.talentos.length || poderes().length ? f.talentos.map((t, i) => '<div class="tal' + (E.off[i] ? ' off' : '') + '"><span class="rot">Talento nº' + (i + 1) + '</span><p class="nome-g">' + esc(t.nome) + '</p><p>' + esc(t.descricao || 'Sem descrição ainda.') + '</p>' +
+    bloco('talentos', 'Talentos e Poderes', '<div class="lista">' + (f.talentos.length || poderes().length ? f.talentos.map((t, i) => '<div class="tal' + (E.off[i] ? ' off' : '') + '"><span class="rot">Talento nº' + (i + 1) + '</span><p class="nome-g">' + esc(t.nome) + '</p><p>' + esc(t.descricao || 'Sem descrição ainda.') + '</p>' + cardDoTalento(t.nome) +
       '<span class="marca" aria-hidden="true"></span><button class="marca-toque" data-a="talento" data-i="' + i + '" aria-label="Ligar ou desligar ' + esc(t.nome) + '"></button></div>').join('') +
       poderes().map(c => '<div class="poder"><span class="rot">' + esc(c.tipo || 'Poder') + '</span><p class="nome-g">' + esc(c.nome) + '</p>' + (c.descricao ? '<p>' + esc(c.descricao) + '</p>' : '') +
       '<a class="vercard" href="#/' + pj.slug + '/cartas/' + c.slug + '">Ver o card ' + SETA + '</a></div>').join('') : '<div><p>Nenhum talento ou poder na ficha.</p></div>') + '</div>') +
@@ -451,6 +460,14 @@ function md(t) {
   }
   return h + (ul ? '</ul>' : '');
 }
+/* Poderes de um card no formato de ataque: tabela (PM, SAN, uso) e o efeito de cada um. Entram onde o texto tem {{poderes}}. */
+function comPoderes(h, ps) {
+  if (!ps || !ps.length) return h.replace('<p>{{poderes}}</p>', '');
+  const b = '<div class="pod"><div class="cab"><span>Poder</span><span>PM</span><span>SAN</span><span>Uso</span></div>' +
+    ps.map(p => '<div><span class="nm">' + esc(p.nome) + '</span><span class="v">' + esc(p.pm || '—') + '</span><span class="v">' + esc(p.san || '—') + '</span><span class="v">' + esc(p.uso || '—') + '</span></div>').join('') + '</div>' +
+    ps.map(p => '<h4>' + esc(p.nome) + '</h4><ul>' + (p.efeito || []).map(x => '<li>' + esc(x) + '</li>').join('') + '</ul>').join('');
+  return h.includes('<p>{{poderes}}</p>') ? h.replace('<p>{{poderes}}</p>', b) : b + h;
+}
 function criatura(c) {
   return '<div class="cri">' + c.attrs.map(a => '<div><span class="rot">' + esc(a[0]) + '</span><span class="num">' + esc(a[1] || '—') + '</span></div>').join('') + '</div>' +
     (c.ataques.length ? '<div class="atq"><div class="cab"><span>Ataque</span><span>Valor</span><span>Dano</span></div>' +
@@ -460,13 +477,15 @@ function criatura(c) {
     c.habilidades.map(x => '<p class="fecho">' + esc(x) + '</p>').join('') + '</div>';
 }
 /* Poderes: os cards do PJ que não são criatura nem tomo (feitiços, regras, habilidades), resumidos na ficha com link para o card. */
-function poderes() { return (pj.cartas || []).filter(c => c.slug && c.tipo !== 'Criatura' && c.tipo !== 'Tomo'); }
+function poderes() { const tal = ((pj.ficha && pj.ficha.talentos) || []).map(t => t.nome); return (pj.cartas || []).filter(c => c.slug && c.tipo !== 'Criatura' && c.tipo !== 'Tomo' && !tal.includes(c.nome)); }
+/* Talento com card próprio (Ciência Estranha): o link fica no talento, e o card não se repete como poder. */
+function cardDoTalento(nome) { const c = (pj.cartas || []).find(x => x.slug && x.nome === nome); return c ? '<a class="vercard" href="#/' + pj.slug + '/cartas/' + c.slug + '">Ver o card ' + SETA + '</a>' : ''; }
 function cartas() {
   mesa.innerHTML = topo('#/' + pj.slug, pj.nome) + '<h1 class="pagina">Cards</h1>' +
     (pj.cartas.length ? pj.cartas.map(c => '<details class="carta papel"' + (c.slug ? ' data-c="' + c.slug + '"' : '') + '><summary>' + (c.tipo ? '<span class="rot">' + esc(c.tipo) + '</span>' : '') + '<h2 class="nome-g">' + esc(c.nome) + '</h2>' + SETA + '</summary><div class="corpo">' +
       (c.img ? '<img class="ilus' + (c.traco ? ' traco' : '') + '" decoding="async" src="' + c.img + '" alt="">' : '') +
       (c.criatura ? criatura(c.criatura) : '') +
-      (!c.texto && !c.criatura && c.descricao ? '<p class="desc">' + esc(c.descricao) + '</p>' : '') + (c.texto ? '<div class="txt">' + md(c.texto) + '</div>' : '') +
+      (!c.texto && !c.criatura && c.descricao ? '<p class="desc">' + esc(c.descricao) + '</p>' : '') + (c.texto ? '<div class="txt">' + comPoderes(md(c.texto), c.poderes) + '</div>' : '') +
       (c.em_jogo && c.em_jogo.length ? '<div class="emjogo pontilhado"><h3>Em jogo</h3><ul>' + c.em_jogo.map(x => '<li>' + esc(x) + '</li>').join('') + '</ul></div>' : '') +
       '<p class="fonte"><span>Two-Headed Serpent</span><span>Pulp Cthulhu</span></p></div></details>').join('')
       : '<p class="vazio">Nenhum card ainda. Os cards de poderes e rituais deste personagem vão aparecer aqui.</p>');
@@ -508,11 +527,14 @@ Z.addEventListener('pointerup', zSolta); Z.addEventListener('pointercancel', zSo
 Z.addEventListener('wheel', ev => { ev.preventDefault(); zEm(zs * (ev.deltaY < 0 ? 1.15 : 1 / 1.15), ev.clientX, ev.clientY); }, { passive: false });
 addEventListener('keydown', ev => { if (ev.key === 'Escape' && !Z.hidden) zFecha(); });
 
+const POP = document.getElementById('pop');
+POP.addEventListener('click', ev => { if (ev.target === POP || ev.target.closest('[data-p=fecha]')) POP.hidden = true; });
+addEventListener('keydown', ev => { if (ev.key === 'Escape') POP.hidden = true; });
 document.addEventListener('click', ev => {
   const z = ev.target.closest('[data-z]'); if (z) { z.dataset.z === 'abre' ? zAbre() : zFecha(); return; }
   const b = ev.target.closest('[data-a]'); if (!b || !pj) return;
   const a = b.dataset.a;
-  if (a === 'cond') { const t = document.getElementById('cond-' + b.dataset.i); t.hidden = !t.hidden; return; }
+  if (a === 'cond') { const c = pj.ficha.condicoes[+b.dataset.i]; POP.innerHTML = '<div class="caixa-pop papel" role="dialog" aria-modal="true"><button class="fechar-pop" data-p="fecha">Fechar ×</button><span class="rot">Condição</span><h2>' + esc(c.nome) + '</h2><p>' + esc(c.nota || '') + '</p></div>'; POP.hidden = false; return; }
   if (a === 'passo') { const k = b.dataset.k; E[k] = Math.max(0, (+atual(k) || 0) + (+b.dataset.v)); document.querySelector('input[data-f="' + k + '"]').value = E[k]; }
   else if (a === 'bala' || a === 'recarga') {
     const i = +b.dataset.i, at = pj.ficha.armas[i];

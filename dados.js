@@ -388,6 +388,7 @@ window.DADOS = {
       "descricao": "Ignora um dado de penalidade por dar vários tiros de pistola na mesma rodada."
      }
     ],
+    "desligados": [],
     "antecedentes": {
      "descricao": "Frio, intimidador, grosseiro, esquentado, durão",
      "ideologia": "\"Deus está morto. Eu dei um tiro bem no meio da fuça dele\"",
@@ -871,6 +872,7 @@ window.DADOS = {
       "descricao": "Recebe um dado de bônus em testes de POD."
      }
     ],
+    "desligados": [],
     "antecedentes": {
      "descricao": "Velho e magro, de barba longa. Sério e concentrado. Sempre de robe escuro, com a Bíblia na mão. Anda com um bastão de madeira simples, que serve de apoio para as pernas fracas e, se preciso, de arma.\n",
      "ideologia": "Frei beneditino, devoto de São Bento. Casto, católico. Há pouco tempo começou a abrir os estudos para além da teologia católica, ainda de forma superficial e curiosa.\n",
@@ -1384,6 +1386,7 @@ window.DADOS = {
       "descricao": "Pode gastar 10 de Sorte para somar um dado de dano a um ataque corpo a corpo que acertou. O dado depende da arma (1D3 desarmado, 1D6 espada)."
      }
     ],
+    "desligados": [],
     "antecedentes": {
      "descricao": "Grosseiro, desleixado, brincalhão, forte, musculoso. Usa uma camiseta puída, suspensórios, calças de brim e uma boina.\n",
      "ideologia": "Católico. Crê em Deus e em Jesus Cristo.",
@@ -1931,6 +1934,7 @@ window.DADOS = {
       "descricao": "Pode gastar Sorte para não perder Sanidade, um ponto de Sorte para cada ponto de Sanidade."
      }
     ],
+    "desligados": [],
     "antecedentes": {
      "descricao": "Baixo, desalinhado, cabelo farto e mal aparado, sempre sob um fez turco bem torneado.",
      "ideologia": "Originalmente um cético. Passou a se questionar sobre certa metafísica no mundo depois de ter contato com um pergaminho muito estranho e diferente de tudo que conhecia. Mas acredita que não há poder maior que a verdade.\n",
@@ -2605,6 +2609,7 @@ window.DADOS = {
       "descricao": "Sempre parece ter o que precisa. Pode gastar 10 de Sorte (em vez de um teste de Sorte) para achar algum equipamento útil onde está (uma lanterna, uma corda, uma arma)."
      }
     ],
+    "desligados": [],
     "antecedentes": {
      "descricao": "Anda sempre com a câmera.",
      "ideologia": "Cristão. Acredita que revelar a podridão do mundo é, de algum modo, purificá-lo.",
@@ -3047,12 +3052,12 @@ window.DADOS = {
     "condicoes": [
      {
       "nome": "Insanidade indefinida",
-      "texto": "**A mente está ferida, e por muito tempo. Qualquer abalo a faz ceder de novo.**\n### De onde vem\n- Perder 1/5 da Sanidade num mesmo dia.\n### Enquanto durar\n- Você joga normalmente.\n- **Qualquer perda de Sanidade, mesmo de 1 ponto, traz um novo acesso de loucura.** No acesso, o Mestre controla o personagem por um tempo curto.\n- Fobias e manias pesam: perto da fonte, dado de penalidade.\n- O Mestre pode mostrar coisas que não são reais. Desconfiou? Peça um **Exame da Realidade** (teste de Sanidade). Falhou: perde 1 de Sanidade, e isso traz um novo acesso.\n### Como acaba\n- Pelo livro, com tratamento ou na fase de desenvolvimento, no fim do capítulo. O Mestre diz quando.\n- O que a loucura deixou na ficha (fobia, mania, talento insano) fica.",
-      "nota": "No Zapata, o acesso de loucura é o Blitzzkrieg tomando o corpo. Os poderes dele custam Sanidade: usar um é chamá-lo."
+      "rotulo": "Insano",
+      "nota": "Sua mente está ferida. Qualquer perda de Sanidade, mesmo de 1 ponto, traz um acesso de loucura: o Blitzzkrieg toma o corpo por um tempo, e quem o conduz é o Mestre. Os poderes dele custam Sanidade: usar um é chamá-lo."
      }
     ],
     "marcadas": [],
-    "registro": "2026-11-26",
+    "registro": "2026-11-27",
     "armas": [
      {
       "nome": "Beretta",
@@ -3114,14 +3119,17 @@ window.DADOS = {
       "descricao": "Pode construir e consertar dispositivos de ciência estranha."
      }
     ],
+    "desligados": [
+     "Sortudo"
+    ],
     "antecedentes": {
-     "descricao": "Porte mediano, cabelos longos e barba. Está sempre sorrindo e fazendo piada: fala alto, gesticula demais, abraça todo mundo. Camisa vermelha e bandana. Desde a Islândia, as mãos estouradas e o corpo marcado de queimaduras.\n",
+     "descricao": "Porte mediano, cabelos longos e barba. Está sempre sorrindo e fazendo piada: fala alto, gesticula demais, abraça todo mundo. Camisa vermelha e bandana.\n",
      "ideologia": "Não é religioso, mas conhece um pouco de cada religião para facilitar negócios: \"Rezo al mismo Dios que mi cliente. Javier ora por todos.\" Tem uma ética de contrabandista: não contrabandeia seres vivos e nunca rouba a encomenda do cliente. Só leva, \"como gorjeta\", o que lhe chama a atenção e não estava no contrato. E, depois de Bingham: \"tampoco trabajamos con serpientes\".\n",
      "pessoas_significativas": "O pai, último membro da família, que morreu em Cali sem deixar nada para o filho. O Héctor Castro, o cachorro que ele resgatou de uma casa abandonada em Nova York.\n",
      "locais_importantes": "Cali, onde cresceu entre pequenos furtos e mercadoria clandestina. Os becos de Nova York, onde ficou conhecido como o \"Colombiano Yankee\".\n",
      "pertences_queridos": "El Runa de Zapa, a runa dourada que aceitou como pagamento de um serviço e virou seu amuleto da sorte. Hoje está perdida. Os pequenos tesouros que recolhe pelo caminho.\n",
      "caracteristicas": "Fanfarrão, brincalhão, carismático, falastrão. Agitado, mas de cabeça fria e mãos firmes na hora difícil. Apaixonado pela vida, pelas mulheres, pela aventura, pela bebida e pela música, evita briga e arma: prefere resolver na conversa. \"Hablemos amigos, luego Javier Zapata les invita a una cerveza y problema solucionado, ¿qué tal?\" Lema: \"Si no respira, puede ser contrabandeado.\"\n",
-     "ferimentos_e_cicatrizes": "O corpo caiu na lava na Islândia: mãos estouradas e queimaduras.\n",
+     "ferimentos_e_cicatrizes": "Algumas cicatrizes de queimadura, da Islândia.\n",
      "fobias_e_manias": "Pega \"gorjetas\": não resiste a um objeto que brilha. Depois de Bingham, passou a ter pesadelos acordado (\"Tengo pesadillas cuando estoy despierto\") e chegou a ouvir gente falando a língua das serpentes.\n",
      "encontros_estranhos": "Em Bingham, Oklahoma, viu o corpo do reverendo Kornfield em chamas. Na Islândia, tocou um cilindro da base do povo serpente e libertou a mente de um Mi-Go, o Blitzzkrieg, que desde então vive no corpo dele.\n",
      "historia": "Começou em Cali, ainda menino, em pequenos furtos e na venda de mercadoria clandestina. Virou um contrabandista experiente, por rio, céu e estrada: pilota aviões e barcos pequenos e entende de mecânica. Certa vez descobriu que a carga era uma adolescente levada para os Estados Unidos e a libertou; o cliente quase o matou, e foram meses de fuga. Desde então confere a carga antes de qualquer serviço. Noutra ocasião, sem receber o combinado, aceitou uma das joias contrabandeadas como pagamento e escolheu uma runa dourada de desenho místico: El Runa de Zapa. Vive por conta própria, sem família, disposto a aproveitar a vida ao máximo: \"¡Javier Zapata nunca morirá en una cama!\"\n"
@@ -3250,11 +3258,12 @@ window.DADOS = {
       {
        "slug": "esferas-de-transporte",
        "nome": "Esferas de Transporte",
-       "descricao": "Esferas negras e seladas do povo serpente, que flutuam e cruzam o céu a 500 km/h. Foi numa delas que o Zapata, o O'Donnel e o Raul fugiram da Islândia.",
+       "descricao": "Esferas vítreas e seladas do povo serpente, que flutuam e cruzam o céu. Foi numa delas que o Zapata, o O'Donnel e o Raul fugiram da Islândia.",
        "em_jogo": [
-        "Velocidade: 500 km/h. Em perseguição, MOV 17.",
-        "Cabe uma pessoa, ou duas com TAM somado até 120.",
-        "Sem o fluido oxigenado: ar para só 30 minutos, e a viagem machuca.",
+        "Velocidade: até uns 200 km/h. Em perseguição, MOV 17.",
+        "Lotação: uma pessoa, ou mais com TAM somado até 175 (o Zapata, o Raul e o O'Donnel, bem apertados).",
+        "Pilotar: sintonizar-se com a esfera pede um teste de POD.",
+        "Sem o fluido oxigenado: ar para só 30 minutos, e cada movimento brusco causa 1D10 de dano a quem está dentro.",
         "Guardada no barracão do Zapata, em Hell's Kitchen."
        ],
        "texto": null,
@@ -3271,10 +3280,52 @@ window.DADOS = {
      "nome": "Blitzzkrieg, o Mi-Go",
      "descricao": "A mente de um Mi-Go, presa por séculos numa máquina do povo serpente, agora solta dentro do corpo do Zapata.",
      "em_jogo": [],
-     "texto": "**Uma mente alienígena dividindo o corpo do Zapata. Útil, poderosa e nada confiável.**\n### Quem é\n- **Nome:** soa como uma luz neon defeituosa. O fonema mais próximo para ouvidos humanos é Blitzzkrieg.\n- **Origem:** Yuggoth (Plutão ou além).\n- **Raça:** Mi-Go, fungos pandimensionais.\n- **Casta:** Engenheiro.\n- **Divindade:** Shub-Niggurath.\n### Projeção Sensorial\n- **Efeito:** amplia os sentidos além dos humanos: visão infravermelha, audição sensível, paladar que analisa química.\n- **Duração:** 1D10 minutos.\n- **Custo:** 3 pontos de magia e 1D4−1 de Sanidade (pode não perder nada).\n- **Uso:** 1 vez por dia.\n### Campo de Escuridão\n- **Efeito:** cria uma área de escuridão completa, onde nenhuma luz penetra.\n- **Custo:** 1 ponto de magia por metro cúbico de escuridão, e 1 de Sanidade.\n- **Uso:** 2 vezes por dia.\n### Zunido Atordoante\n- **Efeito:** um zumbido agudo num cone de até 10 metros. Cada alvo faz um teste resistido de POD; quem falha fica atordoado por 1D4+1 rodadas.\n- **Custo:** 1 ponto de magia por metro de cone, e 1D4 de Sanidade.\n- **Uso:** 1 vez por dia.\n### O que fica com o Zapata\n- **Atributos:** sempre os do Zapata.\n- **Perícias:** o Zapata guarda o conhecimento do Mi-Go. Mythos de Cthulhu 66, Psicologia 70, Medicina 60, Consertos Elétricos 80 e Consertos Mecânicos 80. Na ficha, elas vêm marcadas com \"Mi-Go\".\n- **Talento:** Ciência Estranha.\n- Com Mythos 66, a Sanidade máxima do Zapata é 33.\n- O Blitzzkrieg não usa o talento Sombra do Zapata.\n### Quando ele vem à tona\n- O Zapata está em **insanidade indefinida** (o marcador no Estado atual da ficha).\n- **Qualquer perda de Sanidade traz o Blitzzkrieg:** é o acesso de loucura. Por um tempo, quem age é ele, e o Mestre o conduz.\n- Os poderes custam Sanidade. **Usar um poder é chamar o Blitzzkrieg.**\n- Ele faz parte da mente-colmeia dos fungos de Yuggoth: o Mestre pode agir por ele a qualquer momento.\n- Sanidade é difícil de recuperar. Em 0, a loucura fica para sempre.\n### O que ele quer\n- Manter o corpo do Zapata inteiro até chegar à Cidadela, em Mu.\n- Lá, usar os aparatos científicos para passar a consciência a um corpo Mi-Go. **O processo mata o Zapata.**\n- Vingar-se do povo serpente, que odeia. Não desperdiça uma chance.\n- Colabora com humanos e divide informação até certo ponto, enquanto isso servir ao plano.\n- Não sente compaixão nem lealdade humana: vê aliados como instrumentos inteligentes e descartáveis.\n### História\n1. Veio à Terra numa missão científica dos Mi-Go, atraído pela atividade tecnológica em Mu.\n2. Na guerra de Mu, foi capturado pelo povo serpente, que queria mentes alienígenas como interface para a rede neural de uma base de pesquisa.\n3. O cérebro foi removido e preso num cilindro de metal, onde ficou por séculos, alimentando à força os sistemas da base de pesquisa genética.\n4. Só recobrou a autonomia quando o Zapata tocou o cilindro. Libertou-se dentro do corpo dele.\n### O que ele sabe de Mu\n- **O Segundo Império:** o povo serpente dominava a Terra em tempos antigos, mesmo depois do surgimento da humanidade. O centro do poder era o continente de Mu, onde ciência e feitiçaria se uniam.\n- **O cisma:** o povo serpente se dividiu em três facções. Adoradores de Yig queriam escravizar a humanidade; os de Tsathoggua, exterminá-la; os de Ghatanothoa, hibridizar humanos e serpentes. Lutaram pela Cidadela de Yaddith-Gho, centro de energia e conhecimento no coração de Mu, e o conflito alimentou os extremos.\n- **A queda:** as Coisas Antigas (Elder Things), que também viviam em Mu, atacaram a Cidadela com shoggoths e armas de gravidade. O povo serpente a defendeu tirando-a de fase com a realidade, o que a tornou invulnerável. Derrotadas, as Coisas Antigas selaram Mu em outra dimensão.\n- **Depois:** as lendas humanas dizem que Mu afundou no oceano. O povo serpente nunca mais achou o continente, e os sobreviventes vivem escondidos sob a terra, longe dos humanos, a nova raça dominante.",
+     "texto": "**Uma mente alienígena dividindo o corpo do Zapata. Útil, poderosa e nada confiável.**\n### Quem é\n- **Nome:** soa como uma luz neon defeituosa. O fonema mais próximo para ouvidos humanos é Blitzzkrieg.\n- **Origem:** Yuggoth (Plutão ou além).\n- **Raça:** Mi-Go, fungos pandimensionais.\n- **Casta:** Engenheiro.\n- **Divindade:** Shub-Niggurath.\n### Poderes\n{{poderes}}\n### O conhecimento do Mi-Go\n- As perícias em vermelho na ficha são do Blitzzkrieg: Mythos de Cthulhu 66, Psicologia 70, Medicina 60, Consertos Elétricos 80 e Consertos Mecânicos 80.\n- **Antes de usar uma delas, teste de Sanidade.** Passou: o Zapata segue no controle. Falhou: não perde Sanidade, mas o Blitzzkrieg toma o controle por 1D4 rodadas.\n- Talento Ciência Estranha (ver o card).\n- Com Mythos 66, a Sanidade máxima do Zapata é 33.\n### O preço\n- **Atributos:** sempre os do Zapata.\n- **O Blitzzkrieg tira do Zapata o talento Sortudo.** Na ficha, ele vem desligado.\n### Quando ele vem à tona\n- O Zapata está em **insanidade indefinida** (a etiqueta \"Insano\" na caixa de SAN).\n- **Qualquer perda de Sanidade traz o Blitzzkrieg:** é o acesso de loucura. Por um tempo, quem age é ele, e o Mestre o conduz.\n- Os poderes custam Sanidade. **Usar um poder é chamar o Blitzzkrieg.**\n- Ele faz parte da mente-colmeia dos fungos de Yuggoth: o Mestre pode agir por ele a qualquer momento.\n- Sanidade é difícil de recuperar. Em 0, a loucura fica para sempre.\n### O que ele quer\n- Manter o corpo do Zapata inteiro até chegar à Cidadela, em Mu.\n- Lá, usar os aparatos científicos para passar a consciência a um corpo Mi-Go. **O processo mata o Zapata.**\n- Vingar-se do povo serpente, que odeia. Não desperdiça uma chance.\n- Colabora com humanos e divide informação até certo ponto, enquanto isso servir ao plano.\n- Não sente compaixão nem lealdade humana: vê aliados como instrumentos inteligentes e descartáveis.\n### História\n1. Veio à Terra numa missão científica dos Mi-Go, atraído pela atividade tecnológica em Mu.\n2. Na guerra de Mu, foi capturado pelo povo serpente, que queria mentes alienígenas como interface para a rede neural de uma base de pesquisa.\n3. O cérebro foi removido e preso num cilindro de metal, onde ficou por séculos, alimentando à força os sistemas da base de pesquisa genética.\n4. Só recobrou a autonomia quando o Zapata tocou o cilindro. Libertou-se dentro do corpo dele.\n### O que ele sabe de Mu\n- **O Segundo Império:** o povo serpente dominava a Terra em tempos antigos, mesmo depois do surgimento da humanidade. O centro do poder era o continente de Mu, onde ciência e feitiçaria se uniam.\n- **O cisma:** o povo serpente se dividiu em três facções. Adoradores de Yig queriam escravizar a humanidade; os de Tsathoggua, exterminá-la; os de Ghatanothoa, hibridizar humanos e serpentes. Lutaram pela Cidadela de Yaddith-Gho, centro de energia e conhecimento no coração de Mu, e o conflito alimentou os extremos.\n- **A queda:** as Coisas Antigas (Elder Things), que também viviam em Mu, atacaram a Cidadela com shoggoths e armas de gravidade. O povo serpente a defendeu tirando-a de fase com a realidade, o que a tornou invulnerável. Derrotadas, as Coisas Antigas selaram Mu em outra dimensão.\n- **Depois:** as lendas humanas dizem que Mu afundou no oceano. O povo serpente nunca mais achou o continente, e os sobreviventes vivem escondidos sob a terra, longe dos humanos, a nova raça dominante.",
      "tipo": "Possessão Mi-Go",
      "img": "img/blitzzkrieg-mi-go.webp?v=389f847f",
-     "traco": 1
+     "traco": 1,
+     "poderes": [
+      {
+       "nome": "Projeção Sensorial",
+       "pm": "3",
+       "san": "1D4−1",
+       "uso": "1/dia",
+       "efeito": [
+        "Amplia os sentidos além dos humanos por 1D10 minutos.",
+        "Visão infravermelha, audição sensível, paladar que analisa química.",
+        "Pode não perder Sanidade (1D4−1)."
+       ]
+      },
+      {
+       "nome": "Campo de Escuridão",
+       "pm": "1/m³",
+       "san": "1",
+       "uso": "2/dia",
+       "efeito": [
+        "Cria uma área de escuridão completa, onde nenhuma luz penetra.",
+        "1 ponto de magia por metro cúbico. A Sanidade é 1, qualquer que seja o tamanho."
+       ]
+      },
+      {
+       "nome": "Zunido Atordoante",
+       "pm": "1/m",
+       "san": "1D4",
+       "uso": "1/dia",
+       "efeito": [
+        "Zumbido agudo num cone de até 10 metros (1 ponto de magia por metro).",
+        "Cada alvo faz um teste resistido de POD. Quem falha fica atordoado por 1D4+1 rodadas."
+       ]
+      }
+     ]
+    },
+    {
+     "slug": "ciencia-estranha",
+     "nome": "Ciência Estranha",
+     "descricao": "Invenções, engenhocas e tecnologias impossíveis. Com este talento, o herói pode construí-las e consertá-las.",
+     "em_jogo": [],
+     "texto": "**Você pode construir e consertar engenhocas de ciência estranha. Cada uma faz uma coisa só, e cada uma pode explodir.**\n### Como construir\n1. **Peças:** consiga os componentes, comprando, trocando ou roubando. Pode custar dinheiro ou favores.\n2. **Lugar:** uma oficina ou laboratório, com as ferramentas certas.\n3. **Tempo:** simples, 1D10+5 horas; complexa, 1D10+5 dias ou semanas; muito complexa, meses ou anos. O Mestre define.\n4. **Teste:** ao fim do tempo, uma perícia ou um teste combinado. Consertos Mecânicos, Consertos Elétricos, Ciência; Ocultismo ou Mythos de Cthulhu para o que for esotérico.\n5. **Uma função por engenhoca.** Uma máquina que leva gente à Lua não leva a Júpiter.\n### Dificuldade\n- **Regular:** função simples e não destrutiva, ou faz o papel de uma perícia com 40%.\n- **Difícil:** função complexa ou destrutiva (uma arma), uma perícia com 60%, ou 1 dado de bônus num teste específico por 1D4 usos.\n- **Extrema:** função muito complexa ou bizarra, uma perícia com 90%, 1 dado de bônus por 1D10 usos, ou qualquer coisa ligada ao Mythos.\n### Quando dá errado\n- **Falhou:** não funciona. Recomeça do zero para tentar de novo.\n- **Forçar:** com boa justificativa, pode. Se falhar, é dramático: a engenhoca funciona por pouco tempo e pode explodir a cada uso (teste de Sorte; falhou, 1D6 de dano em todos a 2 m), explode na hora (2D10 a 4D10 em todos a 3 m), ou funciona de um jeito perigoso.\n- **Desastre:** a engenhoca se destrói.\n### Tecnologia do Mythos\n- Aparatos de outras raças não foram feitos para humanos. Quem tenta usar se confunde, e é mais fácil se ferir do que acertar.\n- Na melhor das hipóteses, um engenheiro muito bom reproduz o efeito com tecnologia da Terra, ou adapta o aparato para mãos humanas.\n### Exemplos do livro\n#### Simples\n- **Gazua automática:** um tubo que abre fechaduras com 40%. Peças de $50, 1D10+5 horas, Consertos Mecânicos.\n- **Imitador de voz:** caixa com trompete que disfarça a voz ao telefone, até de homem para mulher. Peças de $100, 1D10+5 horas, Consertos Elétricos.\n#### Complexos\n- **Detector de fantasmas:** bolsa de luzes que acende com espíritos a até 6 m (60%). Peças de $250, 1D10+1 dias, Consertos Elétricos, Ciência (Física) e Ocultismo.\n- **Raio da morte:** arma de duas mãos, 1D10+5 de dano de calor, ignora armadura comum. Usa Armas de Fogo (Rifles); 1D8 tiros e 10 horas de recarga. Peças de $1.000, 1D10+5 semanas, Consertos Elétricos e Ciência (Física), Difícil.\n- **Telefone portátil:** duas caixas de 9 kg com manivela; conversa a até 1,5 km. Peças de $1.000, 1D10+5 semanas, Consertos Elétricos e Ciência (Física), Difícil.\n- **Linguistafone:** trombeta de bronze que faz entender qualquer língua da Terra. Peças de $1.600, 1D10+5 semanas, Consertos Elétricos e Ciência (Matemática), Difícil.\n- **Potencializador cerebral:** capacete de válvulas que corta o tempo de leitura pela metade. Peças de $2.000, 1D10+5 semanas, Consertos Elétricos e Ciência (Biologia), Difícil.\n#### Grande\n- **Mochila a jato:** salta até 60 m de altura e 30 m de distância, 4 saltos por carga. Perfurada, explode (3D10+5 em quem usa). Peças de $10.000, 2D10+1 meses, Consertos Mecânicos, Consertos Elétricos e Ciência (Física), Difícil.",
+     "tipo": "Talento",
+     "img": null
     }
    ]
   }
