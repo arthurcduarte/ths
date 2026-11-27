@@ -3377,7 +3377,7 @@ window.DADOS = {
         "Mordida",
         50,
         "25/10",
-        "1D6-1"
+        "1D6"
        ],
        [
         "Esquivar",
