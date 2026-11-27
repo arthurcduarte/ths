@@ -309,7 +309,7 @@ details.area:not([open]) > summary .seta { transform:rotate(-90deg); }
 <div class="mesa" id="mesa"></div>
 <div class="pop" id="pop" hidden></div>
 <div class="zoom" id="zoom" hidden><button class="fechar" data-z="fecha" aria-label="Fechar"><b>Fechar ×</b></button><img id="zoom-img" alt="Foto do grupo"><p class="dica">Dois dedos para ampliar</p></div>
-<script src="dados.js?v=eb765cc5"></script>
+<script src="dados.js?v=cbc9b6ce"></script>
 <script>
 /* Navegação por # : #/ (portal) · #/<pj> · #/<pj>/ficha · #/<pj>/inventario · #/<pj>/cartas
    O que o jogador mexe (PV, PM, sanidade, sorte, armadura, munição, talento ligado) fica só neste
@@ -471,21 +471,21 @@ function comPoderes(h, ps) {
 }
 function criatura(c) {
   return '<div class="cri">' + c.attrs.map(a => '<div><span class="rot">' + esc(a[0]) + '</span><span class="num">' + esc(a[1] || '—') + '</span></div>').join('') + '</div>' +
-    (c.ataques.length ? '<div class="atq"><div class="cab"><span>Ataque</span><span>Valor</span><span>Dano</span></div>' +
+    (c.ataques.length ? '<div class="atq"><div class="cab"><span>Ataque e teste</span><span>Valor</span><span>Dano</span></div>' +
       c.ataques.map(a => '<div><span class="nm">' + esc(a[0]) + '</span><span class="v">' + (a[1] == null ? '—' : a[1]) + (a[2] ? ' <small>(' + a[2] + ')</small>' : '') + '</span><span class="d">' + esc(a[3]) + '</span></div>').join('') + '</div>' : '') +
     (c.nota ? '<p class="nota-atq">' + esc(c.nota) + '</p>' : '') +
     '<div class="txt">' + c.efeitos.map(e => '<h4>' + esc(e.nome) + '</h4><ul>' + e.itens.map(x => '<li>' + esc(x) + '</li>').join('') + '</ul>').join('') +
     c.habilidades.map(x => '<p class="fecho">' + esc(x) + '</p>').join('') + '</div>';
 }
 /* Poderes: os cards do PJ que não são criatura nem tomo (feitiços, regras, habilidades), resumidos na ficha com link para o card. */
-function poderes() { const tal = ((pj.ficha && pj.ficha.talentos) || []).map(t => t.nome); return (pj.cartas || []).filter(c => c.slug && c.tipo !== 'Criatura' && c.tipo !== 'Tomo' && !tal.includes(c.nome)); }
+function poderes() { const tal = ((pj.ficha && pj.ficha.talentos) || []).map(t => t.nome); return (pj.cartas || []).filter(c => c.slug && !c.criatura && c.tipo !== 'Criatura' && c.tipo !== 'Tomo' && !tal.includes(c.nome)); }
 /* Talento com card próprio (Ciência Estranha): o link fica no talento, e o card não se repete como poder. */
 function cardDoTalento(nome) { const c = (pj.cartas || []).find(x => x.slug && x.nome === nome); return c ? '<a class="vercard" href="#/' + pj.slug + '/cartas/' + c.slug + '">Ver o card ' + SETA + '</a>' : ''; }
 function cartas() {
   mesa.innerHTML = topo('#/' + pj.slug, pj.nome) + '<h1 class="pagina">Cards</h1>' +
     (pj.cartas.length ? pj.cartas.map(c => '<details class="carta papel"' + (c.slug ? ' data-c="' + c.slug + '"' : '') + '><summary>' + (c.tipo ? '<span class="rot">' + esc(c.tipo) + '</span>' : '') + '<h2 class="nome-g">' + esc(c.nome) + '</h2>' + SETA + '</summary><div class="corpo">' +
       (c.img ? '<img class="ilus' + (c.traco ? ' traco' : '') + '" decoding="async" src="' + c.img + '" alt="">' : '') +
-      (c.criatura ? criatura(c.criatura) : '') +
+      (c.criatura && c.descricao ? '<p class="desc">' + esc(c.descricao) + '</p>' : '') + (c.criatura ? criatura(c.criatura) : '') +
       (!c.texto && !c.criatura && c.descricao ? '<p class="desc">' + esc(c.descricao) + '</p>' : '') + (c.texto ? '<div class="txt">' + comPoderes(md(c.texto), c.poderes) + '</div>' : '') +
       (c.em_jogo && c.em_jogo.length ? '<div class="emjogo pontilhado"><h3>Em jogo</h3><ul>' + c.em_jogo.map(x => '<li>' + esc(x) + '</li>').join('') + '</ul></div>' : '') +
       '<p class="fonte"><span>Two-Headed Serpent</span><span>Pulp Cthulhu</span></p></div></details>').join('')

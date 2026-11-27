@@ -3324,6 +3324,84 @@ window.DADOS = {
      "texto": "**Você pode construir e consertar engenhocas de ciência estranha. Cada uma faz uma coisa só, e cada uma pode explodir.**\n### Como construir\n1. **Peças:** consiga os componentes, comprando, trocando ou roubando. Pode custar dinheiro ou favores.\n2. **Lugar:** uma oficina ou laboratório, com as ferramentas certas.\n3. **Tempo:** simples, 1D10+5 horas; complexa, 1D10+5 dias ou semanas; muito complexa, meses ou anos. O Mestre define.\n4. **Teste:** ao fim do tempo, uma perícia ou um teste combinado. Consertos Mecânicos, Consertos Elétricos, Ciência; Ocultismo ou Mythos de Cthulhu para o que for esotérico.\n5. **Uma função por engenhoca.** Uma máquina que leva gente à Lua não leva a Júpiter.\n### Dificuldade\n- **Regular:** função simples e não destrutiva, ou faz o papel de uma perícia com 40%.\n- **Difícil:** função complexa ou destrutiva (uma arma), uma perícia com 60%, ou 1 dado de bônus num teste específico por 1D4 usos.\n- **Extrema:** função muito complexa ou bizarra, uma perícia com 90%, 1 dado de bônus por 1D10 usos, ou qualquer coisa ligada ao Mythos.\n### Quando dá errado\n- **Falhou:** não funciona. Recomeça do zero para tentar de novo.\n- **Forçar:** com boa justificativa, pode. Se falhar, é dramático: a engenhoca funciona por pouco tempo e pode explodir a cada uso (teste de Sorte; falhou, 1D6 de dano em todos a 2 m), explode na hora (2D10 a 4D10 em todos a 3 m), ou funciona de um jeito perigoso.\n- **Desastre:** a engenhoca se destrói.\n### Tecnologia do Mythos\n- Aparatos de outras raças não foram feitos para humanos. Quem tenta usar se confunde, e é mais fácil se ferir do que acertar.\n- Na melhor das hipóteses, um engenheiro muito bom reproduz o efeito com tecnologia da Terra, ou adapta o aparato para mãos humanas.\n### Exemplos do livro\n#### Simples\n- **Gazua automática:** um tubo que abre fechaduras com 40%. Peças de $50, 1D10+5 horas, Consertos Mecânicos.\n- **Imitador de voz:** caixa com trompete que disfarça a voz ao telefone, até de homem para mulher. Peças de $100, 1D10+5 horas, Consertos Elétricos.\n#### Complexos\n- **Detector de fantasmas:** bolsa de luzes que acende com espíritos a até 6 m (60%). Peças de $250, 1D10+1 dias, Consertos Elétricos, Ciência (Física) e Ocultismo.\n- **Raio da morte:** arma de duas mãos, 1D10+5 de dano de calor, ignora armadura comum. Usa Armas de Fogo (Rifles); 1D8 tiros e 10 horas de recarga. Peças de $1.000, 1D10+5 semanas, Consertos Elétricos e Ciência (Física), Difícil.\n- **Telefone portátil:** duas caixas de 9 kg com manivela; conversa a até 1,5 km. Peças de $1.000, 1D10+5 semanas, Consertos Elétricos e Ciência (Física), Difícil.\n- **Linguistafone:** trombeta de bronze que faz entender qualquer língua da Terra. Peças de $1.600, 1D10+5 semanas, Consertos Elétricos e Ciência (Matemática), Difícil.\n- **Potencializador cerebral:** capacete de válvulas que corta o tempo de leitura pela metade. Peças de $2.000, 1D10+5 semanas, Consertos Elétricos e Ciência (Biologia), Difícil.\n#### Grande\n- **Mochila a jato:** salta até 60 m de altura e 30 m de distância, 4 saltos por carga. Perfurada, explode (3D10+5 em quem usa). Peças de $10.000, 2D10+1 meses, Consertos Mecânicos, Consertos Elétricos e Ciência (Física), Difícil.",
      "tipo": "Talento",
      "img": null
+    },
+    {
+     "slug": "hector-castro",
+     "nome": "Héctor Castro",
+     "descricao": "Cachorro branco de porte médio, pelo farto e coleira de couro. Fiel ao Zapata, que o tirou de um lugar horrível. Tem um faro e um ouvido que nenhum humano do grupo alcança.",
+     "em_jogo": [],
+     "texto": null,
+     "tipo": "Companheiro animal",
+     "img": "img/hector-castro.webp?v=2c85bd9b",
+     "criatura": {
+      "attrs": [
+       [
+        "FOR",
+        "30"
+       ],
+       [
+        "DES",
+        "70"
+       ],
+       [
+        "DX",
+        "-1"
+       ],
+       [
+        "CON",
+        "55"
+       ],
+       [
+        "POD",
+        "55"
+       ],
+       [
+        "Corpo",
+        "-1"
+       ],
+       [
+        "TAM",
+        "32"
+       ],
+       [
+        "PV",
+        "17"
+       ],
+       [
+        "MOV",
+        "14"
+       ]
+      ],
+      "ataques": [
+       [
+        "Mordida",
+        50,
+        "25/10",
+        "1D6-1"
+       ],
+       [
+        "Esquivar",
+        75,
+        "37/15",
+        ""
+       ],
+       [
+        "Escutar",
+        65,
+        "32/13",
+        ""
+       ],
+       [
+        "Rastrear",
+        80,
+        "40/16",
+        ""
+       ]
+      ],
+      "nota": null,
+      "efeitos": [],
+      "habilidades": []
+     }
     }
    ]
   }
