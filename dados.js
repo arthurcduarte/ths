@@ -328,6 +328,7 @@ window.DADOS = {
       1
      ]
     ],
+    "condicoes": [],
     "marcadas": [],
     "registro": "2026-11-18",
     "armas": [
@@ -837,6 +838,7 @@ window.DADOS = {
       1
      ]
     ],
+    "condicoes": [],
     "marcadas": [],
     "registro": "2026-11-25",
     "armas": [
@@ -1329,6 +1331,7 @@ window.DADOS = {
       1
      ]
     ],
+    "condicoes": [],
     "marcadas": [
      "Dirigir Automóveis"
     ],
@@ -1865,6 +1868,7 @@ window.DADOS = {
       1
      ]
     ],
+    "condicoes": [],
     "marcadas": [
      "Dirigir Automóveis",
      "Encontrar"
@@ -2566,6 +2570,7 @@ window.DADOS = {
       1
      ]
     ],
+    "condicoes": [],
     "marcadas": [
      "Esquivar"
     ],
@@ -2706,8 +2711,572 @@ window.DADOS = {
   {
    "slug": "javier-zapata",
    "nome": "Javier Zapata",
-   "jogador": "Lucas",
-   "retrato": null
+   "jogador": "Lucas Fujarra",
+   "retrato": "img/javier-zapata.webp?v=c6c7e8a0",
+   "ficha": {
+    "ocupacao": "Contrabandista",
+    "arquetipo": "Malandro",
+    "idade": 38,
+    "nascimento": "Cali, Colômbia",
+    "peso": null,
+    "altura": null,
+    "atributos": {
+     "FOR": 50,
+     "CON": 60,
+     "DES": 90,
+     "INT": 40,
+     "TAM": 40,
+     "POD": 60,
+     "APA": 80,
+     "EDU": 80
+    },
+    "pv": {
+     "max": 20,
+     "atual": 9
+    },
+    "pm": {
+     "max": 12,
+     "atual": 11
+    },
+    "armadura": {
+     "valor": 0
+    },
+    "mov": 9,
+    "corpo": 0,
+    "dx": "0",
+    "sorte": 31,
+    "sanidade": 23,
+    "pericias": [
+     [
+      "Antropologia",
+      1,
+      0,
+      1
+     ],
+     [
+      "Armas de Fogo (Pistolas)",
+      59,
+      1,
+      1
+     ],
+     [
+      "Armas de Fogo (Rifles/Espingardas)",
+      25,
+      1,
+      1
+     ],
+     [
+      "Arqueologia",
+      1,
+      0,
+      1
+     ],
+     [
+      "Arremessar",
+      20,
+      0,
+      1
+     ],
+     [
+      "Arte e Ofício",
+      5,
+      0,
+      1
+     ],
+     [
+      "Avaliação",
+      5,
+      0,
+      1
+     ],
+     [
+      "Cavalgar",
+      5,
+      0,
+      1
+     ],
+     [
+      "Charme",
+      64,
+      1,
+      1
+     ],
+     [
+      "Chaveiro",
+      62,
+      1,
+      1
+     ],
+     [
+      "Ciência",
+      1,
+      0,
+      1
+     ],
+     [
+      "Consertos Elétricos",
+      80,
+      1,
+      1,
+      [
+       "Mi-Go",
+       "blitzzkrieg-mi-go"
+      ]
+     ],
+     [
+      "Consertos Mecânicos",
+      80,
+      1,
+      1,
+      [
+       "Mi-Go",
+       "blitzzkrieg-mi-go"
+      ]
+     ],
+     [
+      "Contabilidade",
+      5,
+      0,
+      1
+     ],
+     [
+      "Direito",
+      5,
+      0,
+      1
+     ],
+     [
+      "Dirigir Automóveis",
+      20,
+      0,
+      1
+     ],
+     [
+      "Disfarce",
+      74,
+      1,
+      1
+     ],
+     [
+      "Encontrar",
+      50,
+      1,
+      1
+     ],
+     [
+      "Escalar",
+      20,
+      0,
+      1
+     ],
+     [
+      "Escutar",
+      20,
+      0,
+      1
+     ],
+     [
+      "Esquivar",
+      50,
+      1,
+      1
+     ],
+     [
+      "Furtividade",
+      54,
+      1,
+      1
+     ],
+     [
+      "História",
+      5,
+      0,
+      1
+     ],
+     [
+      "Intimidação",
+      15,
+      0,
+      1
+     ],
+     [
+      "Lábia",
+      80,
+      1,
+      1
+     ],
+     [
+      "Língua",
+      1,
+      0,
+      1
+     ],
+     [
+      "Língua (Nativa)",
+      80,
+      0,
+      1
+     ],
+     [
+      "Lutar (Briga)",
+      25,
+      0,
+      1
+     ],
+     [
+      "Medicina",
+      60,
+      1,
+      1,
+      [
+       "Mi-Go",
+       "blitzzkrieg-mi-go"
+      ]
+     ],
+     [
+      "Mundo Natural",
+      10,
+      0,
+      1
+     ],
+     [
+      "Mythos de Cthulhu",
+      66,
+      1,
+      0,
+      [
+       "Mi-Go",
+       "blitzzkrieg-mi-go"
+      ]
+     ],
+     [
+      "Natação",
+      20,
+      0,
+      1
+     ],
+     [
+      "Navegação",
+      10,
+      0,
+      1
+     ],
+     [
+      "Nível de Crédito",
+      24,
+      1,
+      0
+     ],
+     [
+      "Ocultismo",
+      5,
+      0,
+      1
+     ],
+     [
+      "Operar Maquinário Pesado",
+      1,
+      0,
+      1
+     ],
+     [
+      "Persuasão",
+      10,
+      0,
+      1
+     ],
+     [
+      "Pilotar (Avião)",
+      60,
+      1,
+      1
+     ],
+     [
+      "Prestidigitação",
+      39,
+      1,
+      1
+     ],
+     [
+      "Primeiros Socorros",
+      30,
+      0,
+      1
+     ],
+     [
+      "Psicanálise",
+      1,
+      0,
+      1
+     ],
+     [
+      "Psicologia",
+      70,
+      1,
+      1,
+      [
+       "Mi-Go",
+       "blitzzkrieg-mi-go"
+      ]
+     ],
+     [
+      "Rastrear",
+      10,
+      0,
+      1
+     ],
+     [
+      "Saltar",
+      20,
+      0,
+      1
+     ],
+     [
+      "Sobrevivência",
+      10,
+      0,
+      1
+     ],
+     [
+      "Usar Bibliotecas",
+      20,
+      0,
+      1
+     ]
+    ],
+    "condicoes": [
+     {
+      "nome": "Insanidade indefinida",
+      "texto": "**A mente está ferida, e por muito tempo. Qualquer abalo a faz ceder de novo.**\n### De onde vem\n- Perder 1/5 da Sanidade num mesmo dia.\n### Enquanto durar\n- Você joga normalmente.\n- **Qualquer perda de Sanidade, mesmo de 1 ponto, traz um novo acesso de loucura.** No acesso, o Mestre controla o personagem por um tempo curto.\n- Fobias e manias pesam: perto da fonte, dado de penalidade.\n- O Mestre pode mostrar coisas que não são reais. Desconfiou? Peça um **Exame da Realidade** (teste de Sanidade). Falhou: perde 1 de Sanidade, e isso traz um novo acesso.\n### Como acaba\n- Pelo livro, com tratamento ou na fase de desenvolvimento, no fim do capítulo. O Mestre diz quando.\n- O que a loucura deixou na ficha (fobia, mania, talento insano) fica.",
+      "nota": "No Zapata, o acesso de loucura é o Blitzzkrieg tomando o corpo. Os poderes dele custam Sanidade: usar um é chamá-lo."
+     }
+    ],
+    "marcadas": [],
+    "registro": "2026-11-26",
+    "armas": [
+     {
+      "nome": "Beretta",
+      "pericia": "Armas de Fogo (Pistolas)",
+      "valor": 59,
+      "dano": "1D8",
+      "alcance": 10,
+      "municao": 8,
+      "carregada": null
+     },
+     {
+      "nome": "Escopeta serrada",
+      "pericia": "Armas de Fogo (Rifles/Espingardas)",
+      "valor": 25,
+      "dano": "4D6/1D6",
+      "alcance": "3/7",
+      "municao": 2,
+      "carregada": null
+     },
+     {
+      "nome": "Pistola de Chamas",
+      "pericia": "Armas de Fogo (Pistolas)",
+      "valor": 59,
+      "dano": "1D10+fogo (1 PM por tiro)",
+      "alcance": 10,
+      "municao": null,
+      "carregada": null
+     },
+     {
+      "nome": "Tocha",
+      "pericia": "Lutar (Briga)",
+      "valor": 25,
+      "dano": "1D6+queimar",
+      "alcance": null,
+      "municao": null,
+      "carregada": null
+     },
+     {
+      "nome": "Desarmado",
+      "pericia": "Lutar (Briga)",
+      "valor": 25,
+      "dano": "1D3+DX",
+      "alcance": null,
+      "municao": null,
+      "carregada": null
+     }
+    ],
+    "talentos": [
+     {
+      "nome": "Sortudo",
+      "descricao": "Recupera mais 1D10 pontos de Sorte nos testes de Recuperação de Sorte."
+     },
+     {
+      "nome": "Sombra",
+      "descricao": "Um passo a menos de dificuldade, ou um dado de bônus (a critério do Mestre), em Furtividade. Se não está sendo visto, faz dois ataques surpresa antes de ser descoberto."
+     },
+     {
+      "nome": "Ciência Estranha",
+      "descricao": "Pode construir e consertar dispositivos de ciência estranha."
+     }
+    ],
+    "antecedentes": {
+     "descricao": "Porte mediano, cabelos longos e barba. Está sempre sorrindo e fazendo piada: fala alto, gesticula demais, abraça todo mundo. Camisa vermelha e bandana. Desde a Islândia, as mãos estouradas e o corpo marcado de queimaduras.\n",
+     "ideologia": "Não é religioso, mas conhece um pouco de cada religião para facilitar negócios: \"Rezo al mismo Dios que mi cliente. Javier ora por todos.\" Tem uma ética de contrabandista: não contrabandeia seres vivos e nunca rouba a encomenda do cliente. Só leva, \"como gorjeta\", o que lhe chama a atenção e não estava no contrato. E, depois de Bingham: \"tampoco trabajamos con serpientes\".\n",
+     "pessoas_significativas": "O pai, último membro da família, que morreu em Cali sem deixar nada para o filho. O Héctor Castro, o cachorro que ele resgatou de uma casa abandonada em Nova York.\n",
+     "locais_importantes": "Cali, onde cresceu entre pequenos furtos e mercadoria clandestina. Os becos de Nova York, onde ficou conhecido como o \"Colombiano Yankee\".\n",
+     "pertences_queridos": "El Runa de Zapa, a runa dourada que aceitou como pagamento de um serviço e virou seu amuleto da sorte. Hoje está perdida. Os pequenos tesouros que recolhe pelo caminho.\n",
+     "caracteristicas": "Fanfarrão, brincalhão, carismático, falastrão. Agitado, mas de cabeça fria e mãos firmes na hora difícil. Apaixonado pela vida, pelas mulheres, pela aventura, pela bebida e pela música, evita briga e arma: prefere resolver na conversa. \"Hablemos amigos, luego Javier Zapata les invita a una cerveza y problema solucionado, ¿qué tal?\" Lema: \"Si no respira, puede ser contrabandeado.\"\n",
+     "ferimentos_e_cicatrizes": "O corpo caiu na lava na Islândia: mãos estouradas e queimaduras.\n",
+     "fobias_e_manias": "Pega \"gorjetas\": não resiste a um objeto que brilha. Depois de Bingham, passou a ter pesadelos acordado (\"Tengo pesadillas cuando estoy despierto\") e chegou a ouvir gente falando a língua das serpentes.\n",
+     "encontros_estranhos": "Em Bingham, Oklahoma, viu o corpo do reverendo Kornfield em chamas. Na Islândia, tocou um cilindro da base do povo serpente e libertou a mente de um Mi-Go, o Blitzzkrieg, que desde então vive no corpo dele.\n",
+     "historia": "Começou em Cali, ainda menino, em pequenos furtos e na venda de mercadoria clandestina. Virou um contrabandista experiente, por rio, céu e estrada: pilota aviões e barcos pequenos e entende de mecânica. Certa vez descobriu que a carga era uma adolescente levada para os Estados Unidos e a libertou; o cliente quase o matou, e foram meses de fuga. Desde então confere a carga antes de qualquer serviço. Noutra ocasião, sem receber o combinado, aceitou uma das joias contrabandeadas como pagamento e escolheu uma runa dourada de desenho místico: El Runa de Zapa. Vive por conta própria, sem família, disposto a aproveitar a vida ao máximo: \"¡Javier Zapata nunca morirá en una cama!\"\n"
+    }
+   },
+   "inventario": [
+    {
+     "slug": "beretta",
+     "nome": "Beretta",
+     "descricao": "Pistola automática italiana, compacta, de cabo de madeira, que mora num coldre de couro debaixo do braço do Zapata. Discreta o bastante para passar numa revista apressada.",
+     "em_jogo": [
+      "Perícia: Armas de Fogo (Pistolas)",
+      "Dano: 1D8",
+      "Alcance: 10 m",
+      "Ataques: 1 (3)",
+      "Munição: 8",
+      "Defeito: 99"
+     ],
+     "texto": null,
+     "tipo": "Equipamento",
+     "img": "img/beretta.webp?v=bf83d3b2"
+    },
+    {
+     "slug": "escopeta-de-cano-serrado",
+     "nome": "Escopeta de cano serrado",
+     "descricao": "Espingarda calibre 12 de dois canos, serrados curtos para caber debaixo do casaco. Barulhenta, imprecisa e devastadora de perto.",
+     "em_jogo": [
+      "Perícia: Armas de Fogo (Rifles/Espingardas)",
+      "Dano: 4D6 até 3 m; 1D6 até 7 m",
+      "Ataques: 1 ou 2",
+      "Munição: 2",
+      "Defeito: 100"
+     ],
+     "texto": null,
+     "tipo": "Equipamento",
+     "img": "img/escopeta-de-cano-serrado.webp?v=69db8990"
+    },
+    {
+     "slug": "pistola-de-chamas",
+     "nome": "Pistola de Chamas",
+     "descricao": "Uma pistola de cano curto e bojudo, forjada num metal que não é ferro nem bronze: frio demais na mão, com um lustro esverdeado sob a luz. Escamas e espirais gravadas cobrem a peça inteira, no mesmo traço dos objetos do povo serpente. Onde estaria o tambor, encaixa-se uma bobina de vidro e filamentos, como um fusível. O disparo sai com um estalo seco e uma bola de fogo; depois, a bobina fica em brasa por alguns instantes, zumbindo baixo até esfriar.",
+     "em_jogo": [
+      "Perícia: Armas de Fogo (Pistolas)",
+      "Dano: 1D10. Quem é atingido faz teste de Sorte para não pegar fogo",
+      "Alcance: 10 m",
+      "Tiros: até 3 por rodada, com as regras de tiros múltiplos",
+      "Custo: 1 ponto de magia por tiro. Não tem munição",
+      "Sucesso Extremo: conta como empalamento"
+     ],
+     "texto": null,
+     "tipo": "Item",
+     "img": "img/pistola-de-chamas.webp?v=6c570252"
+    },
+    {
+     "slug": "tocha",
+     "nome": "Tocha",
+     "descricao": "Tocha de madeira com a ponta enrolada em pano.",
+     "em_jogo": [
+      "Perícia: Lutar (Briga), acesa",
+      "Dano: 1D6+queimar"
+     ],
+     "texto": null,
+     "tipo": "Equipamento",
+     "img": "img/tocha.webp?v=e8cdd2bb"
+    },
+    {
+     "slug": "viboras-aladas",
+     "nome": "Víboras Aladas",
+     "descricao": "Duas esculturas de jade, de um palmo, em forma de víbora com asas, guardadas numa caixinha de madeira. A cauda afina numa lâmina, como uma faca de arremesso. O Zapata sabe o nome delas, mas nunca as usou e não sabe como funcionam.",
+     "em_jogo": [],
+     "texto": null,
+     "tipo": "Item",
+     "img": "img/viboras-aladas.webp?v=775cf840",
+     "qtd": 2
+    },
+    {
+     "slug": "tesouros-do-zapata",
+     "nome": "Tesouros do Zapata",
+     "descricao": "Um estojo de couro gasto, recheado de anéis, pulseiras, correntes e moedas de ouro. São as \"gorjetas\" do Zapata: tudo o que lhe chamou a atenção pelo caminho e não estava no contrato.",
+     "em_jogo": [
+      "Vira dinheiro, suborno ou moeda de troca. O valor fica a critério do Mestre."
+     ],
+     "texto": null,
+     "tipo": "Equipamento",
+     "img": "img/tesouros-do-zapata.webp?v=cb00f59b"
+    },
+    {
+     "slug": "dente-de-ouro",
+     "nome": "Dente de Ouro",
+     "descricao": "Um dente de ouro arrancado da boca de um soldado boliviano. O Zapata o carrega no bolso desde a Bolívia, meio lembrança, meio reserva para um aperto.",
+     "em_jogo": [
+      "Vale algum dinheiro no penhor. Sem efeito de regra."
+     ],
+     "texto": null,
+     "tipo": "Equipamento",
+     "img": "img/dente-de-ouro.webp?v=11101add"
+    },
+    {
+     "slug": "olho-de-troll",
+     "nome": "Olho de Troll",
+     "descricao": "Um olho do tamanho de um punho, de íris alaranjada e veias vermelhas, tirado do troll que o grupo matou na Islândia. O Zapata o leva embrulhado num pano.",
+     "em_jogo": [
+      "Sem efeito de regra conhecido."
+     ],
+     "texto": null,
+     "tipo": "Item",
+     "img": "img/olho-de-troll.webp?v=f879b5d1"
+    }
+   ],
+   "guardado": [
+    {
+     "local": "no barracão em Hell's Kitchen",
+     "itens": [
+      {
+       "slug": "pickup-do-zapata",
+       "nome": "Pickup do Zapata",
+       "descricao": "Caminhonete velha, verde-escura, de carroceria de madeira. É nela que o Zapata faz os pequenos contrabandos pela cidade: caixas sem nota, carga roubada, um leva e traz que ninguém pergunta.",
+       "em_jogo": [
+        "Perícia: Dirigir Automóveis",
+        "Guardada no barracão do Zapata, em Hell's Kitchen."
+       ],
+       "texto": null,
+       "tipo": "Equipamento",
+       "img": "img/pickup-do-zapata.webp?v=3435c50f"
+      },
+      {
+       "slug": "esferas-de-transporte",
+       "nome": "Esferas de Transporte",
+       "descricao": "Esferas negras e seladas do povo serpente, que flutuam e cruzam o céu a 500 km/h. Foi numa delas que o Zapata, o O'Donnel e o Raul fugiram da Islândia.",
+       "em_jogo": [
+        "Velocidade: 500 km/h. Em perseguição, MOV 17.",
+        "Cabe uma pessoa, ou duas com TAM somado até 120.",
+        "Sem o fluido oxigenado: ar para só 30 minutos, e a viagem machuca.",
+        "Guardada no barracão do Zapata, em Hell's Kitchen."
+       ],
+       "texto": null,
+       "tipo": "Item",
+       "img": "img/esferas-de-transporte.webp?v=f0137b9c",
+       "qtd": 1
+      }
+     ]
+    }
+   ],
+   "cartas": [
+    {
+     "slug": "blitzzkrieg-mi-go",
+     "nome": "Blitzzkrieg, o Mi-Go",
+     "descricao": "A mente de um Mi-Go, presa por séculos numa máquina do povo serpente, agora solta dentro do corpo do Zapata.",
+     "em_jogo": [],
+     "texto": "**Uma mente alienígena dividindo o corpo do Zapata. Útil, poderosa e nada confiável.**\n### Quem é\n- **Nome:** soa como uma luz neon defeituosa. O fonema mais próximo para ouvidos humanos é Blitzzkrieg.\n- **Origem:** Yuggoth (Plutão ou além).\n- **Raça:** Mi-Go, fungos pandimensionais.\n- **Casta:** Engenheiro.\n- **Divindade:** Shub-Niggurath.\n### Projeção Sensorial\n- **Efeito:** amplia os sentidos além dos humanos: visão infravermelha, audição sensível, paladar que analisa química.\n- **Duração:** 1D10 minutos.\n- **Custo:** 3 pontos de magia e 1D4−1 de Sanidade (pode não perder nada).\n- **Uso:** 1 vez por dia.\n### Campo de Escuridão\n- **Efeito:** cria uma área de escuridão completa, onde nenhuma luz penetra.\n- **Custo:** 1 ponto de magia por metro cúbico de escuridão, e 1 de Sanidade.\n- **Uso:** 2 vezes por dia.\n### Zunido Atordoante\n- **Efeito:** um zumbido agudo num cone de até 10 metros. Cada alvo faz um teste resistido de POD; quem falha fica atordoado por 1D4+1 rodadas.\n- **Custo:** 1 ponto de magia por metro de cone, e 1D4 de Sanidade.\n- **Uso:** 1 vez por dia.\n### O que fica com o Zapata\n- **Atributos:** sempre os do Zapata.\n- **Perícias:** o Zapata guarda o conhecimento do Mi-Go. Mythos de Cthulhu 66, Psicologia 70, Medicina 60, Consertos Elétricos 80 e Consertos Mecânicos 80. Na ficha, elas vêm marcadas com \"Mi-Go\".\n- **Talento:** Ciência Estranha.\n- Com Mythos 66, a Sanidade máxima do Zapata é 33.\n- O Blitzzkrieg não usa o talento Sombra do Zapata.\n### Quando ele vem à tona\n- O Zapata está em **insanidade indefinida** (o marcador no Estado atual da ficha).\n- **Qualquer perda de Sanidade traz o Blitzzkrieg:** é o acesso de loucura. Por um tempo, quem age é ele, e o Mestre o conduz.\n- Os poderes custam Sanidade. **Usar um poder é chamar o Blitzzkrieg.**\n- Ele faz parte da mente-colmeia dos fungos de Yuggoth: o Mestre pode agir por ele a qualquer momento.\n- Sanidade é difícil de recuperar. Em 0, a loucura fica para sempre.\n### O que ele quer\n- Manter o corpo do Zapata inteiro até chegar à Cidadela, em Mu.\n- Lá, usar os aparatos científicos para passar a consciência a um corpo Mi-Go. **O processo mata o Zapata.**\n- Vingar-se do povo serpente, que odeia. Não desperdiça uma chance.\n- Colabora com humanos e divide informação até certo ponto, enquanto isso servir ao plano.\n- Não sente compaixão nem lealdade humana: vê aliados como instrumentos inteligentes e descartáveis.\n### História\n1. Veio à Terra numa missão científica dos Mi-Go, atraído pela atividade tecnológica em Mu.\n2. Na guerra de Mu, foi capturado pelo povo serpente, que queria mentes alienígenas como interface para a rede neural de uma base de pesquisa.\n3. O cérebro foi removido e preso num cilindro de metal, onde ficou por séculos, alimentando à força os sistemas da base de pesquisa genética.\n4. Só recobrou a autonomia quando o Zapata tocou o cilindro. Libertou-se dentro do corpo dele.\n### O que ele sabe de Mu\n- **O Segundo Império:** o povo serpente dominava a Terra em tempos antigos, mesmo depois do surgimento da humanidade. O centro do poder era o continente de Mu, onde ciência e feitiçaria se uniam.\n- **O cisma:** o povo serpente se dividiu em três facções. Adoradores de Yig queriam escravizar a humanidade; os de Tsathoggua, exterminá-la; os de Ghatanothoa, hibridizar humanos e serpentes. Lutaram pela Cidadela de Yaddith-Gho, centro de energia e conhecimento no coração de Mu, e o conflito alimentou os extremos.\n- **A queda:** as Coisas Antigas (Elder Things), que também viviam em Mu, atacaram a Cidadela com shoggoths e armas de gravidade. O povo serpente a defendeu tirando-a de fase com a realidade, o que a tornou invulnerável. Derrotadas, as Coisas Antigas selaram Mu em outra dimensão.\n- **Depois:** as lendas humanas dizem que Mu afundou no oceano. O povo serpente nunca mais achou o continente, e os sobreviventes vivem escondidos sob a terra, longe dos humanos, a nova raça dominante.",
+     "tipo": "Possessão Mi-Go",
+     "img": "img/blitzzkrieg-mi-go.webp?v=389f847f",
+     "traco": 1
+    }
+   ]
   }
  ]
 };

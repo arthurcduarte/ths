@@ -249,17 +249,29 @@ window.BANCO = {
    "id": "javier-zapata",
    "nome": "Javier Zapata",
    "grupo": "pj",
-   "des": null,
-   "corpo": null,
-   "dano_extra": null,
-   "pericias": {},
-   "armas": [],
+   "des": 90,
+   "corpo": 0,
+   "dano_extra": "0",
+   "pericias": {
+    "pistola": 59,
+    "espingarda": 25,
+    "rifle": 25
+   },
+   "armas": [
+    "p32",
+    "ser"
+   ],
    "talentos": [],
    "lutar": null,
-   "esquivar": null,
-   "fonte": "OS/2_Personagens/pjs.md",
+   "esquivar": 50,
+   "fonte": "ficha.yaml do PJ",
+   "pv": 20,
+   "san": 23,
+   "int": 40,
+   "sorte": 31,
+   "mythos": 66,
    "jogador": "Lucas",
-   "nota": "Sombra: dois ataques surpresa se não for visto."
+   "nota": "Sortudo. Sombra. Ciência Estranha."
   },
   {
    "id": "richard-hawkes",

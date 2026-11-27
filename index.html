@@ -175,6 +175,22 @@ details.area:not([open]) > summary .seta { transform:rotate(-90deg); }
 .per .nm { flex:1; font-size:13.3px; letter-spacing:.075em; text-transform:uppercase; line-height:1.15; }
 .per .nm i { display:block; -webkit-text-stroke:0; font-size:10px; font-style:italic; font-weight:400; letter-spacing:.1em; }
 .per.grad .nm { font-weight:700; }
+/* Perícia que vem de um card (o Blitzzkrieg do Zapata): nome em sangue e etiqueta que abre o card */
+.per.orig .nm { color:var(--sangue); -webkit-text-stroke:.3px var(--sangue); }
+.per .nm a.orig { display:inline-flex; align-items:center; gap:4px; margin-left:6px; vertical-align:2px; font-size:8.5px; font-weight:700; letter-spacing:.12em; color:var(--papel); background:var(--sangue); padding:1px 2px 0 5px; text-decoration:none; -webkit-text-stroke:0; }
+.per .nm a.orig i.q { display:inline-grid; font-size:8px; width:11px; height:11px; letter-spacing:0; font-style:normal; }
+.q { display:inline-grid; place-items:center; width:13px; height:13px; border-radius:50%; border:var(--fio) solid currentColor; font-size:9px; font-weight:700; line-height:1; font-style:normal; }
+/* Condições que duram (insanidade): etiqueta no Estado atual; o "?" abre o texto do card */
+.conds { display:flex; flex-wrap:wrap; justify-content:flex-end; gap:6px 10px; padding:12px 0 2px; }
+.cond { display:inline-flex; align-items:center; gap:8px; }
+.cond .rot { -webkit-text-stroke:.35px var(--sangue); }
+.cond .etq { font-size:10px; font-weight:700; letter-spacing:.12em; text-transform:uppercase; color:var(--papel); background:var(--sangue); padding:3px 7px 2px; }
+.cond button { color:var(--sangue); padding:6px; margin:-6px; }
+.cond button .q { width:17px; height:17px; font-size:11px; }
+.cond-txt { margin:10px 0 4px; padding:12px 12px 10px; }
+.cond-txt h3 { font-weight:700; font-size:10px; letter-spacing:.1em; text-transform:uppercase; color:var(--sangue); margin:10px 0 4px; }
+.cond-txt ul { margin:0; padding-left:16px; } .cond-txt li { margin:3px 0; }
+.cond-txt .nota { margin-top:10px; padding-top:8px; border-top:var(--fio) solid var(--sangue); font-weight:700; }
 .per .vals { display:flex; align-items:center; flex:none; }
 .per .vals b { width:21.1px; height:23.4px; border:var(--fio) solid var(--sangue); display:grid; place-items:center; font-weight:400; font-size:18.7px; letter-spacing:-.04em; line-height:1; padding-top:1px; -webkit-text-stroke:.5px var(--tinta); }
 .per .vals em { font-style:normal; width:22.6px; text-align:center; font-size:13.3px; border-right:var(--fio) solid var(--sangue); line-height:15px; padding-top:1px; }
@@ -283,7 +299,7 @@ details.area:not([open]) > summary .seta { transform:rotate(-90deg); }
 <body>
 <div class="mesa" id="mesa"></div>
 <div class="zoom" id="zoom" hidden><button class="fechar" data-z="fecha" aria-label="Fechar"><b>Fechar ×</b></button><img id="zoom-img" alt="Foto do grupo"><p class="dica">Dois dedos para ampliar</p></div>
-<script src="dados.js?v=673bfa96"></script>
+<script src="dados.js?v=96f0e5f8"></script>
 <script>
 /* Navegação por # : #/ (portal) · #/<pj> · #/<pj>/ficha · #/<pj>/inventario · #/<pj>/cartas
    O que o jogador mexe (PV, PM, sanidade, sorte, armadura, munição, talento ligado) fica só neste
@@ -372,15 +388,22 @@ function pericias(q) {
   const l = pj.ficha.pericias.filter(p => !t || semAcento(p[0]).includes(t));
   return l.length ? l.map(p => { const m = p[0].match(/^(.*?)\s*(\(.*\))$/), v = p[1];
     const marca = p[3] ? '<button class="bc' + (E.marc[p[0]] ? ' x' : '') + '" data-a="marca" data-p="' + esc(p[0]) + '" aria-label="Marcar ' + esc(p[0]) + ' para evolução"><i class="circ"></i></button>' : '<span class="bc sem"></span>';
-    return '<div class="per ' + (p[2] ? 'grad' : 'base') + '">' + marca + '<span class="nm">' + esc(m ? m[1] : p[0]) + (m ? '<i>' + esc(m[2].replace('/', ' e ')) + '</i>' : '') + '</span>' +
+    const o = p[4] ? '<a class="orig" href="#/' + pj.slug + '/cartas/' + p[4][1] + '" aria-label="Vem do card ' + esc(p[4][0]) + '">' + esc(p[4][0]) + '<i class="q">?</i></a>' : '';
+    return '<div class="per ' + (p[2] ? 'grad' : 'base') + (p[4] ? ' orig' : '') + '">' + marca + '<span class="nm">' + esc(m ? m[1] : p[0]) + o + (m ? '<i>' + esc(m[2].replace('/', ' e ')) + '</i>' : '') + '</span>' +
       '<span class="vals"><b class="num">' + dd(v) + '</b><em class="num">' + dd(Math.floor(v / 2)) + '</em><em class="num">' + dd(Math.floor(v / 5)) + '</em></span></div>'; }).join('')
     : '<div class="per base"><span class="nm" style="padding-left:30px">Nenhuma perícia com esse nome.</span></div>';
+}
+function condicoes() {
+  const c = pj.ficha.condicoes || [];
+  if (!c.length) return '';
+  return '<div class="conds">' + c.map((x, i) => '<span class="cond"><span class="rot">San</span><span class="etq">' + esc(x.nome) + '</span><button data-a="cond" data-i="' + i + '" aria-label="O que é ' + esc(x.nome) + '"><i class="q">?</i></button></span>').join('') + '</div>' +
+    c.map((x, i) => '<div class="cond-txt pontilhado" id="cond-' + i + '" hidden>' + (x.texto ? '<div class="txt">' + md(x.texto) + '</div>' : '') + (x.nota ? '<p class="nota">' + esc(x.nota) + '</p>' : '') + '</div>').join('');
 }
 function ficha() {
   const f = pj.ficha, A = f.atributos, an = f.antecedentes || {};
   const rot = { descricao: 'Descrição', ideologia: 'Ideologia e crenças', pessoas_significativas: 'Pessoas significativas', locais_importantes: 'Locais importantes', pertences_queridos: 'Pertences queridos', caracteristicas: 'Características', ferimentos_e_cicatrizes: 'Ferimentos e cicatrizes', fobias_e_manias: 'Fobias e manias', encontros_estranhos: 'Encontros com entidades estranhas', historia: 'História' };
   mesa.innerHTML = topo('#/' + pj.slug, pj.nome) +
-    bloco('estado', 'Estado atual', '<div class="medidores">' + medidor('pv', 'PV', f.pv.max) + medidor('sorte', 'Srt', null) + medidor('sanidade', 'San', null) + medidor('pm', 'PM', f.pm.max) + medidor('arm', 'Arm', null) + '</div>') +
+    bloco('estado', 'Estado atual', condicoes() + '<div class="medidores">' + medidor('pv', 'PV', f.pv.max) + medidor('sorte', 'Srt', null) + medidor('sanidade', 'San', null) + medidor('pm', 'PM', f.pm.max) + medidor('arm', 'Arm', null) + '</div>') +
     bloco('combate', 'Combate', armas()) +
     bloco('atributos', 'Atributos', '<div class="atribs">' + ['FOR', 'CON', 'DES', 'INT', 'TAM', 'POD', 'APA', 'EDU'].filter(k => A[k] != null).map(k => '<div><span class="a">' + k + '</span>' + caixa(A[k]) + '</div>').join('') + '</div>' +
       '<div class="extras">' + [['MOV', dd(f.mov)], ['Corpo', f.corpo == null ? '—' : (f.corpo < 0 ? '' : '0') + f.corpo], ['DX', String(f.dx || '0').toLowerCase()]].map(x => '<div><span class="rot">' + x[0] + '</span><span class="num">' + esc(x[1]) + '</span></div>').join('') + '</div>') +
@@ -489,6 +512,7 @@ document.addEventListener('click', ev => {
   const z = ev.target.closest('[data-z]'); if (z) { z.dataset.z === 'abre' ? zAbre() : zFecha(); return; }
   const b = ev.target.closest('[data-a]'); if (!b || !pj) return;
   const a = b.dataset.a;
+  if (a === 'cond') { const t = document.getElementById('cond-' + b.dataset.i); t.hidden = !t.hidden; return; }
   if (a === 'passo') { const k = b.dataset.k; E[k] = Math.max(0, (+atual(k) || 0) + (+b.dataset.v)); document.querySelector('input[data-f="' + k + '"]').value = E[k]; }
   else if (a === 'bala' || a === 'recarga') {
     const i = +b.dataset.i, at = pj.ficha.armas[i];
